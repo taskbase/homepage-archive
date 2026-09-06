@@ -38,7 +38,9 @@ h2{margin:0;font-size:16px;font-weight:600}
 .st-ok{background:rgba(74,222,128,.12);color:var(--ok)}
 .st-partial{background:rgba(251,191,36,.12);color:var(--partial)}
 .st-broken{background:rgba(248,113,113,.12);color:var(--broken)}
-.notes{margin:10px 0 0;color:var(--dim);font-size:13px}
+.notes{margin:10px 0 0;color:var(--dim);font-size:13px;overflow:hidden;
+display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:6;line-clamp:6}
+a.card:hover .notes{-webkit-line-clamp:none;line-clamp:none}
 footer{max-width:1400px;margin:0 auto;padding:0 32px 48px;color:var(--dim);font-size:13px}
 """
 
@@ -65,7 +67,7 @@ def load_sites(sites_dir: Path):
 
 def card(site):
     slug = html.escape(site["slug"])
-    shot = (f'<div class="shot"><img loading="lazy" alt="" src="s/{slug}/preview.png"></div>'
+    shot = (f'<div class="shot"><img loading="lazy" alt="" src="sites/{slug}/preview.png"></div>'
             if site["has_preview"] else '<div class="shot empty">no preview</div>')
     status = site.get("status", "unknown")
     chips = [f'<span class="chip st st-{html.escape(status)}">{html.escape(status)}</span>']
@@ -73,7 +75,7 @@ def card(site):
         if site.get(key):
             chips.append(f'<span class="chip">{html.escape(str(site[key]))}</span>')
     notes = f'<p class="notes">{html.escape(site["notes"])}</p>' if site.get("notes") else ""
-    return f"""<a class="card" href="s/{slug}/" target="_blank" rel="noopener">
+    return f"""<a class="card" href="sites/{slug}/" target="_blank" rel="noopener">
 {shot}
 <div class="body">
   <div class="top"><h2>{html.escape(site.get("title", site["slug"]))}</h2>
