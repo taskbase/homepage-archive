@@ -1,0 +1,23 @@
+@import 'variables';
+
+.footer {
+  color: #FFFFFF;
+  background-color: #454545;
+  .footer-inner {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    height: 30px;
+    a {
+      cursor: pointer;
+      color: inherit;
+    }
+    .impressum {
+      cursor: pointer;
+    }
+  }
+}
+

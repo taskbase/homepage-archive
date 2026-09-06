@@ -1,0 +1,81 @@
+@import "variable-declarations";
+
+%primary {
+  background: $primary-color;
+  color: $primary-color-contrast;
+}
+
+%primary-inverse {
+  background: $primary-color-contrast;
+  color: $primary-color;
+}
+
+%primary-color-dark {
+  background: $primary-color-dark;
+  color: $primary-color-dark-contrast;
+}
+
+%black {
+  background: $black;
+  color: $black-contrast;
+}
+
+%dark-gray {
+  background: $dark-gray;
+  color: $dark-gray-contrast;
+}
+
+%secondary {
+  background: $secondary-color;
+  color: $primary-color-contrast;
+}
+
+%secondary-inverse {
+  background: $secondary-color-contrast;
+  color: $secondary-color;
+}
+
+%background-gray {
+  background: $background-gray;
+  color: $background-gray-contrast;
+}
+
+%background-white {
+  background: $background-white;
+  color: $background-white-contrast;
+}
+
+%charcoal {
+  background: $charcoal;
+  color: $charcoal-contrast;
+}
+
+// padding
+%default-padding {
+  padding: 20px;
+}
+
+// flex center center
+%flex-center-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%background-gradient {
+  background-image: $linear-gradient;
+  color: white;
+}
+
+%center-absolute {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+}
+
+%main-gradient {
+  background: $primary-color;
+  background: linear-gradient(to bottom, #009686 0%, #20a294 100%);
+}

@@ -1,0 +1,141 @@
+<div class='task-search-wrapper'>
+  <div>
+    <br>
+
+    <div class="input-group">
+      <input type="text"
+             ng-model="query.fullText"
+             class="form-control"
+             ng-keypress="getTasksOnKeypress($event, query)"
+             placeholder='Example Search: Integral "Assignment 5" "John Doe" ("..." are required parameters)'
+             ng-model-options="{debounce: 100}"
+             id="search">
+
+      <span class="input-group-btn">
+        <button class="btn btn-default"
+                type="button"
+                ng-click="getTasks(query)">
+          <i class="fa fa-search"></i>
+        </button>
+      </span>
+    </div>
+
+    <br>
+
+    <form role="form" class="form-horizontal">
+
+      <div class="form-group">
+        <label for="course-name" class="col-sm-2 control-label" style="margin-top:4px; text-align:center">Tags</label>
+        <div class="col-sm-8">
+          <tags-input ng-model="query.tags"
+                      on-tag-added="getTasks(query)"
+                      on-tag-removed="getTasks(query)"
+                      replace-spaces-with-dashes="false">
+            <auto-complete source="loadTags($query)"></auto-complete>
+          </tags-input>
+        </div>
+        <div class="col-sm-2">
+          <div class="center" style="padding-top:12px">
+            <span class="shy-button primary"
+                  ng-show="!showMoreFilters"
+                  ng-click="showMoreFilters = true"
+                  style="font-size: 15px">
+              More Filters
+            </span>
+            <span class="shy-button"
+                  ng-show="showMoreFilters"
+                  ng-click="showMoreFilters = false"
+                  style="font-size: 15px">
+              Less Filters
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- More Filters -->
+      <div ng-if="showMoreFilters">
+
+        <div class="form-group">
+          <label for="date" class="col-sm-2 control-label" style="margin-top:8px; text-align:center">Used Between</label>
+          <div class="col-sm-10">
+            <rzslider
+                rz-slider-floor="dateSlider.floor"
+                rz-slider-ceil="dateSlider.ceil"
+                rz-slider-model="dateSlider.min"
+                rz-slider-high="dateSlider.max"
+                rz-slider-on-end="getTasks(query)"
+                >
+            </rzslider>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="date" class="col-sm-2 control-label" style="margin-top:8px; text-align:center">Difficulty</label>
+          <div class="col-sm-10">
+            <rzslider
+                rz-slider-floor="difficultySlider.floor"
+                rz-slider-ceil="difficultySlider.ceil"
+                rz-slider-model="difficultySlider.min"
+                rz-slider-high="difficultySlider.max"
+                rz-slider-on-end="getTasks(query)"
+                >
+            </rzslider>
+          </div>
+        </div>
+      </div>
+
+    </form>
+    
+  </div>
+
+  <br>
+  
+  <div class="grayed center" ng-if="tasks.length === 0 && !loadingTasks">
+    No results found.
+  </div>
+
+  <!--List of tasks-->
+  <div class="task-list" ng-repeat="task in tasks">
+    <task-dir task=task
+              is-editable="false"
+              is-added="false"
+              added-tasks="addedTasks"
+              course="course"
+              ng-if="objective"
+              objective="objective"
+              get-version-ids="true">
+    </task-dir>
+  </div>
+
+  <div class="center">
+    <span class="shy-button" ng-if="hasMoreTasks" ng-click="showMore(query, collection)">Show More</span>
+  </div>
+
+  <!-- Loading -->
+  <div class="center" ng-if="loadingTasks" style="font-size: 30px">
+    <div class="fa fa-refresh fa-spin"></div>
+  </div>
+
+  <!-- versions modal -->
+  <div class="modal fade" id="versions-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Versions</h4>
+        </div>
+        <div class="modal-body">
+          <div ng-repeat="version in getVersions()">
+            <task-dir task="version"
+                      course="course"
+                      objective="objective"
+                      is-added="false"
+                      ng-if="objective">
+            </task-dir>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

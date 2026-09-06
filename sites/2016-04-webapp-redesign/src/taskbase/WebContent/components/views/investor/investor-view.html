@@ -1,0 +1,29 @@
+<div class="investor-wrapper container page-type-two">
+  
+  <div ng-show="!showInvestorSection">
+    <h4 class="modal-title center">Enter Password</h4>
+  
+    <input type="password"
+           ng-keypress="enterOnKeypress($event)"
+           placeholder="Password"
+           class="form-control"
+           ng-model="password"
+           required >
+
+    <div class="clearfix">
+      <div class="pull-right">
+        <button type="button" ng-click="revealConditionally()" class="shy-button primary">Enter</button>
+      </div>
+    </div>
+  </div>
+  <div ng-if="showInvestorSection">
+    
+    <ul ng-repeat="link in links" style="font-size:18px">
+      <li>
+        <a ng-href="{{link.url}}" target="_blank">{{link.title}}</a>
+      </li>
+    </ul>
+    
+  </div>
+
+</div>

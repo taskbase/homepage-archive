@@ -1,0 +1,170 @@
+<div class="header-wrapper">
+  
+  <div class="navbar navbar-static-top navbar-taskbase" ng-class="{'light navbar-fixed-top': secondaryHeader(), ' navbar-inverse': !secondaryHeader()}">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span ng-if="appId === 'taskbase'">
+          <a ui-sref="landing" class="navbar-brand" ng-if="!loggedIn()">
+            <img ng-src="assets/img/logos/taskbase-alt.svg" style="max-height: 40px;  margin-top:-10px" class="logo-image logged-out" alt="logo"/>
+          </a>
+          <a class="navbar-brand" ui-sref="home" ng-if="loggedIn()">
+            <img ng-src="assets/img/logos/taskbase.svg" style="max-height: 40px; margin-top:-10px" id="taskbase-home-button" class="logo-image logged-in" alt="logo"/>
+          </a>
+        </span>
+        
+        <!--E-Maths special-->
+        <span ng-if="appId === 'e-maths'">
+          <a ng-href="{{eMathsOrLanding}}" class="navbar-brand" ng-if="!loggedIn()">
+            <img ng-src="assets/img/logos/e-maths.png" class="logo-image logged-out" alt=""/>
+          </a>
+          <a class="navbar-brand" ui-sref="home" ng-if="loggedIn()">
+            <img ng-src="assets/img/logos/e-maths.png" class="logo-image logged-in" alt=""/>
+          </a>
+        </span>
+        
+      </div>
+
+
+      <!-- for non-authenticated users -->
+      <div ng-if="!loggedIn() && (loginClicked || !secondaryHeader())" class="login-box navbar-form navbar-right">
+        <form ng-submit="logIn(loginData)" class="login-form" role="search" autocomplete="off">
+  
+          <div class="form-group">
+            <input class="form-control" ng-model="loginData.email" name="email" placeholder="Email">
+          </div>
+  
+          <div class="form-group">
+            <input type="password" class="form-control input-small " ng-model="loginData.password" name="password" placeholder="Password">
+          </div>
+
+          <button type="submit" class="btn btn-default" id="login-button">Login</button>
+          <i ng-click="closeLogin()" ng-if="secondaryHeader()" class="shy-button fa fa-times-circle-o"></i>
+
+        </form>
+
+        <div class="below-signup-form">
+          <span class="pull-right" ng-if="!appSettings.ldapLogin">
+            <a ui-sref="forgot-password" class="light-link">{{'Forgot password' | translate}}?</a>
+          </span>
+          <span ng-if="!secondaryHeader()">
+            <a ui-sref="signup" class="light-link"><strong>Sign Up</strong></a>
+          </span>
+          <span id="#remember-me" ng-if="secondaryHeader()">
+            <label>
+              <input type="checkbox" ng-model="loginData.remember">
+              <span style="font-weight: 400;">{{'Remember me' | translate}}</span>
+            </label><br/>
+          </span>
+        </div>
+      </div>
+
+      <div ng-if="!loggedIn() && !loginClicked && !isEmaths()" id="navbar" class="navbar-collapse collapse">
+        <!--xs-->
+        <ul class="nav navbar-nav navbar-right visible-xs" id="settings-mobile">
+          
+          <li>
+            <a class="padd-right" ui-sref="details" ng-click="goingForward()"> <span class="primary-color">Produkt</span></a>
+          </li>
+          
+          <li>
+            <a class="padd-right" ui-sref="about" ng-click="goingForward()"> <span class="primary-color">Über uns</span>  </a>
+          </li>
+  
+          <li>
+            <a class="padd-right" ui-sref="pricing" ng-click="goingForward()"> <span class="primary-color">Preise</span></a>
+          </li>
+  
+          <!--li>
+            <a class="padd-right" ui-sref="communication" ng-click="goingForward()"> <span class="primary-color">FAQ</span>  </a>
+          </li-->
+          <li>
+            <a class="padd-right" ui-sref="signup" ng-click="goingForward()"> <span class="primary-color"><strong>Registrieren</strong></span>  </a>
+          </li>
+          <li>
+            <a class="padd-right" ng-click="goingLogin()"> <span class="primary-color"> Login</span>  </a>
+          </li>
+        </ul>
+
+        <!--above xs-->
+        <ul class="nav navbar-nav navbar-right hidden-xs">
+          
+          <li>
+            <a class="padd-right" ui-sref="details" ng-click="goingForward()"> <span class="primary-color">Produkt</span></a>
+          </li>
+          
+          <li>
+            <a class="padd-right" ui-sref="about" ng-click="goingForward()"> <span class="primary-color">Über uns</span>  </a>
+          </li>
+  
+          <li>
+            <a class="padd-right" ui-sref="pricing" ng-click="goingForward()"> <span class="primary-color">Preise</span></a>
+          </li>
+          
+          <!--li>
+            <a class="padd-right" ui-sref="communication" ng-click="goingForward()"> <span class="primary-color">FAQ</span>  </a>
+          </li-->
+          <li>
+            <a class="padd-right" id="sign-up" ui-sref="signup" ng-click="goingForward()"> <span class="primary-color"><strong>Registrieren</strong></span>  </a>
+          </li>
+          <li>
+            <a class="padd-right" ng-click="goingLogin()" id="open-login-dialog"> <span class="primary-color"> Login</span>  </a>
+          </li>
+
+        </ul>
+      </div>
+
+      <!-- for authenticated users -->
+      <div ng-if="loggedIn()" id="navbar" class="navbar-collapse collapse">
+
+        <!--xs-->
+        <ul class="nav navbar-nav navbar-right visible-xs" id="settings-mobile">
+
+          <!--li ng-if="showCommunication()">
+            <a class="light-link padd-right" ui-sref="communication" ng-click="goingForward()"> Teacher Information <i class="fa fa-info-circle"></i></a>
+          </li-->
+          <li>
+            <a ui-sref="profile({userId: user._id})" class="navbar-item" ng-click="goingForward()" >{{ 'Profile' | translate }}</a>
+          </li>
+          <li ng-click="logOut()" id="log-out-mobile">
+            <a class="navbar-item">{{ 'Log out' | translate }}</a>
+          </li>
+        </ul>
+
+        <!--above xs-->
+        <ul class="nav navbar-nav navbar-right hidden-xs">
+          <li ng-click="switchToTeacherView()"
+              id="view-as-teacher-button"
+              ng-if="showViewAsTeacherButton()">
+            <a class="light-link padd-right"> {{'Teacher-View' | translate}} <i class="fa fa-eye"></i></a>
+          </li>
+          <li ng-click="switchToStudentView()"
+              id="view-as-student-button"
+              ng-if="showViewAsStudentButton">
+            <a class="light-link padd-right"> {{'Student-View' | translate}} <i class="fa fa-eye"></i></a>
+          </li>
+          <!--li ng-if="showCommunication()">
+            <a class="light-link padd-right" ui-sref="communication" id="communication-link" ng-click="goingForward()"> Teacher Information <i class="fa fa-info-circle"></i></a>
+          </li-->
+          <li class="dropdown">
+            <a class="dropdown-toggle" id="user" data-toggle="dropdown" role="button" aria-expanded="false">
+              {{user.email}} <i class="fa fa-caret-down"></i>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a ui-sref="profile({userId: user._id})" ng-click="goingForward()"> {{'Profile' | translate}} </a></li>
+              <li ng-click="logOut()" id="log-out"><a ui-sref="landing">{{ 'Log out' | translate }}</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>

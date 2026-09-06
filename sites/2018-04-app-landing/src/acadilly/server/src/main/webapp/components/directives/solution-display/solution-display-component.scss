@@ -1,0 +1,23 @@
+.solution-display-wrapper{
+
+  .solution-step {
+    position: relative;
+    padding: 10px;
+    border-bottom: 1px solid $gray1;
+
+    .step-number {
+      position: absolute;
+      left: -15px;
+      top: 13px;
+      color: $gray4;
+    }
+
+    &:hover .remove {
+      display: block;
+    }
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}

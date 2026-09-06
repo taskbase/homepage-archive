@@ -1,0 +1,23 @@
+<div class="bbpicsright">
+  <div class="content-container">
+    <div class="customers">
+      <h1 class="title">Zufriedene Kunden und Projekte</h1>
+      <h2 class="subtitle">Seit 2015 nutzen über 10'000 Lernende Lernlösungen von Taskbase. Unsere Projekte
+        haben Laufzeiten von über zehn Jahren und sind in langfristige Forschungskooperationen eingebettet.</h2>
+      <div class="logo-wrapper">
+        <div class="logo"
+             *ngFor="let customer of customers; let i=index">
+          <a [id]="'customers-' + customer.link" target="_blank" class="link"
+             [href]=customer.link (mouseenter)="mouseEnter(customer.explanation)" (mouseleave)="mouseLeave()"
+             (mouseover)="over[i] = true"
+             (mouseout)="over[i] = false">
+            <img [src]="over[i] ? customer.logohover : customer.logo"
+                 [ngStyle]="customer.style"
+                 class="image">
+          </a>
+        </div>
+      </div>
+      <h2 class="explanation">{{explanation}}</h2>
+    </div>
+  </div>
+</div>

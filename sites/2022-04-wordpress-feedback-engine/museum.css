@@ -1,0 +1,30 @@
+/* Museum-only. The ElementsKit client-logo slider is a slick carousel whose init
+   script the archive never stored, so its slides are never wrapped in a track:
+   they stack full-width and spill ~1300px past the page. Its own data-config says
+   slidesPerView:3, so lay the first three out across the track the way the running
+   carousel showed them and park the rest off-stage. */
+.elementskit-clients-slider .swiper-container { width: 100%; }
+.elementskit-clients-slider .swiper-wrapper {
+  display: flex; flex-wrap: nowrap; align-items: center;
+  transform: none !important; width: 100% !important;
+}
+.elementskit-clients-slider .elementskit-client-slider-item {
+  flex: 0 0 33.3333%; max-width: 33.3333%;
+  display: flex; align-items: center; justify-content: center;
+}
+.elementskit-clients-slider .elementskit-client-slider-item:nth-child(n+4) { display: none; }
+.elementskit-clients-slider .slick-slide { float: none; display: block; }
+.elementskit-clients-slider .single-client img {
+  max-height: 40px; max-width: 100%; width: auto; object-fit: contain;
+}
+.elementskit-clients-slider, .ekit-wid-con { overflow: hidden; }
+
+/* Elementor's carousels are Swiper instances; without their init script the
+   track keeps its natural width and the outer slides hang off the page. */
+body { overflow-x: hidden; }
+
+/* Slider Revolution swaps data-lazyload into src on init. The testimonial
+   slider's arrow buttons (uploads/2022/04/*-button-*.png and the matching
+   svgcustom SVGs) were never crawled, so those two layers would draw a
+   broken-image glyph over the slide. Nothing is left to draw, so draw nothing. */
+img.rs-lazyload[data-lazyload*="not-archived"] { visibility: hidden; }

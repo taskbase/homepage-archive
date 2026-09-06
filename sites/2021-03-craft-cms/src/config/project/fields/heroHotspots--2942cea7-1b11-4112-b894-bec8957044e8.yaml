@@ -1,0 +1,114 @@
+contentColumnType: text
+fieldGroup: 0a948365-47dc-4c3b-9455-373def01f954
+handle: heroHotspots
+instructions: 'Every hotspot can be place differently on small screens (lower than 768px) and large screens (above 768px).'
+name: 'Hero Hotspots '
+searchable: false
+settings:
+  addRowLabel: 'Zeile hinzufügen'
+  columnType: text
+  columns:
+    __assoc__:
+      -
+        - col1
+        -
+          __assoc__:
+            -
+              - heading
+              - 'Hotspot Text'
+            -
+              - handle
+              - hotspotText
+            -
+              - width
+              - ''
+            -
+              - type
+              - singleline
+      -
+        - col2
+        -
+          __assoc__:
+            -
+              - heading
+              - 'X Large'
+            -
+              - handle
+              - xLarge
+            -
+              - width
+              - ''
+            -
+              - type
+              - singleline
+      -
+        - col3
+        -
+          __assoc__:
+            -
+              - heading
+              - 'Y Large'
+            -
+              - handle
+              - yLarge
+            -
+              - width
+              - ''
+            -
+              - type
+              - singleline
+      -
+        - col4
+        -
+          __assoc__:
+            -
+              - heading
+              - 'X Small'
+            -
+              - handle
+              - xSmall
+            -
+              - width
+              - ''
+            -
+              - type
+              - singleline
+      -
+        - col5
+        -
+          __assoc__:
+            -
+              - heading
+              - 'Y Small'
+            -
+              - handle
+              - ySmall
+            -
+              - width
+              - ''
+            -
+              - type
+              - singleline
+  defaults:
+    -
+      __assoc__:
+        -
+          - col1
+          - ''
+        -
+          - col2
+          - ''
+        -
+          - col3
+          - ''
+        -
+          - col4
+          - ''
+        -
+          - col5
+          - ''
+  maxRows: ''
+  minRows: ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Table

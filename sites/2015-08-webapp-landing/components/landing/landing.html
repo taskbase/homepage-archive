@@ -1,0 +1,224 @@
+<div class="landing-wrapper">
+
+  <task-search ng-if="!urlContains('e-maths') && !urlContains('e-lectures')">
+  </task-search>
+
+  <div class="center">
+  <br>
+
+  <div class="row basic-block no-padding">
+    <div style="position: relative">
+      <img ng-if="!urlContains('e-maths')" ng-src="assets/img/landing/student.png" alt="" style="max-width: 100%;">
+
+    </div>
+
+    <a href="http://e-maths.ch">
+      <img ng-if="urlContains('e-maths')" ng-src="assets/img/landing/e-maths-landing.jpg" alt="" style="max-width: 100%">
+    </a>
+    <br>
+
+    <div ng-if="!urlContains('e-maths') && !urlContains('mintbase')">
+      <!-- Default Logo -->
+      <img src="assets/img/landing/taskbase-logo.png" class="logo-image logged-out" alt=""/ style="max-height:120px; max-width: 100%" ng-if="urlContains('e-lectures')">
+    </div>
+
+    <div ng-if="urlContains('e-maths')">
+      <!-- E-maths logo -->
+      <a href="http://e-maths.ch">
+        <img ng-src="assets/img/logos/e-maths-gray.png" class="logo-image logged-out" alt=""/ style="max-height:120px; max-width: 100%" >
+      </a>
+    </div>
+
+    <div ng-if="!urlContains('e-maths') && !urlContains('e-lectures')">
+      <div class="col-sm-12" style="padding: 20px">
+
+          <h2>
+            Die Plattform für passende Übungsaufgaben
+          </h2>
+
+          <br>
+        
+          <div class="row">
+            <div class="col-sm-3 ad-item-wrapper2">
+              <div class="circle-base">
+                <i class="fa fa-users circle-icon"></i>
+              </div>
+              <div class="ad-text2">
+                Kollaborativer Theorie- und Aufgabenpool
+              </div>
+              <p class="ad-text3">
+                Tausende von Übungen helfen Lehrpersonen bei der Unterrichtsvorbereitung.
+              </p>
+            </div>
+            <div class="col-sm-3 ad-item-wrapper2">
+              <div class="circle-base">
+                <i class="fa fa-search circle-icon"></i>
+              </div>
+              <div class="ad-text2">
+                Moderne <br> Suche
+              </div>
+              <p class="ad-text3">
+                Unsere Suche hilft Lehrpersonen und Schülern zum Unterricht passende Aufgaben zu finden.
+              </p>
+            </div>
+            <div class="col-sm-3 ad-item-wrapper2">
+              <div class="circle-base">
+                <i class="fa fa-cogs circle-icon"></i>
+              </div>
+              <div class="ad-text2">
+                Adaptives Tutoring-System
+              </div>
+              <p class="ad-text3">
+                Recommendation-Engine wählt für jeden Schüler passende Aufgaben, so dass dieser weder über- noch unterfordert ist.
+              </p>
+
+            </div>
+            <div class="col-sm-3 ad-item-wrapper2">
+              <div class="circle-base">
+                <i class="fa fa-thumbs-up circle-icon"></i>
+              </div>
+              <div class="ad-text2">
+                Vereinfachende Funktionen
+              </div>
+              <p class="ad-text3">
+                Unsere Plattform ermöglicht es mit wenigen Klicks Aufgabenblätter zusammenzustellen sowie danach auszuwerten.
+              </p>
+            </div>
+          </div>
+
+          <br>
+
+        </div>
+
+        <img ng-src="assets/img/landing/tablet.png" alt="" style="width: 100%;">
+        <div class="col-sm-12" style="padding: 20px">
+
+          <div>
+            <h2>Wie funktioniert das Ganze?</h2>
+            <br>
+            <p class="explanation-string">
+              Zielsetzung und Auswahl passender Aufgaben (aus geteilten sowie eigenen Aufgaben) durch den Lehrer
+            </p>
+            <img ng-src="assets/img/landing/arrow-down.png" style="width: 100px" alt="">
+            <p class="explanation-string">
+              Bearbeiten der Aufgaben durch die Schüler
+            </p>
+            <img ng-src="assets/img/landing/arrow-down.png" style="width: 100px" alt="">
+            <p class="explanation-string">
+              Direktes Feedback und Messung des Lernfortschritts
+            </p>
+            <img ng-src="assets/img/landing/arrow-down.png" style="width: 100px" alt="">
+            <p class="explanation-string">
+              Individuelle Anpassung an das Level des Schülers
+            </p>
+          </div>
+        </div>
+
+
+        <img ng-src="assets/img/landing/teacher.png" alt="" style="width: 100%;">
+        <div class="col-sm-12" style="padding: 20px">
+          <h2>Die Vorteile</h2>
+          <div class="row">
+            <div class="col-sm-4 ad-item-wrapper2">
+              <div class="circle-base">
+                <i class="fa fa-hourglass-half circle-icon"></i>
+              </div>
+              <div class="ad-text2">
+                Individualisierung
+              </div>
+              <p class="ad-text3">
+                Unsere Recommendation-Engine wählt für jeden Schüler passende Aufgaben, so dass dieser weder über- noch unterfordert ist 
+              </p>
+            </div>
+            <div class="col-sm-4 ad-item-wrapper2">
+              <div class="circle-base">
+                <i class="fa fa-comments circle-icon"></i>
+              </div>
+              <div class="ad-text2">
+                Kollaboration zwischen Lehrpersonen
+              </div>
+              <p class="ad-text3">
+                Statt dass jeder selbst seine Unterrichtsmaterialien zusammenstellt, können Lerninhalte über die Plattform miteinander geteilt werden.
+              </p>
+            </div>
+            <div class="col-sm-4 ad-item-wrapper2">
+              <div class="circle-base">
+                <i class="fa fa-pie-chart circle-icon"></i>
+              </div>
+              <div class="ad-text2">
+                Bessere Übersicht über die Klasse
+              </div>
+              <p class="ad-text3">
+                Eine Übersicht mit Kenntnisständen zu jeweiligen Lernzielen erlaubt es Schülern gezielt an Schwächen zu arbeiten.
+              </p>
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-5 col-sm-offset-1 ad-item-wrapper2">
+              <div class="circle-base">
+                <i class="fa fa-graduation-cap circle-icon"></i>
+              </div>
+              <div class="ad-text2">
+                Individuelle Förderung
+              </div>
+              <p class="ad-text3">
+                Unser adaptives Tutoring-System wählt für jeden Schüler individuell passende Aufgaben, so dass dieser weder über- noch unterfordert ist.
+              </p>
+            </div>
+            <div class="col-sm-5 ad-item-wrapper2">
+              <div class="circle-base">
+                <i class="fa fa-smile-o circle-icon"></i>
+              </div>
+              <div class="ad-text2">
+                Motivierte Schüler         
+              </div>
+              <p class="ad-text3">
+                Die Plattform misst und kommuniziert den Fortschritt in Echtzeit, was sowohl Lerneffekt als auch Motivation erhöht.
+              </p>
+            </div>
+          </div>
+        </div>
+
+
+        <img ng-src="assets/img/landing/students.png" alt="" style="width: 100%;">
+
+        <div class="col-sm-12" style="padding: 20px">
+          <h2>Referenzen</h2>
+
+
+          <div style="border: 1px solid #ccc; border-radius: 3px; background-color: #eee; padding: 20px; display: inline-block; box-shadow: 0 0 10px #ccc;">
+            <div class="inline-block">
+              <img ng-src="assets/img/eth-logo.png" style="height: 50px" alt="">
+              <div>
+                > 3500 Studenten
+              </div>
+            </div>
+            <span class="hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <div class="inline-block">
+              <img ng-src="assets/img/hsg-logo.png" style="height: 50px" alt="">
+              <div>
+                > 1000 Studenten
+              </div>
+            </div>
+            <br><br><br>
+            <img ng-src="assets/img/logos/DMKLogo.jpg" style="height: 50px" alt="">
+            <div>
+              Die Plattform wird von der DMK
+              <br> 
+              (Deutschschweizerische Mathematik-Kommission) empfohlen.
+            </div>
+          </div>
+          <br><br>
+
+          <a href="http://mintbase.ch/initiative.html" style="font-size:25px" ng-if="urlContains('mintbase')"><i class="fa fa-arrow-right"></i> Infos zur Initiative</a>
+
+          <a href="http://www.edtechlab.ch/taskbase" style="font-size:25px" ng-if="!urlContains('mintbase')"> <i class="fa fa-arrow-right"></i> Mehr Infos</a>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="upper-part">
+  <div class="left-img" *ngIf="showLeftImage">
+    <img src="assets/img/teacherfine.svg"
+         alt="">
+  </div>
+  <div class="tb-modules-content">
+    <div class="image-wrapper">
+      <svg #svg [attr.width]="width" [attr.height]="height">
+        <rect [attr.x]=" width * 0.3" [attr.y]="0" [attr.width]="width * 0.4" [attr.height]="150" class="rect-top"></rect>
+        <g *ngFor="let connector of tbModuleData; trackBy: trackByFn;">
+          <!-- ATTENTION: connector-line-wrapper and connector-line is almost identical -->
+          <path class="connector-line-wrapper"
+                [ngClass]="{'active': connector.module === activeModule}"
+                [attr.d]="connector.connectorLine"
+                *ngIf="connector.module === activeModule"
+                (click)="setActiveTestimonial(connector.module)">
+          </path>
+          <path class="connector-line"
+                [ngClass]="{'active': connector.module === activeModule}"
+                [attr.d]="connector.connectorLine"
+                (click)="setActiveTestimonial(connector.module)">
+          </path>
+        </g>
+      </svg>
+
+      <div *ngFor="let connector of tbModuleData"
+           class="schild"
+           [ngStyle]="connector.schildStyle"
+           (click)="setActiveTestimonial(connector.module)">
+        {{connector.title}}
+      </div>
+
+    </div>
+  </div>
+  <div class="right-img" *ngIf="showRightImage">
+    <img src="assets/img/student.svg"
+         alt="">
+  </div>
+</div>
+
+<div class="displayed-module">
+  <div [ngSwitch]="activeModule">
+    <app-barf-module *ngSwitchCase="'barf-module'"></app-barf-module>
+    <app-blab-module *ngSwitchCase="'blab-module'"></app-blab-module>
+    <app-bla-module *ngSwitchCase="'bla-module'"></app-bla-module>
+    <app-blub-module *ngSwitchCase="'blub-module'"></app-blub-module>
+  </div>
+</div>

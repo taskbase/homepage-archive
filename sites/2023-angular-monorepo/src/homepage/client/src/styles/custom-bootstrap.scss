@@ -1,0 +1,9 @@
+$grid-gutter-width-base: 30px;
+
+// Required
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+
+// Optional
+@import "bootstrap/scss/bootstrap-grid";

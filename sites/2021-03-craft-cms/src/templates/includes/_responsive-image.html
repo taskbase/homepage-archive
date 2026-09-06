@@ -1,0 +1,18 @@
+{% if ratio is defined %}
+	{% set aspectRatio = ratio %}
+{% else %}
+	{% set aspectRatio = image.getHeight('large') / image.getWidth('large') * 100 %}
+{% endif %}
+{% if cssClass is defined %}
+	<div class="{{ cssClass }}">
+	{% endif %}
+	<picture class="responsive-image" style="background-image: url({{ image.getUrl('tiny') }}); padding-top: {{ aspectRatio }}%;">
+		{% if imageSizes is not defined %}
+			{% set imageSizes = [{ width: 2000 },{width: 1000}] %}
+		{% endif %}
+
+		<img data-src="{{ image.getUrl('small') }}" data-srcset="{{ image.getUrl('small') }} 500w, {{ image.getUrl('medium') }} 1000w, {{ image.getUrl('large') }} 2000w " alt="{{ image.title }}">
+	</picture>
+	{% if cssClass is defined %}
+	</div>
+{% endif %}

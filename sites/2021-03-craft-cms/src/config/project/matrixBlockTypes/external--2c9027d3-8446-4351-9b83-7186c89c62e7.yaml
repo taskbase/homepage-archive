@@ -1,0 +1,40 @@
+field: 89f6bcaf-defe-4bed-81df-4e9d744aca9e
+fieldLayouts:
+  d01ee407-d278-4804-818a-e7e7f1f38306:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 5ea1e6d0-4f36-4af5-b28b-d8dae971166a
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  5ea1e6d0-4f36-4af5-b28b-d8dae971166a:
+    contentColumnType: text
+    fieldGroup: null
+    handle: externalUrl
+    instructions: ''
+    name: 'External URL'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: external
+name: External
+sortOrder: 1

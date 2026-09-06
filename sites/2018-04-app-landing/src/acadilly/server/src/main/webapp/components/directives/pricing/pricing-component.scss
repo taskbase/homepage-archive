@@ -1,0 +1,46 @@
+.pricing-wrapper {
+
+  .pricing-plan {
+    width: 250px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 0 50px 0;
+  }
+
+  .plan-title {
+    font-size: 25px;
+    padding: 0 0 10px 0;
+    border-bottom: 1px solid $accent;
+  }
+
+  .num-students-wrapper {
+    border-bottom: 1px solid $accent;
+    padding: 5px 0 15px 0;
+  }
+
+  .text-num-students {
+    font-size: 14px;
+  }
+
+  .num-students {
+    font-size: 18px;
+  }
+
+  .feature-list {
+
+  }
+
+  .feature-item {
+    font-size: 14px;
+    padding: 7px 0;
+  }
+
+  .price {
+    padding: 10px 0;
+    font-size: 18px;
+    color: $accent;
+    border-top: 1px solid $accent;
+  }
+
+
+}

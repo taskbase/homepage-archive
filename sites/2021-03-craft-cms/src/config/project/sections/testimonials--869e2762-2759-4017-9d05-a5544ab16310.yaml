@@ -1,0 +1,11 @@
+enableVersioning: true
+handle: testimonials
+name: Testimonials
+propagationMethod: all
+siteSettings:
+  0860246c-e6ed-4aeb-a019-0dc2d85452e9:
+    enabledByDefault: true
+    hasUrls: true
+    template: testimonials/_entry
+    uriFormat: 'testimoials/{slug}'
+type: channel

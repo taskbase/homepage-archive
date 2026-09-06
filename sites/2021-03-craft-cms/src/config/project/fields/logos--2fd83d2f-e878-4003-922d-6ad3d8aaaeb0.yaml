@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: bc787b3d-4e26-4218-8b29-a30d62f14609
+handle: logos
+instructions: ''
+name: Logos
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_logos}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

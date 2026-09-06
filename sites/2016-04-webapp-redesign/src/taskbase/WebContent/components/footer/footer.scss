@@ -1,0 +1,30 @@
+@import '../app/variables';
+
+.footer-wrapper {
+  .footer {
+    background: $primary;
+    //bottom: 0;
+    color: $white;
+    //position: absolute;
+    //width: 100%;
+    //box-shadow: $up-shadow;
+
+    &.light {
+      background: $dark;
+      box-shadow: none;
+
+      a {
+        color: $white;
+      }
+
+      .container .text-muted {
+        color: $white
+      }
+
+    }
+
+    .container .text-muted {
+      color: $white;
+    }
+  }
+}

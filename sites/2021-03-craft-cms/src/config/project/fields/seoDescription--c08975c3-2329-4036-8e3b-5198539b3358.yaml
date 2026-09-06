@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 4019f366-d491-4007-ace7-d784f6c119ad
+handle: seoDescription
+instructions: 'Description for SEO meta tag.'
+name: 'SEO Description'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

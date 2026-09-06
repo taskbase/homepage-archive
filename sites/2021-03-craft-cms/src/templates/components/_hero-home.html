@@ -1,0 +1,39 @@
+<div class="hero js-hero" data-section-title="{{ entry.heroSectionTitle }}">
+	<div class="hero__image">
+		{% include 'includes/_responsive-image' with {image: entry.heroImage.one(),
+    		cssClass: 'hero__image-image'} %}
+		{% for hotspot in entry.heroHotspots %}
+			{%  set randomId = 'random' ~ random(1, 9999) %}
+			<style>
+				{{'#' ~ randomId ~ ' {'|e}}
+				{{'left:' ~ hotspot.xSmall ~ '%;'|e}}
+				{{'top:' ~ hotspot.ySmall ~ '%;}'|e}}
+
+
+				{{'@media screen and (min-width: 1024px) {'|e}}
+				{{'#' ~ randomId ~ ' {'|e}}
+				{{'left:' ~ hotspot.xLarge ~ '%;'|e}}
+				{{'top:' ~ hotspot.yLarge ~ '%;'|e}}
+				{{'}\n}'|e}}
+			</style>
+			<div class="hero__hotspot" id="{{ randomId }}">
+				<div class="hotspot will-appear js-hotspot">
+					<p class="hotspot__text js-hotspot__text">{{ hotspot.hotspotText }}</p>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+	<div class="hero__content">
+		<h1 class="hero__title will-appear">
+			{{ entry.heroTitle|replace({'[': '<span>', ']': "</span>"})|raw }}
+		</h1>
+		<div class="hero__text will-appear">{{ entry.heroText }}</div>
+		{% if entry.heroButtonLink.one() %}
+			<div class="will-appear">
+
+
+				{% include 'includes/_link' with {block: entry.heroButtonLink, label: entry.heroButtonLabel} %}
+			</div>
+		{% endif %}
+	</div>
+</div>

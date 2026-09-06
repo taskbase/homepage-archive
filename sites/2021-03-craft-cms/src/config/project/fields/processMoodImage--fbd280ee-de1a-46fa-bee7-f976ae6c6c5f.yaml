@@ -1,0 +1,33 @@
+contentColumnType: string
+fieldGroup: 46bb68c0-9a30-4885-be4c-93df8ce26a0d
+handle: processMoodImage
+instructions: ''
+name: 'Process Mood Image'
+searchable: false
+settings:
+  allowSelfRelations: false
+  allowUploads: true
+  allowedKinds:
+    - image
+  defaultUploadLocationSource: 'volume:52993f23-77cb-4b43-bbfc-d10563bc6927'
+  defaultUploadLocationSubpath: ''
+  limit: ''
+  localizeRelations: false
+  previewMode: full
+  restrictFiles: '1'
+  selectionLabel: ''
+  showSiteMenu: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  singleUploadLocationSource: 'volume:52993f23-77cb-4b43-bbfc-d10563bc6927'
+  singleUploadLocationSubpath: ''
+  source: null
+  sources:
+    - 'volume:52993f23-77cb-4b43-bbfc-d10563bc6927'
+  targetSiteId: null
+  useSingleFolder: false
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets

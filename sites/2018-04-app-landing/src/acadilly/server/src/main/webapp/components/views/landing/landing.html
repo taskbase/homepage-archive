@@ -1,0 +1,17 @@
+<div class="landing-wrapper full-width" ng-switch="appId">
+  
+  <div ng-switch-when="e-maths" class="center container display-flex full-width">
+    <div ng-include src="'/components/views/landing/e-maths-landing.html'"></div>
+  </div>
+  <div ng-switch-when="MATHBRIDGE" class="display-flex full-width">
+    <mathbridge-landing class="display-flex full-width"></mathbridge-landing>
+  </div>
+  <div ng-switch-when="ACADILLY" class="display-flex full-width">
+    <acadilly-landing class="display-flex full-width"></acadilly-landing>
+  </div>
+  <div ng-switch-default="" class="display-flex full-width">
+    <!--<tb-deprecated-landing></tb-deprecated-landing>-->
+    <tb-temp-landing class="display-flex full-width"></tb-temp-landing>
+  </div>
+  
+</div>

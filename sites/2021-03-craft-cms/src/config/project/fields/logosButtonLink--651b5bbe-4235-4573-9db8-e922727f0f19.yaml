@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: bc787b3d-4e26-4218-8b29-a30d62f14609
+handle: logosButtonLink
+instructions: ''
+name: 'Logos Button Link'
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_logosbuttonlink}}'
+  maxBlocks: '1'
+  minBlocks: '0'
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

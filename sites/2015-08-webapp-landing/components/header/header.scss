@@ -1,0 +1,82 @@
+.header-wrapper {
+  .navbar-brand {
+    .logged-in {
+      margin-top: -15px;
+      height: 55px;
+    }
+
+    .logged-out {
+      margin-top: -15px;
+      height: 75px;
+    }
+  }
+
+  .navbar {
+    background: $primary;
+    box-shadow: $drop-shadow;
+  }
+
+  .header-item {
+    color: $white;
+  }
+
+  .user-icon {
+    font-size: 20px;
+    color: $white;
+  }
+
+  .navbar-inverse {
+    border: 0;
+  }
+
+  .login-box {
+    position: relative;
+    min-height: 60px;
+
+    .login-form {
+      margin-top: 10px;
+    }
+
+    .forgot-password {
+      position: absolute;
+      bottom: -5px;
+      right: 15px;
+      font-size: 12px;
+    }
+
+    .create-account {
+      position: absolute;
+      bottom: -5px;
+      left: 15px;
+      font-size: 12px;
+    }
+  }
+
+  .navbar-item {
+    color: white;
+  }
+
+  .navbar-inverse .navbar-form {
+    border: transparent;
+  }
+
+  .navbar-inverse .navbar-nav > li > a {
+    color: $white;
+  }
+
+  .navbar-inverse .navbar-collapse {
+    border: transparent;
+  }
+
+  .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    background: transparent;
+  }
+
+  .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    background: transparent;
+  }
+
+  .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    background: transparent;
+  }
+}

@@ -1,0 +1,51 @@
+.tb-landing-wrapper {
+
+  .banner-text {
+    font-size: 50px;
+    color: $white;
+
+    .prominent {
+      font-weight: 700;
+    }
+  }
+
+  //parallax
+  /*
+  .cd-fixed-bg {
+
+    background-attachment: fixed;
+
+    padding-left: 3000px;
+    margin-left: -3000px;
+    padding-right: 3000px;
+    margin-right: -3000px;
+
+
+    &.cd-bg-1 {
+      //background: url('/assets/img/backgrounds/subtle_feathers.png');
+
+    }
+
+    &.cd-bg-2 {
+      background: #eee;
+    }
+
+  }
+  */
+
+
+  .bg-1 {
+    background: $white;
+  }
+
+  .cd-scrolling-bg {
+    min-height: 100%;
+    background: $white;
+
+    padding-left: 3000px;
+    margin-left: -3000px;
+    padding-right: 3000px;
+    margin-right: -3000px;
+  }
+
+}

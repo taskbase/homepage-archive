@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 0a948365-47dc-4c3b-9455-373def01f954
+handle: heroTitle
+instructions: 'The purple parts should be between square brackets [ ]. '
+name: 'Hero Title'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

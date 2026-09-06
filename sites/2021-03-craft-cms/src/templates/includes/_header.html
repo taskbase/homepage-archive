@@ -1,0 +1,32 @@
+<header class="header js-header">
+	<a href="/">
+		{% if globalContent.logo.one.extension == 'svg' %}
+			<div class="header__logo">
+				{{ svg(globalContent.logo.one()) }}
+			</div>
+		{% else %}
+			<img class="header__logo" src="{{ globalContent.logo.one.getUrl() }}" alt="Taskbase Logo">
+		{% endif %}
+	</a>
+	<div>
+		{% if contactPage is defined or contentPage is defined %}
+			<a class="header__button header__home-link" href="/">
+				{{ globalContent.backToHomeLabel }}
+			</a>
+		{% endif %}
+		{% if globalContent.contactPage.one() %}
+			<a class="header__button header__contact-link {% if contactPage is defined %}state--active{% endif %}" href="{{ globalContent.contactPage.one.getUrl() }}">
+				{% if globalContent.contactPageLabel %}
+					{{ globalContent.contactPageLabel }}
+				{% else %}
+					{{ globalContent.contactPage.one.title }}
+				{% endif %}
+			</a>
+		{% endif %}
+		{% if contactPage is not defined and contentPage is not defined %}
+			<a href="#" class="header__nav-link js-header__nav-link header__button">Menu
+				<span></span>
+			</a>
+		{% endif %}
+	</div>
+</header>

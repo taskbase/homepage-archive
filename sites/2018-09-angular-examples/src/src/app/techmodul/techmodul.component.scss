@@ -1,0 +1,81 @@
+@import 'variables';
+
+:host {
+  display: block;
+  overflow: hidden;
+  @extend %main-gradient;
+}
+
+.jumbo-wrapper {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  min-height: 66vh;
+  display: flex;
+  align-content: space-between;
+  justify-content: center;
+
+  .jumbo-container {
+
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .image {
+      width: 400px;
+      height: auto;
+
+      @media(max-width: 1100px) {
+
+        margin: auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+
+      @media(max-width: 600px) {
+        width: 250px;
+        margin: auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+    }
+
+    .jumbo-content {
+      position: relative;
+      margin-left: 60px;
+      width: 50%;
+
+      @media(max-width: 1100px) {
+        width: 100%;
+        margin-left: 0px;
+      }
+
+      .jumbo-headline {
+        .title {
+          color: #FFFFFF;
+          margin-bottom: 15px;
+          @media(max-width: 1100px) {
+            text-align: center;
+          }
+        }
+
+        .subtitle {
+          text-align: justify;
+
+          @media(max-width: 1100px) {
+            text-align: justify;
+            -moz-text-align-last: center;
+            text-align-last: center;
+          }
+
+          @media(max-width: 500px) {
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}

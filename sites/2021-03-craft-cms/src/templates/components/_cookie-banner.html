@@ -1,0 +1,9 @@
+
+<div class="cookie-banner js-cookie-banner will-appear">
+    <p class="cookie-banner__title">{{ globalContent.cookieBannerTitle|replace({'[': '<span>', ']': "</span>"})|raw }}</p>
+    <div class="cookie-banner__text">{{ globalContent.cookieBannerText }}</div>
+    <div class="cookie-banner__buttons">
+        <a href="#" class="js-cookie-banner__reject button cookie-banner__reject">{{ globalContent.cookieBannerRejectLabel }}</a>
+        <a href="#" class="js-cookie-banner__accept button cookie-banner__accept">{{ globalContent.cookieBannerAcceptLabel }}</a>
+    </div>
+</div>

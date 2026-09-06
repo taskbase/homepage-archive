@@ -1,0 +1,83 @@
+fieldLayouts:
+  d8bcafe3-374d-45bf-9e95-d7e7cdb0a05f:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: d80a97e6-2002-4b79-85e1-13915441bd55
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 8229ef82-d455-46af-a6ea-e5e008d06402
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: eeab61cd-5dfb-429c-83f8-a8375bae1223
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 1af7dbc6-e752-4e7c-a412-23d1cb12e08c
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 5d0d4528-2a0c-460d-807e-c1c1936101d6
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Inhalt
+        sortOrder: 1
+handle: testimoials
+hasTitleField: false
+name: Testimoials
+section: 869e2762-2759-4017-9d05-a5544ab16310
+sortOrder: 1
+titleFormat: '{testimonialName} — {testimonialCompany}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

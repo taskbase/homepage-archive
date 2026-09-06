@@ -1,0 +1,22 @@
+.search-browser-wrapper{
+
+  .bread-crumb {
+    padding: 10px;
+    font-size: 18px;
+  }
+
+  .bread-crumb-element {
+
+    &:after {
+      font-weight: 700;
+      color: black;
+      content: " > ";
+    }
+
+    &:last-child:after {
+      content: "";
+    }
+
+  }
+
+}

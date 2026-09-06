@@ -1,0 +1,99 @@
+<div class="header-wrapper">
+  <div class="navbar navbar-inverse navbar-static-top navbar-taskbase">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span ng-if="appSettings && !urlContains('e-maths') && !urlContains('mintbase')">
+          <a ui-sref="landing" class="navbar-brand" ng-if="!loggedIn">
+            <img ng-src="assets/img/logos/{{appSettings.cssId}}.png" class="logo-image logged-out" alt=""/>
+          </a>
+          <a class="navbar-brand" ui-sref="home" ng-if="loggedIn">
+            <img ng-src="assets/img/logos/{{appSettings.cssId}}.png" class="logo-image logged-in" alt=""/>
+          </a>
+        </span>
+        <!-- MINTbase special -->
+        <span ng-if="appSettings && urlContains('mintbase')">
+          <a ui-sref="landing" class="navbar-brand" ng-if="!loggedIn">
+            <img ng-src="assets/img/logos/mintbase.png" class="logo-image logged-out" alt=""/>
+          </a>
+          <a class="navbar-brand" ui-sref="home" ng-if="loggedIn">
+            <img ng-src="assets/img/logos/mintbase.png" class="logo-image logged-in" alt=""/>
+          </a>
+        </span>
+        <!--E-Maths special-->
+        <span ng-if="appSettings && urlContains('e-maths')">
+          <a ng-href="{{eMathsOrLanding}}" class="navbar-brand" ng-if="!loggedIn">
+            <img ng-src="assets/img/logos/e-maths.png" class="logo-image logged-out" alt=""/>
+          </a>
+          <a class="navbar-brand" ui-sref="home" ng-if="loggedIn">
+            <img ng-src="assets/img/logos/e-maths.png" class="logo-image logged-in" alt=""/>
+          </a>
+        </span>
+
+      </div>
+
+      <!-- for non-authenticated users -->
+      <div ng-if="!loggedIn" class="login-box navbar-form navbar-right">
+        <form ng-submit="logIn()" class="login-form" role="search">
+          <div class="form-group">
+            <input ng-if="appSettings.ldapLogin" class="form-control" ng-model="loginData.email" name="email" placeholder="Username">
+            <input ng-if="!appSettings.ldapLogin" class="form-control" ng-model="loginData.email" name="email" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control input-small " ng-model="loginData.password" name="password" placeholder="Password">
+          </div>
+          <button type="submit" class="btn btn-default" id="login-button">Sign In</button>
+        </form>
+        <div class="create-account" ng-if="!appSettings.ldapLogin">
+          <a ui-sref="signup" class="light-link">Sign Up</a>
+        </div>
+        <div class="forgot-password" ng-if="!appSettings.ldapLogin">
+          <a ui-sref="forgot-password" class="light-link">Forgot password?</a>
+        </div>
+      </div>
+
+      <!-- for authenticated users -->
+      <div ng-if="loggedIn" id="navbar" class="navbar-collapse collapse">
+        <!--xs-->
+        <ul class="nav navbar-nav navbar-right visible-xs">
+          <li>
+            <a ng-href="mailto:{{bugsMail}}" target="_blank" class="light-link">Report a Bug <i class="fa fa-bug"></i></a>
+          </li>
+          <li>
+            <a ng-href="mailto:{{feedbackMail}}" target="_blank" class="light-link padd-right">Send us Feedback <i class="fa fa-comment"></i></a>
+          </li>
+          <li>
+            <a ui-sref="profile" class="navbar-item" ng-click="goingForward()" >Profile</a>
+          </li>
+          <li ng-click="logOut()">
+            <a class="navbar-item">Log out</a>
+          </li>
+        </ul>
+
+        <!--above xs-->
+        <ul class="nav navbar-nav navbar-right hidden-xs">
+          <li>
+            <a ng-href="mailto:{{bugsMail}}" class="light-link">Report a Bug <i class="fa fa-bug"></i></a> 
+          </li>
+          <li>
+            <a ng-href="mailto:{{feedbackMail}}" class="light-link padd-right">Send us Feedback <i class="fa fa-comment"></i></a>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+              {{user.email}} <i class="fa fa-caret-down"></i>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a ui-sref="profile" ng-click="goingForward()">Profile</a></li>
+              <li ng-click="logOut()"><a ui-sref="landing">Log out</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

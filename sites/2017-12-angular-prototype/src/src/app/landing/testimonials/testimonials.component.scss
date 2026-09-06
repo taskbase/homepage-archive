@@ -1,0 +1,49 @@
+@import "variables";
+
+.testimonials {
+  @extend %primary;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .control-wrapper {
+    min-height: 300px;
+    padding: 20px;
+    align-items: center;
+    background: transparent;
+  }
+
+  .slidecontent {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+
+    margin: 5px;
+
+    width: 100%;
+
+    .picture {
+
+      .img {
+
+      }
+    }
+
+    .testimonial {
+
+      width: 80%;
+      text-align: center;
+
+      .sentence {
+        h1 {
+          @extend %primary
+        }
+      }
+      .name {
+      }
+      .role {
+      }
+    }
+  }
+}

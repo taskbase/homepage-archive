@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: bc787b3d-4e26-4218-8b29-a30d62f14609
+handle: logosText
+instructions: ''
+name: 'Logos Text'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: '1'
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

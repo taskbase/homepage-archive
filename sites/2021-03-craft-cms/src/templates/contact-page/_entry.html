@@ -1,0 +1,79 @@
+{% extends '_base' %}
+{% block content %}
+	<div class="contact-page">
+		<div class="contact-page__contact">
+			<div class="will-appear">
+				<h1 class="contact-page__title">{{ entry.contactPageTitle }}</h1>
+			</div>
+			<div class="contact-page__footer">
+				<div class="contact-page__footer-address will-appear">
+					{{ globalContent.address }}
+				</div>
+				<ul class="contact-page__footer-links will-appear">
+					{% for link in globalContent.socialMediaLinks %}
+						<li class="contact-page__footer-link-item">
+							<a class="contact-page__footer-link" target="_blank" rel="noopener noreferrer" href="{{ link.link }}">{{ link.label }}</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+
+		</div>
+		<div class="contact-form__form-wrapper">
+			{% if craft.app.request.getParam('fromName') and craft.app.session.getFlash('notice') %}
+				<div class="contact-form__success">
+					<h2 class="contact-form__form-title  will-appear">Thanks
+						{{ craft.app.request.getParam('fromName') }}</h2>
+					<p class="will-appear">{{ craft.app.session.getFlash('notice') }}</p>
+					<br><br>
+					<div class="will-appear">
+						<a href="/" class="button">{{ globalContent.backToHomeLabel }}</a>
+					</div>
+				</div>
+			{% else %}
+				<h2 class="contact-form__form-title will-appear">{{ entry.contactPageFormTitle }}</h2>
+
+				{% macro errorList(errors) %}
+					{% if errors %}
+						<ul class="errors">
+							{% for error in errors %}
+								<li>{{ error }}</li>
+							{% endfor %}
+						</ul>
+					{% endif %}
+				{% endmacro %}
+
+				{% from _self import errorList %}
+
+				<form method="post" class="contact-form__form-form" action="" accept-charset="UTF-8">
+					{{ csrfInput() }}
+					<input type="hidden" name="action" value="contact-form/send">
+					{{ redirectInput('contact?fromName={fromName}') }}
+					<div class="will-appear">
+						<label for="from-name">{{ globalContent.contactFormNameLabel }}*</label>
+						<input id="from-name" required type="text" name="fromName" value="{{ message.fromName ?? '' }}">
+						{{ message is defined and message ? errorList(message.getErrors('fromName')) }}
+					</div>
+
+					<div class="will-appear">
+						<label for="from-email">{{ globalContent.contactFormEmailLabel }}*</label>
+						<input id="from-email" required type="email" name="fromEmail" value="{{ message.fromEmail ?? '' }}">
+						{{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
+					</div>
+
+					<div class="will-appear">
+						<label for="message">{{ globalContent.contactFormMessageLabel }}*</label>
+						<textarea rows="10" required cols="40" id="message" name="message">{{ message.message ?? '' }}</textarea>
+						{{ message is defined and message ? errorList(message.getErrors('message')) }}
+					</div>
+
+					<input id="hidden" name="NameOfAFieldFromTaskbase" type="text">
+					<div class="will-appear">
+						<button class="button" type="submit">Send</button>
+					</div>
+				</form>
+			{% endif %}
+
+		</div>
+	</div>
+{% endblock %}

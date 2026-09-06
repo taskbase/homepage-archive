@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 48add524-57f0-4ebd-8d13-9d3dfad696e3
+handle: testimonialSliderSectionTitle
+instructions: 'This title will be used for the in-page navigation.'
+name: 'Testimonial Slider Section Title'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

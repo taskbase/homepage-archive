@@ -1,0 +1,18 @@
+.question {
+  display: block;
+  width: 100%;
+  .title {
+    display: block;
+    width: 100%;
+    color: #FFFFFF;
+    margin-bottom: 15px;
+    @media(max-width: 1100px) {
+      text-align: center;
+    }
+  }
+
+  .solution {
+    width: 100%;
+  }
+
+}

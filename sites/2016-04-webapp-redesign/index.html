@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!--
+  Taskbase, April 2016 -> March 2018: the marketing pages of the Java/Tomcat
+  webapp. Rebuilt from tb.git@feedfcf6e5 (2017-01-27) and actually running:
+  AngularJS 1.x needs no build step, so the era's own module, templates,
+  controllers and components boot for real here. See meta.json for what is
+  hand-transpiled, what is stubbed, and what is missing.
+-->
+<html ng-app="taskbaseApp" ng-controller="MainController">
+<head>
+
+  <title>Taskbase</title>
+  <meta name="description" content="Ihre Cloud für Lerninhalte. Sicher und schnell den Unterricht vorbereiten.">
+  <meta name="keywords"
+        content="Taskbase, Adaptiv, Mathematik, Physik, Aufgaben, Latex, Sammlung, Kantonsschule, Matura">
+  <meta name="geo.placename" content="Zürich,Schweiz">
+  <meta name="ICBM" content="47.3765359,8.5480928">
+  <meta name="robots" content="follow,index">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+  <script>
+    var TASKBASE_GLOBAL_APP_START = new Date().getTime();
+    var TASKBASE_GLOBAL_GOOGLE_CHART_READY = false;
+  </script>
+
+  <!-- CSS. The era linked font-awesome 4.4 and bootstrap 3.3.7 off maxcdn,
+       Lato off Google Fonts, and its own gulp bundles /assets/css/bower.css
+       and /assets/css/app.css. bower.css is a build output and was never
+       committed, so its members are linked individually below. app.css *is*
+       committed and is the era's real compiled SCSS. -->
+  <link rel="stylesheet" href="vendor/css/font-awesome.min.css">
+  <link rel="stylesheet" href="vendor/css/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/css/angular-material.css">
+  <link rel="stylesheet" href="vendor/css/md-data-table.css">
+  <link rel="stylesheet" href="vendor/css/angular-ui-notification.css">
+  <link rel="stylesheet" href="vendor/css/lato.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+  <link rel="stylesheet" href="museum.css">
+
+  <link rel="icon" sizes="32x32" href="assets/img/icons/favicon.png">
+
+</head>
+<body>
+
+<!-- Loading Spinner -->
+<div class="vertical-center" ng-if="false" style="height: 100vh;">
+  <div class="center">
+    <span class="tb-spinner inline-block"></span>
+  </div>
+</div>
+
+<!-- Actual App -->
+<web-app ng-if="appReady"></web-app>
+
+<!-- checks if isMobile -->
+<div id="mobile-check"></div>
+
+<!-- bower libs, pinned to the versions in taskbase/bower.json at feedfcf6e5
+     (angular-material is not in bower.json; the era's above-fold.html loaded
+     angular_material 1.1.1 off the Google CDN, so that is the pin used) -->
+<script src="vendor/js/jquery.js"></script>
+<script src="vendor/js/angular.js"></script>
+<script src="vendor/js/angular-animate.js"></script>
+<script src="vendor/js/angular-aria.js"></script>
+<script src="vendor/js/angular-messages.js"></script>
+<script src="vendor/js/angular-resource.js"></script>
+<script src="vendor/js/angular-sanitize.js"></script>
+<script src="vendor/js/angular-ui-router.js"></script>
+<script src="vendor/js/ui-bootstrap-tpls.js"></script>
+<script src="vendor/js/angular-material.js"></script>
+<script src="vendor/js/angular-ui-notification.js"></script>
+<script src="vendor/js/ng-file-upload.js"></script>
+<script src="vendor/js/angular-drag-and-drop-lists.js"></script>
+<script src="vendor/js/angular-base64-upload.js"></script>
+<script src="vendor/js/angular-youtube-embed.js"></script>
+<script src="vendor/js/md-data-table.js"></script>
+<script src="vendor/js/canvas-painter.js"></script>
+<script src="vendor/js/angular-mathjax-parser.js"></script>
+<script src="vendor/js/bootstrap.js"></script>
+
+<!-- the era's own committed assets/js/app.js: the taskbaseApp module
+     declaration and the $mdThemingProvider palette, byte for byte -->
+<script src="build/app.js"></script>
+
+<!-- the era's own code. These were TypeScript compiled per-file by tsc; the
+     .js output was never committed and there is no tsc on this box, so they
+     are hand-transpiled. Each file names its .ts origin at the top. -->
+<script src="build/type-enums.js"></script>
+<script src="build/component.js"></script>
+<script src="build/filters.js"></script>
+<script src="build/my-filters.js"></script>
+<script src="build/current.js"></script>
+<script src="build/tracking-service.js"></script>
+<script src="build/notify-service.js"></script>
+<script src="build/navigation.js"></script>
+<script src="build/user-service.js"></script>
+<script src="build/permission-service.js"></script>
+<script src="build/fe-utilities.js"></script>
+<script src="build/app-settings-service.js"></script>
+<script src="build/translation-service.js"></script>
+<script src="build/login-service.js"></script>
+<script src="build/task-service.js"></script>
+<script src="build/routes.js"></script>
+<script src="build/routes-run.js"></script>
+<script src="build/main-controller.js"></script>
+<script src="build/header-controller.js"></script>
+<script src="build/footer-controller.js"></script>
+<script src="build/landing-controller.js"></script>
+<script src="build/web-app-component.js"></script>
+<script src="build/tb-landing-component.js"></script>
+<script src="build/counter2-component.js"></script>
+<script src="build/reference-item-directive.js"></script>
+<script src="build/signup.js"></script>
+<script src="build/spinner-component.js"></script>
+<script src="build/modal-component.js"></script>
+<script src="build/comic-video-component.js"></script>
+
+<!-- museum-only glue: backend fixtures, whitelabel host override,
+     tracker no-ops, route guard, corner badge -->
+<script src="glue/museum.js"></script>
+
+</body>
+</html>

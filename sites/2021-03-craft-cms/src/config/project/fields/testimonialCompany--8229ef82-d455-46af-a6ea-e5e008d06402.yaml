@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: f5e5ddcc-3d3d-4adf-b92a-2eded39c5094
+handle: testimonialCompany
+instructions: ''
+name: 'Testimonial Company'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

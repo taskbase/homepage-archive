@@ -1,0 +1,67 @@
+<div class="jumbo-wrapper">
+  <div class="content-container">
+    <div class="jumbo-container">
+      <div class="headline">
+        <h1 class="title">English task</h1>
+      </div>
+      <img src="/assets/img/showcases/postcard.svg" class="image" />
+      <div class="jumbo-content">
+        <div class="text">
+          <b>
+            Name three elements of the following text (in keywords), which are
+            typical for the text type "picture postcard".
+          </b>
+          <br />
+          <br />
+          <i>
+            Kawai, September 22, 2018
+            <br />
+            <br />
+            Dear Jens
+            <br />
+            <br />
+            After a drive across California with impressive coastal landscapes,
+            architectural highlights and delicious fish dishes, we now enjoy the
+            incredible nature on the paradise islands of Hawaii.
+            <br />
+            I send you many sunrays from the West Coast to foggy St. Gallen, we
+            have more than enough of them here!
+            <br />
+            <br />
+            Flurina
+          </i>
+        </div>
+        <app-marker-question
+          (changedText)="onChange($event)"
+          [studentInput]="studentInput"
+          stimulus=""
+        >
+        </app-marker-question>
+        <br />
+        <button
+          *ngIf="showSubmit"
+          class="formelement buttonwrap"
+          (click)="check()"
+        >
+          Submit
+        </button>
+        <div class="feedback">
+          <div class="feedbacktext">
+            <h2 class="tile">
+              {{ feedback }}
+            </h2>
+            <h2 *ngIf="simulation">
+              <a class="link" (click)="simulate()"> Simulate student input </a>
+              <br />
+            </h2>
+          </div>
+        </div>
+        <br />
+        <button *ngIf="showRepeat" class="button" (click)="back()">
+          Repeat
+        </button>
+        <div class="error"></div>
+      </div>
+    </div>
+  </div>
+</div>

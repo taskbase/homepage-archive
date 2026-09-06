@@ -1,0 +1,22 @@
+{% if block.one %}
+	{% if block.one.type == 'external' %}
+		{% set href = block.one.externalUrl %}
+		{% set target = 'target="_blank" rel="noopener noreferrer"' %}
+	{% endif %}
+	{% if block.one.type == 'internal' %}
+		{% set href = block.one.internalLink.one.getUrl() %}
+		{% set target = '' %}
+	{% endif %}
+
+	{% if href %}
+		<a class="button" href="{{ href }}" {{ target|raw }}>
+			{% if label %}
+				{{ label }}
+			{% elseif block.one.type == 'internal' %}
+				{{ block.one.internalLink.one.title }}
+			{% else %}
+				{{ block.one.externalUrl }}
+			{% endif %}
+		</a>
+	{% endif %}
+{% endif %}

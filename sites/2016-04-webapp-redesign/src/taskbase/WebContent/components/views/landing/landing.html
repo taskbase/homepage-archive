@@ -1,0 +1,11 @@
+<div class="landing-wrapper" ng-switch="landingPageType">
+  
+  <div ng-switch-when="e-maths" class="center container">
+    <br><br>
+    <div ng-include src="'/components/views/landing/e-maths-landing.html'"></div>
+  </div>
+  <div ng-switch-default="">
+    <tb-landing></tb-landing>
+  </div>
+  
+</div>

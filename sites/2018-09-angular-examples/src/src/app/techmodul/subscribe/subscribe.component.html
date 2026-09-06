@@ -1,0 +1,17 @@
+<div class="content-container">
+  <div class="contentcontainer">
+    <div class="arrow">
+      <img src="assets/img/arrowdown.svg">
+    </div>
+    <div class="formcontainer">
+      <form class="form" [formGroup]="liveDemoForm">
+        <input matInput placeholder="Ihr Name" formControlName="name" type="text" class="secondary formelement">
+        <input matInput placeholder="Ihre E-Mail-Adresse" formControlName="email" type="email" class="secondary formelement">
+        <button id="subscribe-live-demo" type="submit" class="formelement buttonwrap" (click)="onSubmit()">
+          Live Demo anfordern
+        </button>
+        <div class="error"></div>
+      </form>
+    </div>
+  </div>
+</div>

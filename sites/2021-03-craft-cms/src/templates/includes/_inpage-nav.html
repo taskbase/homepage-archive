@@ -1,0 +1,28 @@
+<div class="inpage-nav js-inpage-nav">
+	<div>
+		<ul class="inpage-nav__list js-inpage-nav__list"></ul>
+		{% if globalContent.contactPage.one() %}
+			<a class="button button--invert inpage-nav__contact" href="{{ globalContent.contactPage.one.getUrl() }}">
+				{% if globalContent.contactPageLabel %}
+					{{ globalContent.contactPageLabel }}
+				{% else %}
+					{{ globalContent.contactPage.one.title }}
+				{% endif %}
+			</a>
+		{% endif %}
+	</div>
+	<div class="inpage-nav__footer">
+		<div class="inpage-nav__footer-address">
+			{{ globalContent.address }}
+		</div>
+		<ul class="inpage-nav__footer-links">
+			{% for link in globalContent.socialMediaLinks %}
+				<li class="inpage-nav__footer-link-item">
+					<a class="inpage-nav__footer-link" target="_blank" rel="noopener noreferrer" href="{{ link.link }}">{{ link.label }}</a>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+
+	<div class="inpage-nav__bubble js-inpage-nav__bubble"></div>
+</div>

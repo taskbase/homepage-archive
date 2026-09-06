@@ -1,0 +1,30 @@
+<footer class="footer js-footer {% if className is defined %}{{ className }}{% endif %}">
+	<div class="footer__address">
+		{{ globalContent.address }}
+	</div>
+	<ul class="footer__links">
+		{% for link in globalContent.socialMediaLinks %}
+			<li class="footer__link-item">
+				<a class="footer__link" target="_blank" rel="noopener noreferrer" href="{{ link.link }}">{{ link.label }}</a>
+			</li>
+		{% endfor %}
+	</ul>
+	<ul class="footer__links">
+		{% for link in globalContent.footerPageLinks.all() %}
+			<li class="footer__link-item">
+				<a class="footer__link" href="{{ link.getUrl() }}">{{ link.title }}</a>
+			</li>
+		{% endfor %}
+	</ul>
+	{% if globalContent.footerButtonLink.one() %}
+		<div class="footer__button-wrapper">
+			<a class="button" href="{{ globalContent.footerButtonLink.one.getUrl() }}">
+				{% if globalContent.footerButtonLabel %}
+					{{ globalContent.footerButtonLabel }}
+				{% else %}
+					{{ globalContent.footerButtonLink.one.title }}
+				{% endif %}
+			</a>
+		</div>
+	{% endif %}
+</footer>

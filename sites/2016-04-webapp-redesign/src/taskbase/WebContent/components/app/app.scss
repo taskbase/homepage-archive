@@ -1,0 +1,77 @@
+// Add sass files that need to be compiled and exposed to the angular app.
+// Note that the path is relative to this file.
+
+@import 'variables';
+@import 'mixins';
+
+@import 'general';
+@import 'ta-editor';
+
+@import '../header/header';
+@import '../footer/footer';
+@import '../directives/web-app/web-app-component';
+
+@import '../views/home/home';
+@import '../views/signup/signup';
+@import '../views/signup/signup-teachers';
+@import '../views/forum/forum';
+@import '../views/task-submissions/task-submissions';
+@import '../views/tutorial/tutorial';
+@import '../views/communication/communication';
+
+//directives
+//@import '../directives/task/task';
+@import '../directives/status-file/status-file';
+@import '../directives/order/order-component';
+@import '../directives/back-button/back-button';
+@import '../directives/add-button/add-button';
+@import '../directives/lil-bar-plot/lil-bar-plot';
+@import '../directives/taskk/objective/objective-icon/objective-icon';
+@import '../directives/media-block/media-block';
+@import '../directives/carousel/carousel-directive';
+@import '../directives/course-icon/course-icon';
+@import '../directives/user-course-table/user-course-table-directive';
+@import '../directives/business-card/business-card-directive';
+//@import '../directives/task-search/task-search';
+@import '../directives/reference-item/reference-item-directive';
+@import '../directives/tb-button/tb-button-directive';
+@import '../directives/todo-list-item/todo-list-item';
+@import '../directives/taskk/block/block-curriculum/block-curriculum-component';
+@import '../directives/curriculum/curriculum-directive';
+@import '../directives/curriculum-item-title/curriculum-item-title-component';
+@import '../directives/taskk/objective/objective-curriculum/objective-curriculum-component';
+@import '../directives/submit-button/submit-button-component';
+@import '../directives/flashcard/flashcard-component';
+@import '../directives/content/content-component';
+@import '../directives/search-browser/search-browser-component';
+@import '../directives/taskbase-details/taskbase-details-component';
+@import '../directives/task-drag-handle/task-drag-handle-component';
+@import '../directives/task-list/task-list-component';
+@import '../directives/tb-file-upload/tb-file-upload-component';
+@import '../directives/draw/draw-component';
+@import '../directives/statistics/statistics-component';
+
+@import '../directives/pricing/pricing-component';
+
+@import '../directives/taskk-search/taskk-search-component';
+
+//taskk
+@import '../directives/taskk/task-body/task-body-directive';
+@import '../directives/taskk/task-task/task-task-directive';
+@import '../directives/solution-well/solution-well-component';
+@import '../directives/taskk/task-header/task-header-directive';
+@import '../directives/mc/mc-component';
+@import '../directives/mc-list/mc-list-component';
+@import '../directives/student-stats/student-stats-component';
+@import '../directives/fixed-table/fixed-table-component';
+@import '../directives/tb-table/tb-table-component';
+
+@import '../directives/typed-js/typed-js-directive';
+
+//modals
+@import '../modals/support-form/support-form-modal';
+@import '../modals/print-competence/print-competence-modal';
+@import '../directives/curriculum/curriculum-directive';
+
+@import '../views/notes/notes';
+@import '../directives/spinner/spinner-component';

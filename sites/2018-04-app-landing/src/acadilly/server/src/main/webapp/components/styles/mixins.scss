@@ -1,0 +1,46 @@
+@mixin remove-icon($left, $top) {
+  .remove {
+    display: none;
+  }
+
+  &:hover {
+    .remove {
+      position: absolute;
+      left: $left;
+      top: $top;
+      display: block;
+    }
+  }
+}
+
+@mixin vendor-prefix($name, $argument) {
+  -webkit-#{$name}: #{$argument};
+  -ms-#{$name}: #{$argument};
+  -moz-#{$name}: #{$argument};
+  -o-#{$name}: #{$argument};
+  #{$name}: #{$argument};
+}
+
+@mixin linear-gradient($color1, $color2) {
+  background-image: -moz-linear-gradient(90deg, $color1 0%, $color2 100%);
+  background-image: -webkit-linear-gradient(90deg, $color1 0%, $color2 100%);
+  background-image: -ms-linear-gradient(90deg, $color1 0%, $color2 100%);
+}
+
+//#2caab3 0%, #2c8cb3
+
+/// Gives a card depth effect.
+/// @param {Number} $depth - depth level (between 1 and 5)
+/// @link http://www.google.com/design/spec/layout/layout-principles.html#layout-principles-dimensionality Google Design
+/// @requires {function} top-shadow
+/// @requires {function} bottom-shadow
+@mixin card($depth) {
+  @if $depth < 1 {
+    box-shadow: none;
+  } @else if $depth > 5 {
+    @warn "Invalid $depth `#{$depth}` for mixin `card`.";
+  } @else {
+    box-shadow: bottom-shadow($depth), top-shadow($depth);  
+  }
+}
+

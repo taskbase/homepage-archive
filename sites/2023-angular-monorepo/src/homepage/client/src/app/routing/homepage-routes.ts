@@ -1,0 +1,31 @@
+export const HOMEPAGE_ROUTES = {
+  root: "",
+  impressum: "impressum",
+  team: "team",
+  technology: "technology/:link",
+  examplesGrammarStandalone: "examples/grammar-standalone",
+  examplesGrammar: "examples/grammar",
+  examplesGrammarEnd: "examples/grammar/end",
+  examplesGerman: "examples/german",
+  examplesMatching: "examples/matching",
+  examplesMatchingEnglish: "examples/matching-en",
+  examplesPostcard: "examples/postcard",
+  examplesSummary: "examples/summary",
+  examplesSpellcheck: "examples/spellcheck",
+};
+
+export const HOMEPAGE_ROUTE_BUILDER = {
+  root: ["/"],
+  impressum: ["/impressum"],
+  team: ["/team"],
+  technology: (link: string) => [`/technology`, link],
+  examplesGrammarStandalone: ["/examples", "grammar-standalone"],
+  examplesGrammar: ["/examples", "grammar"],
+  examplesGrammarEnd: ["/examples", "grammar", "end"],
+  examplesGerman: ["/examples", "german"],
+  examplesMatching: ["/examples", "matching"],
+  examplesMatchingEnglish: ["/examples", "matching-en"],
+  examplesPostcard: ["/examples", "postcard"],
+  examplesSummary: ["/examples", "summary"],
+  examplesSpellcheck: ["/examples", "spellcheck"],
+};

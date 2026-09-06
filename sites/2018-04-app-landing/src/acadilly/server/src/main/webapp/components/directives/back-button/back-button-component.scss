@@ -1,0 +1,12 @@
+.back-button-wrapper {
+
+  .back-button {
+    font-size: 35px;
+    padding-right: 10px;
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: none;
+    }
+  }
+}

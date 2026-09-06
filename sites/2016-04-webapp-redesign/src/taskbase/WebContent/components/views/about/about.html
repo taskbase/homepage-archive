@@ -1,0 +1,31 @@
+<div class='about-wrapper no-padding-view'>
+
+  <div class="grad1">
+    <div style="color: white; font-weight: 700; font-size: 40px; padding: 150px 0 50px 0" class="center">
+      Unsere Vision
+    </div>
+
+    <div style="color: white; font-size: 40px; padding: 0 0 150px 0" class="center">
+      ist Lehrpersonen digital zu unterstützen.
+    </div>
+  </div>
+
+  <div>
+    <div class="container" style="padding-top: 30px; padding-bottom: 100px; max-width: 900px; margin: 0 auto">
+      <h1 class="center">Team</h1>
+      <div class="row" ng-repeat="teamRow in team" class="clearfix">
+        <div class="col-sm-6" ng-repeat="member in teamRow">
+          <business-card person="member" idx="$index"></business-card>
+        </div>
+      </div>
+      <h1 class="center">Berater</h1>
+      <div class="row" ng-repeat="advisorRow in advisors" class="clearfix">
+        <div class="col-sm-6" ng-repeat="member in advisorRow">
+          <business-card person="member" idx="$index"></business-card>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: 346869fd-1445-4aec-a9b0-c6d9505451d3
+handle: videoTeaserButtonLink
+instructions: ''
+name: 'Video Teaser Button Link'
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_videoteaserbuttonlink}}'
+  maxBlocks: '1'
+  minBlocks: ''
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

@@ -1,0 +1,40 @@
+@import "variables";
+
+:host {
+  display: block;
+  background: #ffffff;
+}
+
+.jumbo {
+  position: relative;
+  display: block;
+  @extend %main-gradient;
+  width: 100%;
+  min-height: 300px;
+
+  .jumbo-content {
+    .titles {
+      width: 100%;
+
+      .big {
+        font-size: 50px;
+        padding-top: 90px;
+        text-align: center;
+        color: #ffffff;
+      }
+
+      .params {
+        text-align: left;
+        color: #ffffff;
+        text-align: center;
+      }
+    }
+
+    .pic {
+      margin: auto;
+      display: block;
+      width: 200px;
+      padding: 50px;
+    }
+  }
+}

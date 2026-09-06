@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: f5e5ddcc-3d3d-4adf-b92a-2eded39c5094
+handle: testimonialText
+instructions: 'Text can be coloured purple by placing words in between square brackets [ ]. '
+name: 'Testimonial Text'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: '1'
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

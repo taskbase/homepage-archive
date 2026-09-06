@@ -1,0 +1,36 @@
+<div id="app-wrapper"
+     ng-if="$ctrl.loggedIn() !== undefined"
+     class='web-app-wrapper'>
+  
+  <!-- Header -->
+  <div ng-if="$ctrl.loggedIn() === true">
+    <div id="tdheader"
+         class="header"
+         ui-view="headerView"
+    ></div>
+    <div style="height: 50px"></div>
+  </div>
+  <div ng-if="$ctrl.loggedIn() === false">
+    <logged-out-header logo="$ctrl.logoUrl"
+                       logo-height="$ctrl.logoHeight"
+                       link-list="$ctrl.linkList">
+    
+    </logged-out-header>
+  </div>
+  
+  <!-- Body -->
+  <div ng-class="$ctrl.bg()"
+       id="tdcontent"
+       class="main the-main-content-part">
+    <div id="main-view"
+         ui-view="mainView"
+         class="angular-animate"
+    ></div>
+  </div>
+  
+  <!-- Footer -->
+  <div class="footer"
+       ng-class="$ctrl.bg()"
+       ui-view="footerView"
+  ></div>
+</div>

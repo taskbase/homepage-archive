@@ -1,0 +1,390 @@
+<meta charset="utf-8">
+<title>Taskbase 2017 — Angular homepage prototype</title>
+<style>
+:root{--bg:#0d0e12;--card:#16181f;--line:#252833;--fg:#e8e9ee;--dim:#8b8f9e;--accent:#7dd3fc}
+body{margin:0;background:var(--bg);color:var(--fg);
+font:15px/1.6 ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:1200px;margin:0 auto;padding:28px 24px 72px}
+h1{font-size:26px;letter-spacing:-.02em;margin:0 0 6px}
+h2{font-size:15px;text-transform:uppercase;letter-spacing:.08em;color:var(--dim);
+margin:40px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+dl{display:grid;grid-template-columns:max-content 1fr;gap:6px 18px;margin:18px 0 0}
+dt{color:var(--dim);font-size:13px}
+dd{margin:0;font-size:14px}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+.why{background:var(--card);border:1px solid var(--line);border-left:3px solid #fbbf24;
+border-radius:8px;padding:14px 18px;margin:24px 0 0;color:#cfd2dc;font-size:14px}
+.assets{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.asset{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.asset .box{height:120px;display:grid;place-items:center;background:#fbfbfd;padding:10px}
+.asset img{width:100%;height:100%;object-fit:contain;display:block}
+.asset .cap{padding:7px 9px;font-size:11px;color:var(--dim);
+font-family:ui-monospace,SFMono-Regular,Menlo,monospace;word-break:break-all}
+details{background:var(--card);border:1px solid var(--line);border-radius:8px;
+margin:0 0 8px;padding:0 14px}
+summary{cursor:pointer;padding:11px 0;font-size:13px;
+font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+pre{overflow-x:auto;background:#0a0b0e;border:1px solid var(--line);border-radius:6px;
+padding:12px;font-size:12px;line-height:1.5;color:#cfd2dc;margin:0 0 14px}
+.files{columns:2;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;
+color:var(--dim);list-style:none;padding:0;margin:0}
+
+.mu-bar{position:sticky;top:0;z-index:99999;background:#0d0e12;color:#e8e9ee;
+font:13px/1.45 ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;
+padding:10px 18px;border-bottom:1px solid #252833;display:flex;flex-wrap:wrap;
+gap:6px 18px;align-items:baseline}
+.mu-bar b{font-size:14px;font-weight:600}
+.mu-bar span{color:#8b8f9e}
+.mu-bar code{color:#7dd3fc;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.mu-bar .mu-warn{color:#fbbf24}
+.mu-note{background:#16181f;color:#8b8f9e;font:13px/1.6 ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;
+padding:12px 18px;border-bottom:1px solid #252833;max-width:none}
+</style>
+<div class="mu-bar"><b>Taskbase 2017 — Angular homepage prototype</b><span>2017-12 – 2018-02</span><span>Angular 5 + Angular Material + d3, @angular/cli 1.x, deployed to Heroku</span><span>homepage.git <code>c642c73</code></span><span class="mu-warn">specimen card — source kept, not built</span></div>
+<div class="wrap">
+<h1>Taskbase 2017 — Angular homepage prototype</h1>
+<dl>
+<dt>Era</dt><dd>2017-12 – 2018-02</dd>
+<dt>Stack</dt><dd>Angular 5 + Angular Material + d3, @angular/cli 1.x, deployed to Heroku</dd>
+<dt>Source</dt><dd>code.taskbase.com/taskbase/homepage.git
+ at <code>c642c73</code></dd>
+<dt>Snapshot</dt><dd><code>sites/2017-12-angular-prototype/src/</code> — 186 entries,
+ 25 renderable images, 15 templates listed below</dd>
+</dl>
+<p class="why"><b>Why there is no live render.</b> This is an Angular application:
+the HTML you would see is produced by the Angular compiler out of component
+templates, SCSS and TypeScript. Building it needs node and the exact toolchain of
+its era, and this box deliberately has no node, npm or npx. Rather than fake a
+screenshot, the page below shows what genuinely survives without a build: every
+image asset the site shipped, and the component templates as source. The full
+tree is in <code>src/</code>, ready for whoever builds it in a container.</p>
+<p class="why" style="border-left-color:#7dd3fc">First attempt at a standalone marketing site, in its own GitLab repo. Space/planets theme, hand-rolled d3 module selector, testimonials, team page. Never the public taskbase.com — superseded by the Feb/Apr 2018 redesign before launch.</p>
+<h2>Assets that shipped with this homepage (25)</h2>
+<div class="assets"><div class="asset"><div class="box"><img src="src/src/assets/img/001-back.svg" loading="lazy" alt=""></div><div class="cap">001-back.svg</div></div><div class="asset"><div class="box"><img src="src/src/assets/img/002-next.svg" loading="lazy" alt=""></div><div class="cap">002-next.svg</div></div><div class="asset"><div class="box"><img src="src/src/assets/img/atom.gif" loading="lazy" alt=""></div><div class="cap">atom.gif</div></div><div class="asset"><div class="box"><img src="src/src/assets/img/bg-clipped.png" loading="lazy" alt=""></div><div class="cap">bg-clipped.png</div></div><div class="asset"><div class="box"><img src="src/src/assets/img/iphonex.png" loading="lazy" alt=""></div><div class="cap">iphonex.png</div></div><div class="asset"><div class="box"><img src="src/src/assets/img/jigsaw.png" loading="lazy" alt=""></div><div class="cap">jigsaw.png</div></div><div class="asset"><div class="box"><img src="src/src/assets/img/learn.gif" loading="lazy" alt=""></div><div class="cap">learn.gif</div></div><div class="asset"><div class="box"><img src="src/src/assets/img/logos/acadilly.png" loading="lazy" alt=""></div><div class="cap">acadilly.png</div></div><div class="asset"><div class="box"><img src="src/src/assets/img/logos/e-maths.png" loading="lazy" alt=""></div><div class="cap">e-maths.png</div></div><div class="asset"><div class="box"><img src="src/src/assets/img/logos/lernnavi-logo.svg" loading="lazy" alt=""></div><div class="cap">lernnavi-logo.svg</div></div><div class="asset"><div class="box"><img src="src/src/assets/img/logos/taskbase-watermark.svg" loading="lazy" alt=""></div><div class="cap">taskbase-watermark.svg</div></div><div class="asset"><div class="box"><img src="src/src/assets/img/logos/taskbase.svg" loading="lazy" alt=""></div><div class="cap">taskbase.svg</div></div><div class="asset"><div class="box"><img src="src/src/assets/img/puzzle.png" loading="lazy" alt=""></div><div class="cap">puzzle.png</div></div><div class="asset"><div class="box"><img src="src/src/assets/img/student.svg" loading="lazy" alt=""></div><div class="cap">student.svg</div></div><div class="asset"><div class="box"><img src="src/src/assets/img/teacherfine.svg" loading="lazy" alt=""></div><div class="cap">teacherfine.svg</div></div><div class="asset"><div class="box"><img src="src/src/assets/img/team/daniel.png" loading="lazy" alt=""></div><div class="cap">daniel.png</div></div><div class="asset"><div class="box"><img src="src/src/assets/img/team/dominique.png" loading="lazy" alt=""></div><div class="cap">dominique.png</div></div><div class="asset"><div class="box"><img src="src/src/assets/img/team/jost.png" loading="lazy" alt=""></div><div class="cap">jost.png</div></div><div class="asset"><div class="box"><img src="src/src/assets/img/team/samuel.png" loading="lazy" alt=""></div><div class="cap">samuel.png</div></div><div class="asset"><div class="box"><img src="src/src/assets/img/temp.png" loading="lazy" alt=""></div><div class="cap">temp.png</div></div><div class="asset"><div class="box"><img src="src/src/assets/img/temp2.png" loading="lazy" alt=""></div><div class="cap">temp2.png</div></div><div class="asset"><div class="box"><img src="src/src/assets/img/testimonial/enrico.png" loading="lazy" alt=""></div><div class="cap">enrico.png</div></div><div class="asset"><div class="box"><img src="src/src/assets/img/testimonial/jaime.png" loading="lazy" alt=""></div><div class="cap">jaime.png</div></div><div class="asset"><div class="box"><img src="src/src/assets/img/testimonial/urs.png" loading="lazy" alt=""></div><div class="cap">urs.png</div></div><div class="asset"><div class="box"><img src="src/src/assets/img/valentines-heart.svg" loading="lazy" alt=""></div><div class="cap">valentines-heart.svg</div></div></div>
+<h2>Build manifest</h2>
+<details open><summary>package.json</summary><pre>{
+  &quot;name&quot;: &quot;taskbase-homepage&quot;,
+  &quot;version&quot;: &quot;0.0.0&quot;,
+  &quot;license&quot;: &quot;MIT&quot;,
+  &quot;scripts&quot;: {
+    &quot;ng&quot;: &quot;ng&quot;,
+    &quot;start&quot;: &quot;ng serve&quot;,
+    &quot;build&quot;: &quot;ng build&quot;,
+    &quot;test&quot;: &quot;ng test&quot;,
+    &quot;lint&quot;: &quot;ng lint&quot;,
+    &quot;e2e&quot;: &quot;ng e2e&quot;,
+    &quot;deploy&quot;: &quot;ng build --prod &amp;&amp; firebase deploy&quot;
+  },
+  &quot;private&quot;: true,
+  &quot;dependencies&quot;: {
+    &quot;@angular/animations&quot;: &quot;^5.1.3&quot;,
+    &quot;@angular/cdk&quot;: &quot;^5.0.3&quot;,
+    &quot;@angular/common&quot;: &quot;^5.0.0&quot;,
+    &quot;@angular/compiler&quot;: &quot;^5.0.0&quot;,
+    &quot;@angular/core&quot;: &quot;^5.0.0&quot;,
+    &quot;@angular/forms&quot;: &quot;^5.0.0&quot;,
+    &quot;@angular/http&quot;: &quot;^5.0.0&quot;,
+    &quot;@angular/material&quot;: &quot;^5.0.3&quot;,
+    &quot;@angular/platform-browser&quot;: &quot;^5.0.0&quot;,
+    &quot;@angular/platform-browser-dynamic&quot;: &quot;^5.0.0&quot;,
+    &quot;@angular/router&quot;: &quot;^5.0.0&quot;,
+    &quot;core-js&quot;: &quot;^2.4.1&quot;,
+    &quot;font-awesome&quot;: &quot;^4.7.0&quot;,
+    &quot;hammerjs&quot;: &quot;^2.0.8&quot;,
+    &quot;normalize.css&quot;: &quot;^7.0.0&quot;,
+    &quot;notify-angular&quot;: &quot;^3.0.1&quot;,
+    &quot;rxjs&quot;: &quot;^5.5.5&quot;,
+    &quot;zone.js&quot;: &quot;^0.8.14&quot;
+  },
+  &quot;devDependencies&quot;: {
+    &quot;@angular/cli&quot;: &quot;1.5.4&quot;,
+    &quot;@angular/compiler-cli&quot;: &quot;^5.0.0&quot;,
+    &quot;@angular/language-service&quot;: &quot;^5.0.0&quot;,
+    &quot;@types/jasmine&quot;: &quot;~2.5.53&quot;,
+    &quot;@types/jasminewd2&quot;: &quot;~2.0.2&quot;,
+    &quot;@types/node&quot;: &quot;~6.0.60&quot;,
+    &quot;codelyzer&quot;: &quot;^4.0.1&quot;,
+    &quot;jasmine-core&quot;: &quot;~2.6.2&quot;,
+    &quot;jasmine-spec-reporter&quot;: &quot;~4.1.0&quot;,
+    &quot;karma&quot;: &quot;~1.7.0&quot;,
+    &quot;karma-chrome-launcher&quot;: &quot;~2.1.1&quot;,
+    &quot;karma-cli&quot;: &quot;~1.0.1&quot;,
+    &quot;karma-coverage-istanbul-reporter&quot;: &quot;^1.2.1&quot;,
+    &quot;karma-jasmine&quot;: &quot;~1.1.0&quot;,
+    &quot;karma-jasmine-html-reporter&quot;: &quot;^0.2.2&quot;,
+    &quot;protractor&quot;: &quot;~5.1.2&quot;,
+    &quot;ts-node&quot;: &quot;~3.2.0&quot;,
+    &quot;tslint&quot;: &quot;~5.7.0&quot;,
+    &quot;typescript&quot;: &quot;~2.4.2&quot;
+  }
+}
+</pre></details>
+<h2>Component templates (15)</h2>
+<details><summary>src/app/landing/barf-module/barf-module.component.html</summary><pre>&lt;h1&gt;
+  Blub Module
+&lt;/h1&gt;
+&lt;p&gt;
+  Blub Module is really cool.
+&lt;/p&gt;
+</pre></details><details><summary>src/app/landing/bla-module/bla-module.component.html</summary><pre>&lt;h1&gt;
+  Bla Module
+&lt;/h1&gt;
+&lt;p&gt;
+  Bla Module is da best
+&lt;/p&gt;
+</pre></details><details><summary>src/app/landing/blab-module/blab-module.component.html</summary><pre>&lt;h1&gt;
+  Blarb Module
+&lt;/h1&gt;
+&lt;p&gt;
+  Blarb Module is amazing.
+&lt;/p&gt;
+</pre></details><details><summary>src/app/landing/blub-module/blub-module.component.html</summary><pre>&lt;h1&gt;
+  Blub Module
+&lt;/h1&gt;
+&lt;p&gt;
+  Without blub module, you don&#x27;t know what to do.
+&lt;/p&gt;
+</pre></details><details><summary>src/app/landing/contact/contact.component.html</summary><pre>&lt;div class=&quot;contact&quot;&gt;
+  &lt;mat-card class=&quot;card&quot;&gt;
+    &lt;h1 class=&quot;title&quot;&gt;Kontakt&lt;/h1&gt;
+    &lt;form class=&quot;example-form&quot; [formGroup]=&quot;contactForm&quot;&gt;
+      &lt;mat-form-field class=&quot;example-full-width&quot;&gt;
+        &lt;input matInput placeholder=&quot;Ihr Name&quot; formControlName=&quot;name&quot; type=&quot;text&quot;&gt;
+      &lt;/mat-form-field&gt;
+      &lt;mat-form-field class=&quot;example-full-width&quot;&gt;
+        &lt;input matInput placeholder=&quot;Ihre Email&quot; formControlName=&quot;email&quot; type=&quot;email&quot;&gt;
+      &lt;/mat-form-field&gt;
+      &lt;mat-form-field class=&quot;example-full-width&quot;&gt;
+        &lt;textarea matInput
+                  placeholder=&quot;Ihre Nachricht&quot;
+                  formControlName=&quot;message&quot;
+                  matTextareaAutosize
+                  matAutosizeMinRows=&quot;2&quot;
+                  matAutosizeMaxRows=&quot;5&quot;
+                  required&gt;
+        &lt;/textarea&gt;
+        &lt;mat-error *ngIf=&quot;message.invalid&quot;&gt;{{getErrorMessage()}}&lt;/mat-error&gt;
+      &lt;/mat-form-field&gt;
+    &lt;/form&gt;
+    &lt;br&gt;
+    &lt;button color=&quot;primary&quot; (click)=&quot;onSubmit()&quot; [disabled]=&quot;message.invalid&quot; type=&quot;submit&quot; mat-raised-button&gt;
+      Senden
+    &lt;/button&gt;
+  &lt;/mat-card&gt;
+&lt;/div&gt;
+</pre></details><details><summary>src/app/landing/customers/customers.component.html</summary><pre>&lt;div class=&quot;customers&quot;&gt;
+  &lt;h1&gt;Zufriedene Kunden&lt;/h1&gt;
+  &lt;div class=&quot;logo-wrapper&quot;&gt;
+    &lt;div style=&quot;height: 50px&quot;
+         class=&quot;logo&quot;
+         *ngFor=&quot;let customer of customers&quot;
+    &gt;
+      &lt;img [src]=&quot;customer.logo&quot;
+           [ngStyle]=&quot;customer.style&quot;&gt;
+    &lt;/div&gt;
+  
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre></details><details><summary>src/app/landing/jumbo/jumbo.component.html</summary><pre>&lt;div class=&quot;jumbo-wrapper&quot;&gt;
+  &lt;img src=&quot;assets/img/bg-clipped.png&quot;
+       *ngIf=&quot;showImage&quot;
+       class=&quot;jumbo-img&quot;&gt;
+  &lt;img src=&quot;assets/img/logos/taskbase-watermark.svg&quot;
+       class=&quot;jumbo-watermark&quot;&gt;
+  &lt;div class=&quot;jumbo-content&quot;&gt;
+    &lt;div class=&quot;jumbo-headline&quot;&gt;
+      Wir entwickeln Ihr Lernsytem
+    &lt;/div&gt;
+    &lt;div class=&quot;jumbo-text&quot;&gt;
+      Taskbase stellt moderne Lernsysteme für Schulen und Universitäten her.
+    &lt;/div&gt;
+    &lt;div class=&quot;form-wrapper&quot;&gt;
+      &lt;form class=&quot;jumbo-newsletter&quot; [formGroup]=&quot;newsletterForm&quot; novalidate (ngSubmit)=&quot;onSubmit()&quot;&gt;
+        &lt;input class=&quot;newsletter-email&quot; formControlName=&quot;email&quot; placeholder=&quot;Email Adresse...&quot; type=&quot;email&quot;&gt;
+        &lt;div class=&quot;newsletter-submit-button&quot;&gt;
+          &lt;button mat-raised-button
+                  type=&quot;submit&quot;
+                  [disabled]=&quot;newsletterForm.invalid &amp;&amp; newsletterForm.touched&quot;&gt;
+            Newsletter abonnieren
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/form&gt;
+      &lt;div class=&quot;errors&quot;&gt;
+        &lt;div *ngIf=&quot;newsletterForm.touched &amp;&amp; email.hasError(&#x27;email&#x27;) &amp;&amp; !email?.hasError(&#x27;required&#x27;)&quot;&gt;
+          Bitte geben Sie eine gültige Email Adresse ein.
+        &lt;/div&gt;
+        &lt;div *ngIf=&quot;newsletterForm.touched &amp;&amp; email?.hasError(&#x27;required&#x27;)&quot;&gt;
+          Sie müssen eine Email eingeben.
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre></details><details><summary>src/app/landing/landing.component.html</summary><pre>&lt;div class=&quot;app-content&quot;&gt;
+  &lt;app-jumbo [screenWidth]=&quot;screenWidth&quot;&gt;&lt;/app-jumbo&gt;
+  &lt;app-tb-modules [screenWidth]=&quot;screenWidth&quot;&gt;&lt;/app-tb-modules&gt;
+  &lt;app-sellingpoint&gt;&lt;/app-sellingpoint&gt;
+  &lt;app-showcases&gt;&lt;/app-showcases&gt;
+  &lt;app-testimonials&gt;&lt;/app-testimonials&gt;
+  &lt;app-customers&gt;&lt;/app-customers&gt;
+  &lt;app-contact&gt;&lt;/app-contact&gt;
+&lt;/div&gt;
+</pre></details><details><summary>src/app/landing/module-example/module-example.component.html</summary><pre>&lt;p&gt;
+  module-example works!
+&lt;/p&gt;
+</pre></details><details><summary>src/app/landing/sellingpoint/sellingpoint.component.html</summary><pre>&lt;div class=&quot;what-we-do&quot;&gt;
+  &lt;img src=&quot;/assets/img/valentines-heart.svg&quot;
+       height=&quot;90&quot;
+       width=&quot;90&quot;
+       alt=&quot;&quot;&gt;
+  &lt;div class=&quot;text&quot;&gt;
+    Mit top Technologien, agilem Projektmanagement
+    und viel Leidenschaft entwickel wir Ihre interaktive
+    Lernlösungen.
+  &lt;/div&gt;
+&lt;/div&gt;
+
+</pre></details><details><summary>src/app/landing/showcases/showcases.component.html</summary><pre>&lt;div class=&quot;showcases&quot;&gt;
+  &lt;h1&gt;Showcases&lt;/h1&gt;
+  &lt;div class=&quot;logo-wrapper&quot;&gt;
+    &lt;div style=&quot;height: 50px&quot;
+         class=&quot;logo&quot;
+         *ngFor=&quot;let showcase of showcases&quot;
+    &gt;
+      &lt;img [src]=&quot;showcase.logo&quot;
+           [ngStyle]=&quot;showcase.style&quot;&gt;
+    &lt;/div&gt;
+  
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre></details><details><summary>src/app/landing/tb-modules/tb-modules.component.html</summary><pre>&lt;div class=&quot;upper-part&quot;&gt;
+  &lt;div class=&quot;left-img&quot; *ngIf=&quot;showLeftImage&quot;&gt;
+    &lt;img src=&quot;assets/img/teacherfine.svg&quot;
+         alt=&quot;&quot;&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;tb-modules-content&quot;&gt;
+    &lt;div class=&quot;image-wrapper&quot;&gt;
+      &lt;svg #svg [attr.width]=&quot;width&quot; [attr.height]=&quot;height&quot;&gt;
+        &lt;rect [attr.x]=&quot; width * 0.3&quot; [attr.y]=&quot;0&quot; [attr.width]=&quot;width * 0.4&quot; [attr.height]=&quot;150&quot; class=&quot;rect-top&quot;&gt;&lt;/rect&gt;
+        &lt;g *ngFor=&quot;let connector of tbModuleData; trackBy: trackByFn;&quot;&gt;
+          &lt;!-- ATTENTION: connector-line-wrapper and connector-line is almost identical --&gt;
+          &lt;path class=&quot;connector-line-wrapper&quot;
+                [ngClass]=&quot;{&#x27;active&#x27;: connector.module === activeModule}&quot;
+                [attr.d]=&quot;connector.connectorLine&quot;
+                *ngIf=&quot;connector.module === activeModule&quot;
+                (click)=&quot;setActiveTestimonial(connector.module)&quot;&gt;
+          &lt;/path&gt;
+          &lt;path class=&quot;connector-line&quot;
+                [ngClass]=&quot;{&#x27;active&#x27;: connector.module === activeModule}&quot;
+                [attr.d]=&quot;connector.connectorLine&quot;
+                (click)=&quot;setActiveTestimonial(connector.module)&quot;&gt;
+          &lt;/path&gt;
+        &lt;/g&gt;
+      &lt;/svg&gt;
+
+      &lt;div *ngFor=&quot;let connector of tbModuleData&quot;
+           class=&quot;schild&quot;
+           [ngStyle]=&quot;connector.schildStyle&quot;
+           (click)=&quot;setActiveTestimonial(connector.module)&quot;&gt;
+        {{connector.title}}
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;right-img&quot; *ngIf=&quot;showRightImage&quot;&gt;
+    &lt;img src=&quot;assets/img/student.svg&quot;
+         alt=&quot;&quot;&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;displayed-module&quot;&gt;
+  &lt;div [ngSwitch]=&quot;activeModule&quot;&gt;
+    &lt;app-barf-module *ngSwitchCase=&quot;&#x27;barf-module&#x27;&quot;&gt;&lt;/app-barf-module&gt;
+    &lt;app-blab-module *ngSwitchCase=&quot;&#x27;blab-module&#x27;&quot;&gt;&lt;/app-blab-module&gt;
+    &lt;app-bla-module *ngSwitchCase=&quot;&#x27;bla-module&#x27;&quot;&gt;&lt;/app-bla-module&gt;
+    &lt;app-blub-module *ngSwitchCase=&quot;&#x27;blub-module&#x27;&quot;&gt;&lt;/app-blub-module&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre></details><details><summary>src/app/landing/testimonials/testimonials.component.html</summary><pre>&lt;div class=&quot;testimonials&quot;&gt;
+  &lt;button class=&quot;control-wrapper&quot;
+          (click)=&quot;setActiveTestimonial(activeTestimonial-1)&quot;&gt;
+    &lt;img src=&quot;/assets/img/001-back.svg&quot;
+         height=&quot;25&quot;
+         width=&quot;25&quot;
+         alt=&quot;arrow-left&quot;&gt;
+  &lt;/button&gt;
+  &lt;div class=&quot;slidecontent&quot;&gt;
+    
+    &lt;div class=&quot;picture&quot;&gt;
+      &lt;div class=&quot;img&quot;&gt;
+        &lt;img [src]=&quot;testimonials[activeTestimonial].pic&quot;
+             alt=&quot;&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class=&quot;testimonial&quot;&gt;
+      &lt;div class=&quot;sentence&quot;&gt;
+        &lt;h1&gt;&amp;quot;{{testimonials[activeTestimonial].sentence}}&amp;quot;&lt;/h1&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;name&quot;&gt;
+        &lt;div&gt;{{testimonials[activeTestimonial].name}}&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;role&quot;&gt;
+        &lt;div&gt;{{testimonials[activeTestimonial].role}}&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;button class=&quot;control-wrapper&quot;
+          (click)=&quot;setActiveTestimonial(activeTestimonial+1)&quot;&gt;
+    &lt;img src=&quot;/assets/img/002-next.svg&quot;
+         height=&quot;25&quot;
+         width=&quot;25&quot;
+         alt=&quot;right&quot;&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+</pre></details><details><summary>src/app/app.component.html</summary><pre>&lt;notify&gt;&lt;/notify&gt;
+&lt;div class=&quot;app-root&quot;&gt;
+  &lt;app-navbar&gt;&lt;/app-navbar&gt;
+  &lt;mat-sidenav-container class=&quot;example-container&quot;&gt;
+    &lt;mat-sidenav #sidenav
+                 class=&quot;sidenav&quot;
+                 [opened]=&quot;sidenavState.open&quot;
+                 (closed)=&quot;sidenavState.open = false&quot;
+                 (opened)=&quot;sidenaveState.open = true&quot;
+                 position=&quot;end&quot;&gt;
+      &lt;br&gt;
+      &lt;app-menu-items alignment=&quot;vertical&quot;&gt;&lt;/app-menu-items&gt;
+    &lt;/mat-sidenav&gt;
+    &lt;mat-sidenav-content&gt;
+      &lt;div class=&quot;app-body&quot;&gt;
+        &lt;router-outlet&gt;&lt;/router-outlet&gt;
+      &lt;/div&gt;
+    &lt;/mat-sidenav-content&gt;
+  &lt;/mat-sidenav-container&gt;
+  &lt;app-footer&gt;&lt;/app-footer&gt;
+&lt;/div&gt;
+</pre></details><details><summary>src/app/navbar/navbar.component.html</summary><pre>&lt;!-- TODO-FIVERR1: Navbar should be really sticky and shouldn&#x27;t move around --&gt;
+&lt;div class=&quot;navbar&quot;&gt;
+  &lt;div class=&quot;navbar-left&quot;&gt;
+    &lt;a class=&quot;navbar-button logo-image-wrapper&quot; routerLink=&quot;/&quot;&gt;
+      &lt;img src=&quot;/assets/img/logos/taskbase.svg&quot;
+           class=&quot;logo-image&quot;
+           alt=&quot;&quot;&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;navbar-middle&quot;&gt;
+    &lt;!-- nothing here yet --&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;navbar-right&quot;&gt;
+    &lt;div class=&quot;tablet-and-desktop-menu&quot;&gt;
+      &lt;app-menu-items&gt;&lt;/app-menu-items&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;mobile-menu&quot;&gt;
+      &lt;button mat-raised-button (click)=&quot;sidenavState.open = !sidenavState.open&quot; color=&quot;primary&quot;&gt;
+        &lt;i class=&quot;fa fa-bars&quot;&gt;&lt;/i&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre></details>
+</div>

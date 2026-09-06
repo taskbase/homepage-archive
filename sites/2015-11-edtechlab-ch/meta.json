@@ -1,0 +1,11 @@
+{
+  "slug": "2015-11-edtechlab-ch",
+  "title": "edTechLab AG 2015 — edtechlab.ch, never rendered",
+  "era": "2015-11 – 2016-03 (corporate site, pre-rename)",
+  "source": "wayback",
+  "origin": "https://web.archive.org/web/20151114141508id_/http://edtechlab.ch/",
+  "stack": "Meteor 1.1.0.2 client-rendered app (xolvio md-blog package), Open Sans 300",
+  "captured": "2026-09-03",
+  "status": "broken",
+  "notes": "Taskbase's own prior corporate identity, not another party: edTechLab AG, registered 2015-08-07 in Zürich. The monorepo's first commit (2015-05-29) already footers \"Copyright © 2015 edTechLab AG (info@edtechlab.ch)\", and from 2015-09-10 that footer carried the edTech Laboratory flask logo linking to www.edtechlab.ch — the red bubbles of the favicon recovered here. The three captures (2015-11-14, 2016-01-11, 2016-03-08) are three separate deploys rather than one page: each carries its own Meteor bundle hash and autoupdateVersion, and the two later ones also pull Font Awesome 4.5.0. All three have an empty <body> — every word of content sat in a JS bundle no archive ever fetched, so both bundle refs are defused here rather than shipped: the JS URL's nearest capture is a 2018 HostGator 404, and the CSS URL that does return 200 is Meteor's own .meteor-css-not-found-error stub. The runtime config does survive: xolvio md-blog at its demo defaults, Pure CSS, blog at /blog. The source was never in the monorepo — a 2016-01 script deploys it with mup from a laptop to a DigitalOcean box. Pages that existed but went uncrawled: /taskbase, /bashclient/doc/, /twiml1.xml. The domain 301s to taskbase.org from 2016-03-29, but the legal rename to Taskbase AG only followed on 2017-02-08, which is why the Java packages left com.edtechlab in 2017-01. RECOVERY.md logs every archive, index, namespace and query tried. The blank page is the exhibit; a muted bottom-right badge says so on click."
+}

@@ -1,0 +1,28 @@
+<div class="logos" data-section-title="{{ entry.logosSectionTitle }}">
+	<div class="logos__content">
+		<h2 class="logos__title will-appear">{{ entry.logosTitle|replace({'[': '<span>', ']': "</span>"})|raw }}</h2>
+		<div class="logos__text will-appear">{{ entry.logosText }}</div>
+		{% if entry.logosButtonLink.one() %}
+			<div class="will-appear">
+				{% include 'includes/_link' with {block: entry.logosButtonLink, label: entry.logosButtonLinkLabel} %}
+			</div>
+		{% endif %}
+	</div>
+	<div class="logos__media will-appear">
+		{% for logo in entry.logos.all() %}
+			{% if logo.logoLink %}
+				<a href="{{ logo.logoLink }}" target="_blank" rel="noopener noreferrer" class="logos__logo" style="transition-delay:{{ loop.index * 80 }}ms;">
+			{% else %}
+				<div class="logos__logo" style="transition-delay:{{ loop.index * 80 }}ms;">
+			{% endif %}
+
+					<img class="logos__logo-image" src="{{ logo.image.one.getUrl() }}" alt="Logo of {{ logo.companyName }}"/>
+					
+			{% if logo.logoLink %}
+				</a>
+			{% else %}
+				</div>
+			{% endif %}
+		{% endfor %}
+	</div>
+</div>

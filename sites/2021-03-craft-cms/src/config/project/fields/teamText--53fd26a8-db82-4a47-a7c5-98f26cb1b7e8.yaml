@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: c28b812a-8423-4a79-ba2e-6c7d229229f8
+handle: teamText
+instructions: 'Text can be coloured purple by placing words in between square brackets [ ]. '
+name: 'Team Text'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: '1'
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

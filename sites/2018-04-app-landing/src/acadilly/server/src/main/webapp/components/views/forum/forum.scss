@@ -1,0 +1,20 @@
+.forum-wrapper{
+
+  .forum-editor-wrapper {
+    position: relative;
+  }
+
+  .forum-editor-info {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .transparent-modal {
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+  }
+  
+}

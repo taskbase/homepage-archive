@@ -1,0 +1,25 @@
+<div id="app-wrapper"
+     ng-if="$ctrl.loggedIn() !== undefined"
+     class='web-app-wrapper'>
+  
+  <div id="tdheader"
+       class="header"
+       ui-view="headerView"
+  ></div>
+  
+  <div ng-if="!$ctrl.loggedIn()" style="height: 50px"></div>
+  
+  <div ng-class="$ctrl.bg()"
+       id="tdcontent"
+       class="main the-main-content-part">
+    <div id="main-view"
+         ui-view="mainView"
+         class="angular-animate"
+    ></div>
+  </div>
+  
+  <div class="footer"
+       ng-class="$ctrl.bg()"
+       ui-view="footerView"
+  ></div>
+</div>

@@ -1,0 +1,17 @@
+@import '../app/variables';
+
+.footer-wrapper {
+  .footer {
+    background: $primary;
+    bottom: 0;
+    color: $white;
+    position: absolute;
+    width: 100%;
+    box-shadow: $up-shadow;
+
+    .container .text-muted {
+      margin: 20px 0;
+      color: $white;
+    }
+  }
+}

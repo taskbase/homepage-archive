@@ -1,0 +1,64 @@
+.objective-curriculum-wrapper {
+
+  &.unpublished-tile {
+    background: $gray0;
+  }
+
+  .unpublished {
+    color: $beige;
+  }
+
+  margin: 0;
+
+  .objective-item {
+
+    position: relative;
+
+    .show-on-objective-hover {
+      visibility: hidden;
+    }
+
+    &:hover {
+      .show-on-objective-hover {
+        visibility: visible;
+      }
+    }
+  }
+
+  .objective-tile {
+    border-bottom: 1px solid #ddd;
+    margin: 0;
+
+    .tile-column {
+      padding: 15px 0;
+    }
+
+    @media (max-width: $xs) {
+      .move-up-on-xs {
+        margin-top: -15px;
+      }
+    }
+
+  }
+
+  .first-row-wrapper {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+
+  .new-dd-icon {
+    width: 20px;
+  }
+
+  .objective-settings {
+    cursor: pointer;
+  }
+
+  .objective-icon {
+    color: $accent;
+    font-size: 14px;
+  }
+
+}

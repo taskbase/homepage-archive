@@ -1,0 +1,13 @@
+<div class='reference-item-wrapper inline-block'>
+
+  <a href="{{item.link}}" class="reference-item">
+    <div>
+      <img ng-src="assets/img/cloudinary/c_scale,h_25/{{item.logo}}"
+           ng-srcset="assets/img/cloudinary/c_scale,h_25/{{item.logo}} 1x, assets/img/cloudinary/c_scale,h_50/{{item.logo}} 2x"
+           style="height: 25px;" alt="{{item.name}}">
+    </div>
+    <div class="center grayed" ng-if="item.name" style="font-size: 12px; white-space: pre-line">
+      {{item.name}}
+    </div>
+  </a>
+</div>

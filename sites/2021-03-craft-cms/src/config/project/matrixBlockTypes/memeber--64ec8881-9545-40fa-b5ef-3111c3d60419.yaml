@@ -1,0 +1,152 @@
+field: 6f13a0e8-feca-46c7-b3cc-6e30f9d09c34
+fieldLayouts:
+  c3937d66-240c-4a76-bc0a-8c2ddc5cc235:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 476c7a73-618c-4952-9fd7-8a978ad265a7
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 3cf4e25c-b377-44a8-bcb4-a53aa9d42973
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 2c792ae3-be3c-4af8-b306-162e30c96fa2
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: a5104bdb-497f-4464-a138-d4c910c7b3e2
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 202fe447-c6c5-421d-8233-f509757b4cac
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  2c792ae3-be3c-4af8-b306-162e30c96fa2:
+    contentColumnType: text
+    fieldGroup: null
+    handle: career
+    instructions: ''
+    name: Career
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  3cf4e25c-b377-44a8-bcb4-a53aa9d42973:
+    contentColumnType: text
+    fieldGroup: null
+    handle: position
+    instructions: ''
+    name: Position
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  202fe447-c6c5-421d-8233-f509757b4cac:
+    contentColumnType: text
+    fieldGroup: null
+    handle: hotspot
+    instructions: 'Text will be displayed in the hotspot. '
+    name: Hotspot
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  476c7a73-618c-4952-9fd7-8a978ad265a7:
+    contentColumnType: text
+    fieldGroup: null
+    handle: memberName
+    instructions: ''
+    name: 'Member Name'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  a5104bdb-497f-4464-a138-d4c910c7b3e2:
+    contentColumnType: text
+    fieldGroup: null
+    handle: memberLink
+    instructions: ''
+    name: 'Member Link'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: memeber
+name: Memeber
+sortOrder: 1

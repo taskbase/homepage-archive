@@ -1,0 +1,21 @@
+contentColumnType: string
+fieldGroup: 48add524-57f0-4ebd-8d13-9d3dfad696e3
+handle: testimonialSliderItems
+instructions: ''
+name: 'Testimonial Slider Items'
+searchable: false
+settings:
+  allowSelfRelations: false
+  limit: ''
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: false
+  source: null
+  sources:
+    - 'section:869e2762-2759-4017-9d05-a5544ab16310'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

@@ -1,0 +1,44 @@
+field: 89f6bcaf-defe-4bed-81df-4e9d744aca9e
+fieldLayouts:
+  cfa8e350-1757-49a9-bb0c-e49b3234ba09:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: d5aad2f0-a328-415b-9616-aab20c1562cc
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  d5aad2f0-a328-415b-9616-aab20c1562cc:
+    contentColumnType: string
+    fieldGroup: null
+    handle: internalLink
+    instructions: ''
+    name: 'Internal Link'
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      limit: ''
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: false
+      source: null
+      sources:
+        - 'section:75c0bcff-6c88-4b33-96c4-3d09961ec141'
+        - singles
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+handle: internal
+name: Internal
+sortOrder: 2

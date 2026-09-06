@@ -1,0 +1,57 @@
+contentColumnType: text
+fieldGroup: 834cfea1-d505-43dd-a67e-c817f819ed49
+handle: socialMediaLinks
+instructions: 'Link list displayed in the footer.'
+name: 'Social Media Links'
+searchable: false
+settings:
+  addRowLabel: 'Zeile hinzufügen'
+  columnType: text
+  columns:
+    __assoc__:
+      -
+        - col1
+        -
+          __assoc__:
+            -
+              - heading
+              - Link
+            -
+              - handle
+              - link
+            -
+              - width
+              - ''
+            -
+              - type
+              - singleline
+      -
+        - col2
+        -
+          __assoc__:
+            -
+              - heading
+              - Label
+            -
+              - handle
+              - label
+            -
+              - width
+              - ''
+            -
+              - type
+              - singleline
+  defaults:
+    -
+      __assoc__:
+        -
+          - col1
+          - ''
+        -
+          - col2
+          - ''
+  maxRows: ''
+  minRows: ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Table

@@ -1,0 +1,17 @@
+<div class="process" data-section-title="{{ entry.processSectionTitle }}">
+	<div class="process__content">
+		<p class="process__title will-appear">{{ entry.processTitle|replace({'[': '<span>', ']': "</span>"})|raw }}</p>
+		
+		<div>
+			<p class="process__text will-appear">{{ entry.processText }}</p>
+			{% if entry.processButtonLink.one() %}
+				<div class="will-appear">
+					{% include 'includes/_link' with {block: entry.processButtonLink, label: entry.processButtonLabel} %}
+				</div>
+			{% endif %}
+		</div>
+	</div>
+	<div class="process__image">
+		{% include 'includes/_responsive-image' with {image: entry.processMoodImage.one(), cssClass: 'process__image-image'} %}
+	</div>
+</div>

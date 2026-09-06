@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: 0a948365-47dc-4c3b-9455-373def01f954
+handle: heroButtonLink
+instructions: ''
+name: 'Hero Button Link'
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_herobuttonlink}}'
+  maxBlocks: '1'
+  minBlocks: ''
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

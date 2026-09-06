@@ -1,0 +1,19 @@
+.mc-list-wrapper {
+  .correct {
+    font-weight: 600;
+    color: $green;
+  }
+
+  .wrong {
+    font-weight: 600;
+    color: $red;
+  }
+
+  .add-answer:hover {
+    border-bottom: 1px solid $gray0;
+    &:hover {
+      border-bottom: 1px solid $gray0;
+    }
+  }
+
+}

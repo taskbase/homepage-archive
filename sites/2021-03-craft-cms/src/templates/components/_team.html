@@ -1,0 +1,31 @@
+<div class="team" data-section-title="{{ entry.teamSectionTitle }}">
+	<p class="team__text will-appear">{{ entry.teamText|replace({'[': '<span>', ']': "</span>"})|raw }}</p>
+	<div class="team__team will-appear">
+		{% for member in entry.teamMembers.all() %}
+			{% if member.memberLink %}
+
+				<a href="{{ member.memberLink }}" target="_blank" rel="noopener noreferrer" class="team__member" style="transition-delay: {{ loop.index * 80 }}ms">
+				{% else %}
+
+					<div class="team__member" style="transition-delay: {{ loop.index * 80 }}ms">
+					{% endif %}
+					<p class="team__member-name">{{ member.memberName }}</p>
+					<p class="team__member-position">{{ member.position }}</p>
+					<p class="team__member-career">{{ member.career }}</p>
+					{% if member.hotspot %}
+						<div class="team__member-hotspot">
+							<div class="hotspot will-appear js-hotspot">
+								<p class="hotspot__text js-hotspot__text">{{ member.hotspot }}</p>
+							</div>
+						</div>
+					{% endif %}
+					{% if member.memberLink %}
+
+					</a>
+			{% else %}
+
+				</div>
+			{% endif %}
+		{% endfor %}
+	</div>
+</div>

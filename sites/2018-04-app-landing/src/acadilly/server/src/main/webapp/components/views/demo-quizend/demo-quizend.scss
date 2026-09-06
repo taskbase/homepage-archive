@@ -1,0 +1,132 @@
+.demo-quizend-wrapper {
+
+  .quizend-points {
+
+    position: relative;
+    display: inline-block;
+    border-radius: 50%;
+    padding: 40px;
+    background: #f0f0f0;
+    height: 200px;
+    width: 200px;
+    margin: 0 auto;
+
+    .quizend-points-achieved {
+      position: absolute;
+      top: 20%;
+      font-size: 55px;
+      left: 20%;
+    }
+    .quizend-points-max {
+      position: absolute;
+      bottom: 30%;
+      font-size: 45px;
+      right: 20%;
+    }
+    .quizend-points-divider {
+      position: absolute;
+      top: 30%;
+      right: 50%;
+      font-size: 50px;
+    }
+  }
+
+  .points-declaration {
+    background: white;
+    padding: 10px 0px;
+    margin-top: -45px;
+    font-size: 30px;
+    text-align: center;
+    z-index: 2;
+  }
+
+  .mastery {
+    margin: 0 auto;
+    max-width: 600px;
+    background: white;
+    height: 30px;
+    position: relative;
+    border: 5px;
+    box-shadow: $card-shadow;
+
+    .mastery-achieved-old {
+      height: 30px;
+      position: absolute;
+      width: 60%;
+      background: #009688;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    .mastery-additional {
+      height: 30px;
+      position: absolute;
+      width: 10%;
+      left: 60%;
+      background: #FFC107;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mastery-peers {
+      height: 50px;
+      background: black;
+      width: 5px;
+      position: absolute;
+      left: 55%;
+      margin-top: -10px;
+      border-radius: 2px;
+    }
+
+    .mastery-peers-description {
+      position: absolute;
+      left: 55%;
+      bottom: -30px;
+      margin-left: -15px;
+    }
+
+  }
+
+  .podium {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end;
+    flex-basis: 0;
+
+
+    .podium-1 {
+      height: 100px;
+    }
+
+    .podium-wrapper {
+      flex-grow: 1;
+    }
+
+    .podium-3, .podium-2 {
+      height: 60px;
+    }
+
+    .podium-nr {
+      font-size: 30px;
+    }
+
+    .podium-pod {
+      background: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+  }
+
+  .quizend-problems {
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+}

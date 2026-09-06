@@ -1,0 +1,31 @@
+.task-body-wrapper {
+  padding: 20px;
+  padding-bottom: 30px;
+  font-size: 14px;
+  background-color: $white;
+
+  //http://stackoverflow.com/a/22719552/3022127
+
+  .content {
+    width: 100%;
+  }
+  .content__left {
+    width: 20%;
+    max-width: 170px;
+    min-width: 40px;
+    float: left; /* [1] */
+   // background-color: #fcc;
+  }
+  .content__middle {
+    //background-color: #cfc;
+    overflow: auto; /* [2] */
+  }
+  .content__right {
+    //width: 20%;
+    max-width: 250px;
+    min-width: 80px;
+    float: right; /* [3] */
+    //background-color: #ccf;
+  }
+
+}

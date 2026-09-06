@@ -1,0 +1,28 @@
+{% spaceless %}
+<!Doctype html>
+<html lang="{{ craft.app.language }}">
+	<head>
+		{% include 'includes/_head' %}
+		{{ head() }}
+	</head>
+	
+	<body class="{{ craft.app.language }} {{ entry.section.handle ?? null }} state--hidden">
+		<div class="scrolling-container">
+			{% include 'includes/_header' %}
+			<main class="main"> 
+				{% block content %}{% endblock %}
+			</main>
+			{% include 'includes/_footer' %}
+		</div>
+
+		{% include 'includes/_inpage-nav' %}
+
+		{% include 'components/_cookie-banner' %}
+
+		<script type="text/javascript" src="/js/smooth-scrollbar.js"></script>
+		<script type="text/javascript" src="/js/swiper-bundle.min.js"></script>
+		<script type="text/javascript" src="/js/main.js?v=1"></script>
+		{{ endBody() }}
+	</body>
+</html>
+{% endspaceless %}

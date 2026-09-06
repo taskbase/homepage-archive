@@ -1,0 +1,67 @@
+<div class="navbar"></div>
+<div class="content-container">
+  <div class="content-card">
+    <img src="/assets/img/grammar/football.svg" class="image" />
+    <div class="exercise-content">
+      <img [src]="progressImagePath" class="progress" />
+      <app-marker-question
+        *ngIf="questionNr === 0"
+        class="interactive-question"
+        (changedText)="onChange($event)"
+        [markers]="markers"
+        [editorStyles]="editorStyles"
+        [questionStyles]="questionStyles"
+        [studentInput]="studentInput"
+        stimulus="Please enter an example sentence into the provided field, which describes what you can see in the
+                            picture. Use the <b> simple present </b> tense. "
+      >
+      </app-marker-question>
+      <app-marker-question
+        *ngIf="questionNr === 1"
+        class="interactive-question"
+        (changedText)="onChange($event)"
+        [markers]="markers"
+        [editorStyles]="editorStyles"
+        [questionStyles]="questionStyles"
+        [oldStudentInput]="oldStudentInput"
+        [studentInput]="studentInput"
+        stimulus="Now, please transform the sentence into the <b>past simple</b> tense.<br><br>
+                            You entered the following sentence: <b>{{
+          oldStudentInput
+        }}</b>"
+      ></app-marker-question>
+      <app-highlight-question
+        *ngIf="questionNr === 2"
+        class="interactive-question"
+        [questionStyles]="questionStyles"
+        [oldStudentInput]="oldStudentInput"
+        [studentInput]="studentInput"
+        stimulus="Now, please highlight all <b> verbs </b> in your sentence."
+      >
+      </app-highlight-question>
+      <br />
+      <div *ngIf="feedback !== ''">
+        <h2 class="feedback-text">{{ feedback }}</h2>
+      </div>
+      <button
+        id="check"
+        class="klett-button"
+        (click)="check()"
+        *ngIf="showAnswerButton"
+      >
+        Submit
+      </button>
+      <br />
+      <button
+        id="next"
+        type="submit"
+        class="klett-button"
+        (click)="next()"
+        *ngIf="showNextButton"
+      >
+        Next
+      </button>
+      <div class="error"></div>
+    </div>
+  </div>
+</div>

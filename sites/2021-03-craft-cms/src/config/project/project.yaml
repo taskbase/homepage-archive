@@ -1,0 +1,66 @@
+dateModified: 1630483042
+email:
+  fromEmail: $CONTACT_EMAIL
+  fromName: Taskbase
+  replyToEmail: $CONTACT_EMAIL
+  template: null
+  transportSettings:
+    apiKey: REDACTED
+  transportType: putyourlightson\sendgrid\mail\SendgridAdapter
+meta:
+  __names__:
+    7503008d-9180-4aee-a686-527dba880c60: 'Global Content' # Global Content
+plugins:
+  contact-form:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+    settings:
+      allowAttachments: ''
+      prependSender: '[taskbase.com] '
+      prependSubject: 'New message from taskbase.com'
+      successFlashMessage: 'Your message has been sent.'
+      toEmail: $CONTACT_EMAIL
+  contact-form-honeypot:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+    settings:
+      honeypotParam: NameOfAFieldFromTaskbase
+  imager:
+    edition: standard
+    enabled: false
+    schemaVersion: 2.0.0
+  redactor:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.3.0
+  sendgrid:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  servd-asset-storage:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.5
+    settings:
+      assetsEnvironment: ''
+      assetsEnvironmentOverwrite: ''
+      cacheClearMode: full
+      clearCachesOnSave: always
+      injectCors: '1'
+      projectSlug: economic-chital
+      securityKey: REDACTED
+system:
+  edition: pro
+  live: true
+  name: Taskbase
+  retryDuration: null
+  schemaVersion: 3.7.8
+  timeZone: Europe/Zurich
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  requireEmailVerification: true

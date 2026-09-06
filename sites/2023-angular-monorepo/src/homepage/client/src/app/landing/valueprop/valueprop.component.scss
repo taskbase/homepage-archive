@@ -1,0 +1,20 @@
+@import "variables";
+
+:host {
+  background-color: #ffffff;
+  display: block;
+}
+
+.what-we-do {
+  @extend %primary-inverse;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 30px;
+
+  .green {
+    text-align: center;
+    color: $primary-color;
+  }
+}

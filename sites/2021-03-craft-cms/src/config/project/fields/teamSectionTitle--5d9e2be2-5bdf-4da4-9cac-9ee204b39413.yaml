@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: c28b812a-8423-4a79-ba2e-6c7d229229f8
+handle: teamSectionTitle
+instructions: 'This title will be used for the in-page navigation.'
+name: 'Team Section Title'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

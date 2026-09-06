@@ -1,0 +1,32 @@
+<a class="business-card"
+   target="_blank"
+   [id]="'business-card-' + teamMember.link"
+   href="{{teamMember.link}}">
+  <div class="card-header"></div>
+  <div class="card-body">
+    <div class="img-text-wrapper">
+      <div class="flipper">
+        <div class="front">
+          <img src="{{teamMember.pic}}"
+               alt="">
+        </div>
+        <div class="back">
+          <h2 class="text"><b>{{teamMember.description}}</b></h2>
+        </div>
+      </div>
+    </div>
+    <h1 class="name">
+      {{teamMember.name}}
+    </h1>
+    <h2 class="description">
+      {{teamMember.function1}},<br>
+      {{teamMember.function2}}
+    </h2>
+  </div>
+</a>
+
+
+
+
+
+

@@ -1,0 +1,41 @@
+.feedback {
+  margin-top: 25px;
+  background: none;
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px;
+  border-color: #ffffff;
+  border-style: dashed;
+
+  .feedbacktitle {
+    margin-bottom: 0px;
+    font-weight: bold;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 25px;
+  }
+
+  .feedbackpic {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 110px;
+    height: auto;
+
+    .smiley {
+      width: 120px;
+      height: auto;
+    }
+  }
+
+  .feedbacktext {
+    width: 100%;
+    color: #ffffff;
+    margin-left: 30px;
+    .link {
+      user-select: none;
+      color: #ffb733;
+    }
+  }
+}

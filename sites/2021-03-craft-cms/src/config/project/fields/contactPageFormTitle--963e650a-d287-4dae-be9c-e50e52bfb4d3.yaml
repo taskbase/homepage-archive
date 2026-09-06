@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 35257e4c-5a35-40d9-aee3-be77a725e3ee
+handle: contactPageFormTitle
+instructions: ''
+name: 'Contact Page Form Title'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

@@ -1,0 +1,49 @@
+/* Museum-only. The ElementsKit client-logo slider is a slick carousel whose init
+   script the archive never stored, so its slides are never wrapped in a track:
+   they stack full-width and spill ~1300px past the page. One centred, clipped row
+   of evenly sized logos is what the running carousel showed. */
+.elementskit-clients-slider .swiper-wrapper {
+  display: flex; flex-wrap: nowrap; align-items: center; justify-content: center;
+  gap: 32px; transform: none !important; width: auto !important;
+}
+.elementskit-clients-slider .swiper-slide { flex: 0 0 auto; width: auto !important; }
+.elementskit-clients-slider .slick-slide { float: none; display: block; }
+.elementskit-clients-slider .single-client img {
+  max-height: 40px; width: auto; object-fit: contain;
+}
+.elementskit-clients-slider, .ekit-wid-con { overflow: hidden; }
+
+/* Elementor's carousels are Swiper instances; without their init script the
+   track keeps its natural width and the outer slides hang off the page. */
+body { overflow-x: hidden; }
+
+/* Slider Revolution swaps data-lazyload into src on init. The testimonial
+   slider's arrow buttons (uploads/2022/04/*-button-*.png and the matching
+   svgcustom SVGs) were never crawled, so those two layers would draw a
+   broken-image glyph over the slide. Nothing is left to draw, so draw nothing. */
+img.rs-lazyload[data-lazyload*="not-archived"] { visibility: hidden; }
+
+/* GAP post-16: Elementor rewrites uploads/elementor/css/post-16.css on every page
+   save and the archive never crawled the revision this capture asks for. The one
+   that was stored knows nothing about the fourth benefit column ("10x faster time
+   to market"), so its rocket icon and its title drew at inherited size and colour
+   — invisible on the purple band. These are that column's own rules, taken
+   verbatim from the next archived save of the same page (post-16.css?ver=
+   1696517952, captured 2023-10-23); the copy that is mirrored here is the
+   2023-05-13 one. Every sibling column's rules are identical in both files. */
+.elementor-16 .elementor-element.elementor-element-6ecfccb > .elementor-element-populated{padding:0px 0px 0px 24px;}
+.elementor-16 .elementor-element.elementor-element-00082d6 .elementor-icon-box-wrapper{text-align:left;}
+.elementor-16 .elementor-element.elementor-element-00082d6.elementor-view-stacked .elementor-icon{background-color:var( --e-global-color-secondary );}
+.elementor-16 .elementor-element.elementor-element-00082d6.elementor-view-framed .elementor-icon, .elementor-16 .elementor-element.elementor-element-00082d6.elementor-view-default .elementor-icon{fill:var( --e-global-color-secondary );color:var( --e-global-color-secondary );border-color:var( --e-global-color-secondary );}
+.elementor-16 .elementor-element.elementor-element-00082d6{--icon-box-icon-margin:24px;}
+.elementor-16 .elementor-element.elementor-element-00082d6 .elementor-icon{font-size:48px;}
+.elementor-16 .elementor-element.elementor-element-00082d6 .elementor-icon-box-title{margin-bottom:8px;color:var( --e-global-color-secondary );}
+.elementor-16 .elementor-element.elementor-element-00082d6 .elementor-icon-box-title, .elementor-16 .elementor-element.elementor-element-00082d6 .elementor-icon-box-title a{font-family:"Inter", Sans-serif;font-size:28px;font-weight:600;line-height:40px;}
+.elementor-16 .elementor-element.elementor-element-00082d6 .elementor-icon-box-description{font-family:"Inter", Sans-serif;font-size:16px;font-weight:400;line-height:28px;}
+@media(max-width:1000px){
+  .elementor-16 .elementor-element.elementor-element-6ecfccb > .elementor-element-populated{padding:32px 0px 0px 0px;}
+  .elementor-16 .elementor-element.elementor-element-00082d6 .elementor-icon{font-size:32px;}
+  .elementor-16 .elementor-element.elementor-element-00082d6 .elementor-icon-box-title, .elementor-16 .elementor-element.elementor-element-00082d6 .elementor-icon-box-title a{font-size:14px;line-height:25px;}
+  .elementor-16 .elementor-element.elementor-element-00082d6 .elementor-icon-box-description{font-size:20px;line-height:32px;}
+  .elementor-16 .elementor-element.elementor-element-00082d6 > .elementor-widget-container{padding:0px 0px 0px 0px;}
+}

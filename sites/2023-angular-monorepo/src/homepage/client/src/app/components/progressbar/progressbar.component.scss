@@ -1,0 +1,21 @@
+@import "variables";
+
+.progressbar {
+  background-color: $primary-color-contrast;
+  border-radius: 2px;
+
+  .progressbar-label {
+    position: absolute;
+    height: 24px;
+    margin-left: 5px;
+    color: $dark-gray;
+    .progressbar-label-inner {
+      vertical-align: middle;
+    }
+  }
+  .progressbar-inner {
+    height: 24px;
+    background-color: $orange;
+    border-radius: 2px 0px 0px 2px;
+  }
+}

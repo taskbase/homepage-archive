@@ -1,0 +1,87 @@
+@import 'variables';
+
+$medium-size: 900px;
+
+.jumbo-wrapper {
+  @extend %primary;
+  background-image: $linear-gradient;
+  min-height: 500px;
+
+  position: relative;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .jumbo-img {
+    max-height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .jumbo-watermark {
+    max-height: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  .jumbo-content {
+    position: relative;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    @media(max-width: $medium-size) {
+      text-align: center;
+    }
+    @media(min-width: $medium-size + 1px) and (max-width: 1200px) {
+      margin-left: 250px;
+    }
+
+    .jumbo-headline {
+      color: $primary-color-contrast;
+      font-size: 40px;
+      font-weight: bold;
+    }
+
+    .jumbo-text {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    .form-wrapper {
+      text-align: left;
+      height: 200px;
+
+      .jumbo-newsletter {
+
+        display: flex;
+        align-items: center;
+        margin-top: 70px;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .newsletter-email {
+          flex-grow: 2;
+          margin-right: 5px;
+          padding: 9px;
+          border-radius: 2px;
+          box-shadow: $mat-box-shadow;
+          border: none;
+          margin-top: 10px;
+        }
+
+        .newsletter-submit-button {
+          color: black;
+          margin-top: 10px;
+        }
+
+      }
+
+    }
+
+  }
+
+
+}

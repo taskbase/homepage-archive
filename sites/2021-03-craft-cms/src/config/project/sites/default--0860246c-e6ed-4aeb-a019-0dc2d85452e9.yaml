@@ -1,0 +1,9 @@
+baseUrl: $PRIMARY_SITE_URL
+enabled: true
+handle: default
+hasUrls: true
+language: en
+name: Taskbase
+primary: true
+siteGroup: d73f2624-756b-48c1-83e5-0d1add492758
+sortOrder: 1

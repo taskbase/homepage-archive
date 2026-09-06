@@ -1,0 +1,65 @@
+.landing-wrapper {
+  .ad-icon2 {
+    font-size: 100px;
+    color: $accent;
+    margin-top: 25px;
+  }
+
+  .ad-text2 {
+    color: $gray7;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 10px;
+  }
+
+  .ad-text3 {
+    font-weight: 400;
+  }
+
+  .ad-item-wrapper2 {
+    padding: 20px;
+  }
+
+  .ad-icon-wrapper2 {
+    background: $primary;
+    border-radius: 50px;
+    height: 100px;
+    width: 100px;
+  }
+
+  .ad-img2 {
+    width: 125px;
+  }
+
+  //related to circle, can be reused
+  .circle-base {
+      border-radius: 50%;
+      margin: auto;
+      color: $primary;
+
+      width: 100px;
+      height: 100px;
+      //background: yellow;
+      border: 3px solid $gray3;
+
+      &:hover {
+        border: none;
+        @include linear-gradient($primary, $accent);
+        color: #fff;
+        box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.8);
+        -webkit-box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.8);
+      }
+
+  }
+
+  .explanation-string {
+    font-size: 20px;
+  }
+
+
+  .circle-icon {
+    font-size: 40px;
+    line-height: 100px;
+  }
+
+}

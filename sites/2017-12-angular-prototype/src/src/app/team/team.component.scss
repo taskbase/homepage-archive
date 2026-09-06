@@ -1,0 +1,38 @@
+@import 'variables';
+
+.jumbo {
+  @extend %background-gradient;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .jumbo-content {
+    text-align: center;
+    font-size: 35px;
+    .content-part-1 {
+    }
+    .content-part-2 {
+      font-weight: bold;
+    }
+
+
+  }
+}
+
+.team-page-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  .team-member-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    .team-member-list-item {
+      width: 400px;
+      max-width: 100%;
+      margin: 20px;
+    }
+  }
+}
+

@@ -1,0 +1,21 @@
+<notify></notify>
+<div class="app-root">
+  <app-navbar></app-navbar>
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav
+                 class="sidenav"
+                 [opened]="sidenavState.open"
+                 (closed)="sidenavState.open = false"
+                 (opened)="sidenaveState.open = true"
+                 position="end">
+      <br>
+      <app-menu-items alignment="vertical"></app-menu-items>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="app-body">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  <app-footer></app-footer>
+</div>

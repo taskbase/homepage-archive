@@ -1,0 +1,50 @@
+.signup-teachers-wrapper {
+
+  .container {
+    max-width: 3000px;
+  }
+
+  .cd-fixed-bg {
+
+
+    background-attachment: fixed;
+
+    padding-left: 3000px;
+    margin-left: -3000px;
+    padding-right: 3000px;
+    margin-right: -3000px;
+
+    &.cd-bg-1 {
+      margin-top: -20px;
+      background-image: url('/assets/img/symphony.png');
+      min-height: 600px;
+      padding-top: 125px;
+    }
+
+    &.cd-bg-2 {
+      margin-bottom: -40px;
+      background-image: url('/assets/img/symphony.png');
+      min-height: 300px;
+      padding-top: 50px;
+    }
+  }
+   
+  .cd-scrolling-bg {
+    background: $white;
+
+    padding-left: 3000px;
+    margin-left: -3000px;
+    padding-right: 3000px;
+    margin-right: -3000px;
+  }
+
+  .ad-image {
+    height: 60px;
+    width: 60px;
+  }
+
+  .ad-text2 {
+    font-size: 17px;
+  }
+
+}

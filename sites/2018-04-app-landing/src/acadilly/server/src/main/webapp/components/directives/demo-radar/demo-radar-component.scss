@@ -1,0 +1,22 @@
+.demo-radar-wrapper {
+
+  .radar-chart-legend-element {
+    height: 10px;
+    width: 10px;
+    display: inline-block;
+  }
+
+  .radar-chart-legend {
+    display: inline-block;
+    text-align: left;
+  }
+
+  .radar-chart-legend-0 {
+    background: $accent;
+  }
+
+  .radar-chart-legend-1 {
+    background: #66594B;
+  }
+
+}

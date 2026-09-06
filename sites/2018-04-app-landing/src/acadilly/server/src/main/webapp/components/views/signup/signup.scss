@@ -1,0 +1,37 @@
+.signup-wrapper {
+
+  .signup-ads {
+    margin-top: 50px;
+
+    .media {
+      margin-bottom: 10px;
+
+      i {
+        padding-left: 2px;
+      }
+    }
+  }
+
+  input {
+    margin-bottom: 5px;
+  }
+
+  .ad-icon2 {
+    font-size: 50px;
+    color: $accent;
+    margin-top: 25px;
+  }
+
+  .ad-text2 {
+    color: $gray7;
+    font-size: 15px;
+  }
+
+  .ad-icon-wrapper2 {
+    background: $primary;
+    border-radius: 50px;
+    height: 100px;
+    width: 100px;
+  }
+
+}

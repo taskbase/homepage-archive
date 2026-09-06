@@ -1,0 +1,53 @@
+<div class="testimonial-slider" data-section-title="{{ entry.testimonialSliderSectionTitle }}">
+	<div class="testimonial-slider__slider-wrapper">
+		<div class="swiper-container  will-appear">
+			<div class="swiper-wrapper">
+				{% for testimonial in entry.testimonialSliderItems.all() %}
+					<div class="swiper-slide">
+						<div class="testimoial-slider__testimonial">
+							<p class="testimonial-slider__testimonial-text">{{ testimonial.testimonialText|replace({'[': '<span>', ']': "</span>"})|raw }}</p>
+							<div>
+								<div class="testimonial-slider__testimonial-bottom">
+									{% if testimonial.testimonialImage %}
+									<img src="{{ testimonial.testimonialImage.one.getUrl() }}" class="testimonial-slider__testimonial-image" alt="Picture of {{ testimonial.testimonialName }} from {{ testimonial.testimonialCompany }}"/>
+									{% endif %}
+									<div class="testimonial-slider__testimonial-info">
+										<p class="testimonial-slider__testimonial-name">{{ testimonial.testimonialName }}</p>
+										<p class="testimonial-slider__testimonial-company">{{ testimonial.testimonialCompany }}</p>
+										{% if testimonial.testimonialHotspot %}
+											<div class="testimonial-slider__testimonial-hotspot">
+												<div class="hotspot will-appear js-hotspot">
+													<p class="hotspot__text js-hotspot__text">{{ testimonial.testimonialHotspot }}</p>
+												</div>
+											</div>
+										{% endif %}
+										<div class="testimonial-slider__testimonial-progress js-testimonial-slider__testimonial-progress">
+											<span></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="testimonial-slider__pagination">
+			<a href="#" class="testimonial-slider__pagination-button js-testimonial-slider__pagination-prev"></a>
+			<a href="#" class="testimonial-slider__pagination-button js-testimonial-slider__pagination-next"></a>
+		</div>
+	</div>
+	<div class="testimonial-slider__images js-testimonial-slider__images">
+		<div class="testimonial-slider__images-container">
+			<div class="testimonial-slider__images-wrapper">
+				<div class="will-appear testimonial-slider__image-left">
+					<img src="{{ entry.testimonialSliderImage1.one.getUrl() }}" class="js-testimonial-slider__image-left" alt="Image of a phone"/>
+				</div>
+				<div class="will-appear testimonial-slider__image-right">
+					<img src="{{ entry.testimonialSliderImage2.one.getUrl() }}" class="js-testimonial-slider__image-right" alt="Image of a phone"/>
+				</div>
+			</div>
+		</div>
+		<p class="testimonial-slider__images-description">{{ entry.testimonialSliderImageDescription }}</p>
+	</div>
+</div>

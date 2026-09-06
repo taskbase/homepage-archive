@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 346869fd-1445-4aec-a9b0-c6d9505451d3
+handle: videoTeaserTitle
+instructions: 'Text can be coloured purple by placing words in between square brackets [ ]. '
+name: 'Video Teaser Title'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

@@ -1,0 +1,170 @@
+fieldLayouts:
+  35165c19-3ae9-419b-adf4-654780e68a21:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 6fd41743-88d1-42fe-994b-75feab3c87e0
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 0440af40-176c-4e67-a21b-cbac88ae4609
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: c42d3c74-05c6-4275-ab65-056d35da1e15
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+        name: Header
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: 3352487f-c609-4e04-809f-bc0e17594baf
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 3f3d2548-d0f3-426b-9eae-bb24dc013c6c
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 3a909f33-194c-40eb-8c0f-91436825f1bc
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 7cbf56c0-c8b2-4d3a-8c50-2e0212d8fdbb
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: f06c62cd-6c73-4e6c-b3ce-36cfd0031308
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+        name: Footer
+        sortOrder: 2
+      -
+        elements:
+          -
+            fieldUid: 5ecf74c8-90f7-4f05-b81a-33f4a1201d43
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Common
+        sortOrder: 3
+      -
+        elements:
+          -
+            fieldUid: dac87261-a9e0-412b-9c68-06c188b85459
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: de3fdbce-a8ce-47e8-8552-9064f815c891
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 0af4747f-1ccd-4bec-b543-566889e1470d
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 25
+          -
+            fieldUid: c839ca3e-687b-4fca-9cea-f9d96358e78f
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 25
+        name: 'Cookie Banner'
+        sortOrder: 4
+      -
+        elements:
+          -
+            fieldUid: 40bc214d-cf78-44a3-aa4f-04619156ab00
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: fff93d37-7e76-4c00-ac64-8a6ab71cca45
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 9be03540-2bf9-4d43-8b38-8fa4103f5e2b
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Contact Form'
+        sortOrder: 5
+handle: globalContent
+name: 'Global Content'
+sortOrder: 1

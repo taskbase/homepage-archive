@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 46bb68c0-9a30-4885-be4c-93df8ce26a0d
+handle: processSectionTitle
+instructions: 'This title will be used for the in-page navigation.'
+name: 'Process Section Title'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

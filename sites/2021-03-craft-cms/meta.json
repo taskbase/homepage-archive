@@ -1,0 +1,11 @@
+{
+  "slug": "2021-03-craft-cms",
+  "title": "Taskbase 2021 — Craft CMS homepage",
+  "era": "2021-02 – 2022-04",
+  "source": "wayback",
+  "origin": "https://web.archive.org/web/20210724004841id_/https://www.taskbase.com/",
+  "stack": "Craft CMS 3.7.11 (PHP 7.2.5, MySQL, Twig), hosted on servd.host; front end is hand-written CSS plus smooth-scrollbar and Swiper",
+  "notes": "Mirror of the 2021-07-24 capture with the repo's own CSS, JS, Inter fonts, favicons and video put back in. Craft kept every word and image in a MySQL database on servd.host and both the database and the servd asset volume are gone, so a real Craft 3.7.11 run (BUILDS.md) still dies on the homepage template's line 3 looking for the logo asset — mirroring the rendered HTML is the only way to see this page. All four pages render: home, contact, media, privacy policy; full source under src/. The hero photo is back at its full 1000w and 2000w from the Imager transforms committed to the repo before Imager was switched off on 2021-02-10 — the same bytes servd's image service returned. Two things the archive lost. The ETH Zürich customer logo is a 404 at every timestamp and replay modifier, so that wordmark comes from this site's own 2022 WordPress mirror: a different derivative of one piece of brand artwork, not the file Craft served. And the process section's TB_Content_2.png exists nowhere above its 10-pixel LQIP — every wayback capture of both servd hosts, id_/im_/if_ replay, Common Crawl 2021–22 and every commit of craft-homepage were checked — so that block shows the real placeholder the site itself faded out of, a genuine blur, not a stand-in. The video is web/videos/TB_Demo.mp4 from the last commit (2021-09-01), which replaced the CDN URL this capture still points at. Form posts nowhere, the servd CSRF fetch is stripped, the cookie banner is gone. preview.png needs smooth-scrollbar destroyed and the fade-ins forced: the page is one 100vh scroll container.",
+  "captured": "2026-09-06",
+  "status": "ok"
+}

@@ -1,0 +1,25 @@
+@import 'variables';
+
+.app-root {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+
+  .app-body {
+    flex-grow: 1;
+  }
+
+}
+
+.example-container {
+  position: absolute;
+  top: $navbar-height;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  .sidenav {
+    width: 200px;
+  }
+
+}

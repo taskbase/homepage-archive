@@ -1,0 +1,15 @@
+.print-competence-modal-wrapper {
+  .selected-layout {
+    img {
+      box-shadow: 0 0 20px $primary;
+    }
+    .layout-title {
+      color: $accent;
+    }
+  }
+  .layout {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+<div class="video-teaser" data-section-title="{{ entry.videoTeaserSectionTitle }}">
+	<div class="video-teaser__content">
+		<h2 class="video-teaser__title will-appear">{{ entry.videoTeaserTitle|replace({'[': '<span>', ']': "</span>"})|raw }}</h2>
+		<div class="video-teaser__text will-appear">{{ entry.videoTeaserText }}</div>
+		{% if entry.videoTeaserButtonLink.one() %}
+			<div class="will-appear">
+				{% include 'includes/_link' with {block: entry.videoTeaserButtonLink, label: entry.videoTeaserButtonLabel} %}
+			</div>
+		{% endif %}
+	</div>
+	<div class="video-teaser__media">
+		<div class="video-teaser__description will-appear">{{ entry.videoTeaserDescription }}</div>
+		<video class="video-teaser__video will-appear" src="/videos/TB_Demo.mp4" loop autoplay muted playsinline></video>
+		<div></div>
+	</div>
+</div>

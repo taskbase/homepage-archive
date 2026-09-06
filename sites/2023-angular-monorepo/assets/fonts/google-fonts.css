@@ -1,0 +1,15 @@
+/* Local stand-in for @import "https://fonts.googleapis.com/css?family=Roboto|Source+Sans+Pro".
+   Same two faces Google served for that exact query, taken from the Internet Archive's
+   copy of it (see sites/2019-01-angular-spa/assets). Weight 400 only, as requested. */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'), url(Roboto-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular'), url(SourceSansPro-Regular.ttf) format('truetype');
+}

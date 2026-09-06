@@ -1,0 +1,125 @@
+<div class='tb-landing-wrapper'>
+  
+  <div class="grad1 vertical-center" style="min-height: calc(100vh - 50px); position: relative">
+    <div class="container">
+      <div class="row" style="padding: 20px 0">
+        <div class="col-sm-4 center hidden-xs">
+          <img ng-src="/assets/img/landing/teachercloud.svg" alt=""
+               style="max-width: 100%; max-height: 400px;">
+        </div>
+        <div class="col-sm-8 col-xs-12 center">
+          <br><br><br>
+          <div class="banner-text">
+            <div>{{$ctrl.text[$ctrl.language].heading[0] || 'Your cloud'}}</div>
+            <div class="prominent">{{$ctrl.text[$ctrl.language].heading[1] || 'for teaching material'}}</div>
+          </div>
+          
+          <br><br>
+          
+          <div>
+            <md-button class="inline-block md-raised" ng-click="$ctrl.openVideoModal()" style="padding: 5px 20px; width: 165px">
+              <span style="width: 125px" class="primary-color"><i class="fa fa-play"></i>&nbsp;{{$ctrl.text[$ctrl.language].howItWorks || 'How it works'}}</span>
+            </md-button>
+          </div>
+          
+          <br><br>
+          
+          <div style="color: white; font-size: 25px; width: 350px; max-width: 100%; margin: 0 auto">
+            Für Ihren interaktiven Unterricht
+          </div>
+        
+        </div>
+      </div>
+    </div>
+  
+  
+  </div>
+  
+  
+  
+  <div class="border-bottom">
+    <div class="center container">
+      <div class="row">
+        <div class="col-sm-6 col-lg-3" ng-repeat="item in $ctrl.valueBullets">
+          <div style="padding: 50px 15px 20px 15px">
+            <a ui-sref="details({'#': item.anchor})" ng-click="$ctrl.goingForward()" style="color: #434343">
+              <img ng-src="{{item.icon}}"
+                   height="100px"
+                   max-width="100%"
+                   alt="">
+              <h1>{{item.title[$ctrl.language] || item.title['en']}}</h1>
+              <p style="font-size:17px; width: 400px; max-width: 100%; margin: 0 auto; text-align: center">
+                {{item.text[$ctrl.language] || $ctrl.text['en']}}
+              </p>
+            </a>
+          </div>
+        </div>
+      </div>
+      <br>
+      <a ui-sref="details({'#': 'top'})" ng-click="goingForward()">
+        <md-button class="md-raised md-accent">
+          {{$ctrl.text[$ctrl.language].details || 'Show details'}}
+        </md-button>
+      </a>
+      <br><br><br>
+    </div>
+  </div>
+  
+  <a ui-sref="lottery" class="center border-bottom" style="display: block; background: #434343">
+    <div class="container">
+      <div class="row bs-vertical-align">
+        <div class="col-sm-4 center primary-color">
+          <div style="padding: 30px 15px">
+            <img src="/assets/img/logos/technorama.svg"
+                 style="max-height: 70px"
+                 alt="Technorama">
+          </div>
+        </div>
+        
+        <div class="col-sm-4">
+          <span class="inline-block" style="color: white; font-size: 20px; padding: 20px 0;">
+            Gewinnen Sie einen Tag mit Ihrer Klasse und Dominique Gisin im Technorama.
+          </span>
+        </div>
+        <div class="col-sm-4">
+          <div class="center" style="position: relative">
+            <img src="https://res.cloudinary.com/taskbase/image/upload/c_scale,h_250/v1484294923/dominique_gisin_swiss_ytjtzc.png"
+                 srcset="https://res.cloudinary.com/taskbase/image/upload/c_scale,h_250/v1484294923/dominique_gisin_swiss_ytjtzc.png 1x, https://res.cloudinary.com/taskbase/image/upload/c_scale,h_500/v1484294923/dominique_gisin_swiss_ytjtzc.png 2x"
+                 class="inline-block"
+                 style="max-height: 250px"
+                 alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+  
+  <div class="bg-1" style="padding-top: 20px; padding-bottom: 30px" id="signup">
+    <div class="container">
+      <signup></signup>
+    </div>
+  </div>
+  
+  <div class="bg-primary">
+    <div class="container">
+      <div class="row" style="padding: 20px">
+        <div class="col-sm-4 center" ng-repeat="counter in $ctrl.counters" style="padding:10px">
+          <counter2 n="counter.n" title="counter.title"></counter2>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="bg-dark center">
+    <div class="container">
+      <br>
+      <div class="center" style="color: white">
+        <strong>Unterstützt und eingesetzt von</strong>
+      </div>
+      <br>
+      <reference-item item="referenceItem" ng-repeat="referenceItem in $ctrl.awards"></reference-item>
+      <reference-item item="referenceItem" ng-repeat="referenceItem in $ctrl.referenceItems"></reference-item>
+    </div>
+  </div>
+
+</div>

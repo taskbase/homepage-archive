@@ -1,0 +1,88 @@
+@import "variables";
+
+$header-breakpoint: 768px;
+$mobile-navbar-width: 300px;
+$mobile-navbar-width-extra: $mobile-navbar-width + 10px; // add some extra distance so shadow doesn't leak into view
+$navbar-height: 70px;
+.logged-out-header-wrapper {
+  .actual-navbar {
+    background: $primary-color-contrast;
+    width: 100%;
+    color: $primary-color;
+    z-index: 1030;
+    position: fixed;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    .logged-out-header-container {
+      display: flex;
+      justify-content: space-between;
+      height: $navbar-height;
+      align-items: center;
+      .logo {
+      }
+      .navbar-links {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        .navbar-link {
+          padding: 20px 15px;
+          font-size: 16px;
+          font-weight: bold;
+          text-decoration: none;
+          color: $primary-color;
+          &:last-child {
+            padding-right: 0;
+          }
+        }
+        @media (max-width: $header-breakpoint) {
+          background: $primary-color;
+          display: flex;
+          position: fixed;
+          height: 100vh;
+          flex-direction: column;
+          top: 0;
+          left: -$mobile-navbar-width-extra;
+          width: $mobile-navbar-width;
+          z-index: 1031;
+          align-items: center;
+          box-shadow: 3px 0 6px rgba(0, 0, 0, 0.16),
+            0 3px 6px rgba(0, 0, 0, 0.23);
+          transition: transform 0.2s ease-in-out;
+          &.menu-open {
+            transform: translateX($mobile-navbar-width-extra);
+          }
+          .mobile-close-menu {
+            height: $navbar-height;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            border-bottom: 1px solid #eee;
+          }
+          .navbar-link {
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+            color: $primary-color-contrast;
+            &:nth-child(2) {
+              margin-top: 15px;
+            }
+          }
+        }
+      }
+      .mobile-menu-toggle {
+        display: none;
+        background: transparent;
+        padding: 15px;
+        font-size: 25px;
+        color: $primary-color;
+        @media (max-width: $header-breakpoint) {
+          display: block;
+        }
+      }
+    }
+  }
+  .dummy-for-height {
+    height: $navbar-height;
+  }
+}

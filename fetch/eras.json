@@ -1,0 +1,82 @@
+[
+  {
+    "slug": "2002-prehistory-not-taskbase",
+    "timestamp": "20020122094128",
+    "url": "http://www.taskbase.com/",
+    "title": "NOT TASKBASE — 2002 domain squatter's staff login",
+    "era": "prehistory: 2001 – 2004 (previous domain owner)",
+    "stack": "Hand-written HTML 4 + ColdFusion (tasklogin.cfm)",
+    "notes": "Nothing to do with Taskbase the company, which was founded in 2015. A previous owner of the taskbase.com domain ran an unrelated staff task tracker behind this login.",
+    "status": "ok"
+  },
+  {
+    "slug": "2016-01-prehistory-aplscript",
+    "timestamp": "20160109192748",
+    "url": "http://taskbase.com/",
+    "title": "NOT TASKBASE — 2016 APLscript / MiServer demo",
+    "era": "prehistory: 2016-01 (previous domain owner)",
+    "stack": "Dyalog APL MiServer v2.1 + jQuery UI, hosted on APLcloud.com",
+    "notes": "Still not Taskbase: the last non-Taskbase page the domain served, three months before the company got taskbase.com.",
+    "status": "ok"
+  },
+  {
+    "slug": "2019-01-angular-spa",
+    "timestamp": "20190115165712",
+    "url": "https://taskbase.com/",
+    "title": "Taskbase 2019 — Angular single-page site",
+    "era": "2018-10 – 2021-01",
+    "stack": "Angular 5 AOT production bundle (runtime/polyfills/main + extracted styles.css), Bootstrap 4, Source Sans Pro",
+    "notes": "placeholder",
+    "status": "partial"
+  },
+  {
+    "slug": "2022-04-wordpress-feedback-engine",
+    "timestamp": "20220523072507",
+    "url": "https://www.taskbase.com/",
+    "title": "Taskbase 2022 — \"The world's #1 Feedback engine\"",
+    "era": "2022-04 – 2022-06",
+    "stack": "WordPress 5.9 + Elementor Pro + Slider Revolution",
+    "notes": "first WordPress homepage; cookie banner and trackers stripped",
+    "status": "partial"
+  },
+  {
+    "slug": "2023-06-wordpress-elementor",
+    "timestamp": "20230602043736",
+    "url": "https://www.taskbase.com/",
+    "title": "Taskbase 2023 — WordPress/Elementor homepage",
+    "era": "2022-07 – 2024-04",
+    "stack": "WordPress 6.1 + Elementor Pro + HubSpot",
+    "notes": "title becomes 'Homepage - Taskbase'",
+    "status": "partial"
+  },
+  {
+    "slug": "2024-06-wordpress-hello",
+    "timestamp": "20240615003818",
+    "url": "https://www.taskbase.com/",
+    "title": "Taskbase 2024 — Hello Elementor rebuild",
+    "era": "2024-04 – 2024-10",
+    "stack": "WordPress 6.5 + Hello Elementor 3.0",
+    "notes": "theme rebuild with Elementor header/footer templates",
+    "status": "partial"
+  },
+  {
+    "slug": "2025-05-wordpress-lms",
+    "timestamp": "20250515145816",
+    "url": "https://www.taskbase.com/",
+    "title": "Taskbase 2025 — personalized learning positioning",
+    "era": "2024-11 – 2025-10",
+    "stack": "WordPress 6.7 + Elementor 3.x",
+    "notes": "repositioned around enhancing learning products",
+    "status": "partial"
+  },
+  {
+    "slug": "2025-11-framer-skills-coach",
+    "timestamp": "20251108000936",
+    "url": "https://taskbase.com/",
+    "title": "Taskbase Skills Coach — Framer relaunch",
+    "era": "2025-11 – now",
+    "stack": "Framer",
+    "notes": "rebrand to 'Taskbase Skills Coach', back on the apex domain",
+    "status": "partial"
+  }
+]

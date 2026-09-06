@@ -1,0 +1,15 @@
+<div class="feedback">
+  <div class="feedbackpic">
+    <img src="/assets/img/{{ getSmiley() }}" class="smiley" />
+  </div>
+  <!-- use dash-case -->
+  <div class="feedbacktext">
+    <h2 class="feedbacktitle">{{ title }}</h2>
+    <h2>{{ text }}</h2>
+    <ul class="app-ul-no-bullets">
+      <li *ngFor="let mistake of mistakes">
+        {{ printMistakes(mistake) }}
+      </li>
+    </ul>
+  </div>
+</div>

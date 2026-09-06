@@ -1,0 +1,42 @@
+@import 'variables';
+
+:host {
+  display: block;
+  background: #FFFFFF;
+}
+
+.jumbo {
+  position: relative;
+  display: block;
+  @extend %main-gradient;
+  width: 100%;
+  .jumbo-content {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    .titles {
+      width: 100%;
+      .big {
+        text-align: center;
+        color: #FFFFFF;
+      }
+      .params {
+        color: #FFFFFF;
+        text-align: center;
+      }
+    }
+    .pic {
+      display: block;
+      width: 50px;
+      padding: 25px;
+    }
+  }
+}
+
+.team-page-content {
+  background: #FFFFFF;
+  padding-top: 45px;
+  padding-bottom: 45px;
+}
+
+
+

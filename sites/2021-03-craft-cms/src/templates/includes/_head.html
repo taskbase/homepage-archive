@@ -1,0 +1,29 @@
+{% set url = craft.app.request.url %}
+{% set shareUrl = craft.app.request.url|split('/', 3) %}
+{% set shareUrlOld = shareUrl[1]|split('?', 2) %}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title>{{ entry.title ?? '' }}
+	|
+	{{ systemName }}
+</title>
+{% if entry is defined and entry.seoDescription %}
+	<meta name="description" content="{{ entry.seoDescription }}">
+{% endif %}
+
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+<link rel="manifest" href="/favicons/site.webmanifest">
+<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5d63c7">
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-config" content="/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+<link rel="stylesheet" href="/css/swiper.min.css">
+<link rel="stylesheet" href="/css/main.css?v=1">

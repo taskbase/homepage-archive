@@ -1,0 +1,10 @@
+.order-wrapper {
+  .order-button {
+    color: $gray3;
+
+    &:hover {
+      color: $gray5;
+      cursor: pointer;
+    }
+  }
+}

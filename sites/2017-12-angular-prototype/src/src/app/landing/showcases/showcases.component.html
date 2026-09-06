@@ -1,0 +1,13 @@
+<div class="showcases">
+  <h1>Showcases</h1>
+  <div class="logo-wrapper">
+    <div style="height: 50px"
+         class="logo"
+         *ngFor="let showcase of showcases"
+    >
+      <img [src]="showcase.logo"
+           [ngStyle]="showcase.style">
+    </div>
+  
+  </div>
+</div>

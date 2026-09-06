@@ -1,0 +1,37 @@
+<div class="logged-out-header-wrapper">
+  <div class="actual-navbar">
+    <div class="content-container">
+      <div class="logged-out-header-container">
+        <a id="navbar-logo-link" class="logo" routerLink="/" [ngClass]="{'menu-open': isMenuOpen}">
+          <img src="/assets/img/logos/taskbase.svg"
+               class="logo-image"
+               height="40"
+               alt="">
+        </a>
+        <button id="navbar-mobile-menu-toggle" class="mobile-menu-toggle" (click)="toggleMenu($event)"><i class="fa fa-bars"></i></button>
+        <div class="navbar-links" [ngClass]="{'menu-open': isMenuOpen}">
+          <div *ngIf="isMenuOpen" (click)="closeMenu($event)" class="mobile-close-menu">
+            <!-- Cancel svg -->
+            <svg width="20" version="1.1" xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 64 64"
+                 xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 64 64">
+              <g>
+                <path fill="white"
+                      d="M28.941,31.786L0.613,60.114c-0.787,0.787-0.787,2.062,0,2.849c0.393,0.394,0.909,0.59,1.424,0.59   c0.516,0,1.031-0.196,1.424-0.59l28.541-28.541l28.541,28.541c0.394,0.394,0.909,0.59,1.424,0.59c0.515,0,1.031-0.196,1.424-0.59   c0.787-0.787,0.787-2.062,0-2.849L35.064,31.786L63.41,3.438c0.787-0.787,0.787-2.062,0-2.849c-0.787-0.786-2.062-0.786-2.848,0   L32.003,29.15L3.441,0.59c-0.787-0.786-2.061-0.786-2.848,0c-0.787,0.787-0.787,2.062,0,2.849L28.941,31.786z"/>
+              </g>
+            </svg>
+          </div>
+          <a id="navbar-team-link" class="navbar-link" routerLink='team' (click)="closeMenu($event)">
+            Team
+          </a>
+          <a id="navbar-blog-link" class="navbar-link" target="_blank" href="https://medium.com/taskbase" (click)="closeMenu($event)">
+            Blog
+          </a>
+          <a id="navbar-login-link" class="navbar-link" target="_blank" href="https://acadilly.com/login" (click)="closeMenu($event)">
+            Login
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dummy-for-height"></div>
+</div>

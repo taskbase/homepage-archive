@@ -1,0 +1,28 @@
+<div class="contact">
+  <mat-card class="card">
+    <h1 class="title">Kontakt</h1>
+    <form class="example-form" [formGroup]="contactForm">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Ihr Name" formControlName="name" type="text">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Ihre Email" formControlName="email" type="email">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <textarea matInput
+                  placeholder="Ihre Nachricht"
+                  formControlName="message"
+                  matTextareaAutosize
+                  matAutosizeMinRows="2"
+                  matAutosizeMaxRows="5"
+                  required>
+        </textarea>
+        <mat-error *ngIf="message.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </form>
+    <br>
+    <button color="primary" (click)="onSubmit()" [disabled]="message.invalid" type="submit" mat-raised-button>
+      Senden
+    </button>
+  </mat-card>
+</div>

@@ -1,0 +1,54 @@
+//Size
+$medium-size: 900px;
+
+// Color Scheme
+$primary-color: #009688;
+$primary-color-contrast: #ffffff;
+
+$dark-gray: #1e1e1e;
+$dark-gray-contrast: #ffffff;
+
+$orange: #ffb733;
+$orange-klett: #ff9901;
+$secondary-color: #f1e198;
+$secondary-color-contrast: $dark-gray;
+
+$background-gray: #dedede;
+$background-gray-contrast: #000000;
+
+$background-white: #ffffff;
+$background-white-contrast: #000000;
+
+$charcoal: #434343;
+$charcoal-contrast: #ffffff;
+
+$dark-blue-klett: #003367;
+
+$color-text-gray: #8d9199;
+
+// font sizes
+$font-size-default: 16px;
+$font-size-h3: 20px;
+
+// breakpoints:
+$breakpoint-xs-max: 399px;
+$breakpoint-s-min: 400px;
+$breakpoint-s-max: 599px;
+$breakpoint-m-min: 600px;
+$breakpoint-m-max: 999px;
+$breakpoint-l-min: 1000px;
+
+$navbar-height: 62px;
+$footer-height: 50px;
+
+// prettier-ignore
+$mat-box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+
+$linear-gradient: linear-gradient(to bottom right, $primary-color, #2cbfa2);
+$container-width: 1100px;
+
+$primary-color-dark: #265840;
+$primary-color-dark-contrast: #ffffff;
+
+$black: #000000;
+$black-contrast: #ffffff;

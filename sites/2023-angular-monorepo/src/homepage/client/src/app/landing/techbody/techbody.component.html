@@ -1,0 +1,24 @@
+<div class="content-container">
+  <div class="electron">
+    <a href="" id="modules"></a>
+    <div class="techbody">
+      <div class="box">
+        <div class="slidecontent">
+          <div class="tags">
+            <a
+              [id]="'module-' + tech.title"
+              class="linkbox"
+              [routerLink]="buildTechLink(tech.link)"
+              *ngFor="let tech of techs; let i = index"
+              (mouseenter)="mouseEnter(i)"
+              (mouseleave)="mouseLeave()"
+            >
+              <img [src]="tech.pic2" class="pic" />
+              <h1 class="techtitle">{{ tech.title }}</h1>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

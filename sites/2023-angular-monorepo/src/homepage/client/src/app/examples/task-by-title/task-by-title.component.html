@@ -1,0 +1,76 @@
+<ng-container [ngSwitch]="filteredTasksRequest">
+  <spinner *ngSwitchCase="requestStateEnum.PENDING" color="primary"> </spinner>
+  <ng-container *ngSwitchCase="requestStateEnum.SUCCESS">
+    <ng-container *ngIf="tasks.length > 0; else noTasks">
+      <div class="description" [innerHTML]="description | safe: 'html'"></div>
+      <textarea
+        class="input-textarea"
+        [ngStyle]="editorStyles"
+        *ngIf="markers.length === 0"
+        [disabled]="gradings.length > 0"
+        [(ngModel)]="inputText"
+      >
+      </textarea>
+      <tb-marker-editor
+        *ngIf="markers.length > 0"
+        [text]="inputText"
+        [markers]="markers"
+        [editable]="false"
+        [editorStyles]="editorStyles"
+      >
+      </tb-marker-editor>
+      <div
+        class="gradings"
+        *ngIf="gradingRequests === requestStateEnum.SUCCESS"
+      >
+        <h2 class="feedback-text">
+          <div *ngIf="isCorrect" class="correct">Korrekt!</div>
+          <div *ngIf="!isCorrect" class="wrong">
+            <ng-container *ngIf="takeAway != null; else takeAwayEmpty">
+              {{ takeAway }}
+            </ng-container>
+            <ng-template #takeAwayEmpty>
+              Da scheint etwas nicht zu stimmen.
+            </ng-template>
+          </div>
+        </h2>
+      </div>
+      <div class="task-controls">
+        <button
+          *ngIf="
+            gradingRequests === requestStateEnum.NONE ||
+            gradingRequests === requestStateEnum.PENDING
+          "
+          (click)="grade()"
+          [disabled]="gradingRequests !== requestStateEnum.NONE"
+        >
+          Antworten
+          <spinner
+            *ngIf="gradingRequests === requestStateEnum.PENDING"
+            display="inline"
+          >
+          </spinner>
+        </button>
+        <button
+          *ngIf="gradingRequests === requestStateEnum.SUCCESS && isCorrect"
+          (click)="onNext()"
+        >
+          Weiter
+        </button>
+        <button
+          *ngIf="gradingRequests === requestStateEnum.SUCCESS && !isCorrect"
+          (click)="onRetry()"
+        >
+          Nochmals versuchen
+        </button>
+      </div>
+    </ng-container>
+    <ng-template #noTasks> Keine passenden Aufgaben gefunden. </ng-template>
+  </ng-container>
+  <div
+    class="error-loading-filtered-tasks"
+    *ngSwitchCase="requestStateEnum.ERROR"
+  >
+    Fehler beim Laden der Aufgabe über den Titel.
+  </div>
+</ng-container>

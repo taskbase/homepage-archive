@@ -1,0 +1,35 @@
+<div class="jumbo-wrapper">
+  <div class="content-container">
+    <div class="jumbo-container">
+      <div class="headline">
+        <h1 class="title">English Exercise</h1>
+      </div>
+      <img src="../../../assets/img/football.png"
+           class="image">
+      <div class="jumbo-content">
+
+        <app-questionone *ngIf="questionNr==0"  (onChange)="onChange($event)" [studentInput]="studentInput"></app-questionone>
+        <app-questiontwo *ngIf="questionNr==1" (onChange)="onChange($event)" [oldStudentInput]="oldStudentInput"></app-questiontwo>
+        <app-questionthree *ngIf="questionNr==2" (onChange)="onChange($event)" [studentInput]="studentInput"></app-questionthree>
+
+
+        <div class="feedback">
+          <div class="feedbacktext">
+            <h2 class="tile">{{feedback}}</h2>
+            <h2 *ngIf="simulation"> <a class="link" (click)="simulate()">Schülereingabe Simulieren</a><br></h2>
+
+          </div>
+        </div>
+          <br>
+          <button id="check" class="formelement buttonwrap" (click)="check()" *ngIf="showAntworten">
+            Antwoten
+          </button>
+          <button id="next" type="submit" class="formelement buttonwrap" (click)="next()" *ngIf="showWeiter">
+            Weiter
+          </button>
+          <div class="error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+

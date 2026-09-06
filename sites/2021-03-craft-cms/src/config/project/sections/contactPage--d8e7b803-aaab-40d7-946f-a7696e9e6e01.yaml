@@ -1,0 +1,23 @@
+enableVersioning: true
+handle: contactPage
+name: 'Contact Page'
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - default
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  0860246c-e6ed-4aeb-a019-0dc2d85452e9:
+    enabledByDefault: true
+    hasUrls: true
+    template: contact-page/_entry
+    uriFormat: contact
+type: single

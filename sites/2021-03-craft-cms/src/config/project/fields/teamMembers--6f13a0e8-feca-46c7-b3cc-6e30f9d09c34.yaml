@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: c28b812a-8423-4a79-ba2e-6c7d229229f8
+handle: teamMembers
+instructions: ''
+name: 'Team Members'
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_teammembers}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

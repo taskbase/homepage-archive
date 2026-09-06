@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: 46bb68c0-9a30-4885-be4c-93df8ce26a0d
+handle: processButtonLink
+instructions: ''
+name: 'Process Button Link'
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_processbuttonlink}}'
+  maxBlocks: '1'
+  minBlocks: ''
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix
