@@ -1,1 +1,8 @@
 .cache/
+
+# Exhibits are static artefacts, not build output. The monorepo root ignores
+# build/ cpresources/ imager/; re-include them under sites/ or mirrored pages
+# lose their scripts and styles.
+!build/
+!cpresources/
+!imager/
