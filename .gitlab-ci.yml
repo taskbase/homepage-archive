@@ -3,9 +3,16 @@
 # on a static host, which is how these mirrors rot.
 
 pages:
+  # Every runner on this instance sets run_untagged=false, so an untagged
+  # job is never picked up and dies as stuck_or_timeout_failure.
+  tags:
+    - tf-spot-on-demand
+    - resource-small
+  interruptible: true
   stage: deploy
-  image: python:3.13-alpine
+  image: python:3.13-slim
   script:
+    - pip install --quiet pillow
     - python3 tools/check_portable.py
     - python3 tools/gallery.py
     - mkdir -p public
@@ -14,6 +21,8 @@ pages:
     # Each era's original source, kept in the repo for the record but never
     # referenced by a rendered page.
     - rm -rf public/sites/*/src
+    # max_pages_size on this instance is 100 MB; the raw collection is 112.
+    - python3 tools/optimize_for_web.py public
     - du -sh public
   artifacts:
     paths:
