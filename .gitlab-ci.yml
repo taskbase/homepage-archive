@@ -25,6 +25,9 @@ pages:
     - python3 tools/optimize_for_web.py public
     - du -sh public
   artifacts:
+    # The artifact IS the hosting: GitLab serves public/index.html directly,
+    # so it must not expire.
+    expire_in: never
     paths:
       - public
   rules:
