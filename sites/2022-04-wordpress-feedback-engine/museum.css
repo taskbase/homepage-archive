@@ -23,8 +23,89 @@
    track keeps its natural width and the outer slides hang off the page. */
 body { overflow-x: hidden; }
 
-/* Slider Revolution swaps data-lazyload into src on init. The testimonial
-   slider's arrow buttons (uploads/2022/04/*-button-*.png and the matching
-   svgcustom SVGs) were never crawled, so those two layers would draw a
-   broken-image glyph over the slide. Nothing is left to draw, so draw nothing. */
-img.rs-lazyload[data-lazyload*="not-archived"] { visibility: hidden; }
+/* Museum-only. The "Why publishers and learning platforms trust in Taskbase"
+   band was a Slider Revolution 6.5.21 carousel. Slider Revolution is a paid
+   ThemeForest plugin, so it was deleted before this archive was published and
+   the rules below plus museum-slider.js carry the band instead. The four
+   testimonials are the capture's own rs-slide content, verbatim; the carousel
+   driving them is ours, not the plugin's.
+
+   Sizes come from the module's own config: gridwidth 920, carousel space 32px,
+   minScale 75% / maxOpacity 75% for the off-centre cards, and the slide layers'
+   data-text / data-dim / data-padding for the type and the 60px card padding.
+   The plugin only built a slider once it scrolled into view, which made every
+   cold full-page capture of this band come out empty; ours renders on load. */
+.ms { --ms-w: min(920px, 86vw); --ms-gap: 32px; --ms-purple: #5d62c7; }
+.ms-viewport { position: relative; overflow: hidden; }
+.ms-track {
+  display: flex; gap: var(--ms-gap); margin: 0; list-style: none;
+  padding: 60px calc(50% - var(--ms-w) / 2);
+  transform: translateX(calc(var(--i, 0) * -1 * (var(--ms-w) + var(--ms-gap))));
+  transition: transform 0.5s ease;
+}
+/* Flex on the <li> keeps its whitespace text nodes from adding a line box under
+   the card, and lets every card take the track's tallest-slide height. */
+.ms-slide { flex: 0 0 var(--ms-w); display: flex; }
+.ms-slide figure {
+  flex: 1; min-width: 0; display: flex; flex-direction: column;
+  margin: 0; padding: 60px; background: #fff; border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  opacity: 0.75; transform: scale(0.9);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.ms-slide.is-current figure { opacity: 1; transform: none; }
+.ms-slide blockquote {
+  flex: 1; margin: 0 0 40px;
+  font: normal 400 35px/49px "Inter", sans-serif; color: var(--ms-purple);
+}
+.ms-slide figcaption {
+  display: grid; grid-template-columns: 80px 1fr; column-gap: 20px;
+  font-family: "Inter", sans-serif; font-style: normal;
+}
+.ms-slide figcaption img { grid-row: span 2; width: 80px; height: 80px; }
+.ms-name { align-self: end; font-size: 18px; line-height: 32px; color: var(--ms-purple); }
+.ms-role { align-self: start; font-size: 15px; line-height: 24px; color: #757575; }
+
+.ms-arrow {
+  position: absolute; top: 50%; width: 64px; height: 64px; margin-top: -32px;
+  border: 0; border-radius: 50%; cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+.ms-arrow::before {
+  content: ""; display: block; width: 14px; height: 14px; margin: 0 auto;
+  border-top: 3px solid; border-right: 3px solid;
+}
+/* Elementor paints every button crimson on :hover/:active, so pin the states. */
+.ms-prev { left: 56px; }
+.ms-prev, .ms-prev:hover, .ms-prev:focus, .ms-prev:active {
+  background: #fff; color: var(--ms-purple);
+}
+.ms-prev::before { transform: translateX(2px) rotate(-135deg); }
+.ms-next { right: 56px; }
+.ms-next, .ms-next:focus, .ms-next:active { background: var(--ms-purple); color: #fff; }
+.ms-next:hover { background: #4b50ae; color: #fff; }
+.ms-next::before { transform: translateX(-2px) rotate(45deg); }
+
+.ms-dots { display: flex; justify-content: center; gap: 12px; padding: 8px 0 48px; }
+.ms-dots button {
+  width: 10px; height: 10px; padding: 0; border: 0; border-radius: 50%; cursor: pointer;
+}
+.ms-dots button, .ms-dots button:hover, .ms-dots button:focus, .ms-dots button:active {
+  background: rgba(93, 98, 199, 0.3);
+}
+.ms-dots button[aria-current="true"] { background: var(--ms-purple); }
+.ms-arrow:focus-visible, .ms-dots button:focus-visible {
+  outline: 3px solid var(--ms-purple); outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+  .ms-slide figure { padding: 32px; }
+  .ms-slide blockquote { margin-bottom: 24px; font-size: 24px; line-height: 34px; }
+  .ms-arrow { width: 48px; height: 48px; margin-top: -24px; }
+  .ms-prev { left: 8px; }
+  .ms-next { right: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ms-track, .ms-slide figure { transition: none; }
+}
