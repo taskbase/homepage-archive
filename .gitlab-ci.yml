@@ -1,0 +1,22 @@
+# Publishes the homepage archive to GitLab Pages.
+# check_portable.py gates the deploy: it fails on references that would 404
+# on a static host, which is how these mirrors rot.
+
+pages:
+  stage: deploy
+  image: python:3.13-alpine
+  script:
+    - python3 tools/check_portable.py
+    - python3 tools/gallery.py
+    - mkdir -p public
+    - cp index.html public/
+    - cp -r sites public/
+    # Each era's original source, kept in the repo for the record but never
+    # referenced by a rendered page.
+    - rm -rf public/sites/*/src
+    - du -sh public
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
