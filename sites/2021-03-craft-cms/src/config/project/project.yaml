@@ -49,7 +49,7 @@ plugins:
       cacheClearMode: full
       clearCachesOnSave: always
       injectCors: '1'
-      projectSlug: economic-chital
+      projectSlug: servd-project
       securityKey: REDACTED
 system:
   edition: pro
