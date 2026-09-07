@@ -180,7 +180,7 @@ def relink_pages(html, pages):
 # does not match, so those never resolve on their own either.
 #
 # The ETH Zurich logo, whose one capture is a 404, comes off disk instead.
-SERVD = r"https://optimise2\.assets-servd\.host/economic-chital/production"
+SERVD = r"https://optimise2\.assets-servd\.host/[a-z0-9-]+/production"
 ERA_FIXUPS = [
     # hero photo: 1000w and 2000w come off disk (see RESTORED_FROM_DISK), the 10px
     # placeholder only reaches the page through an escaped background-image url()

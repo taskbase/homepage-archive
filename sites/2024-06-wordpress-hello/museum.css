@@ -1,0 +1,27 @@
+/* Museum-only. The Elementor Pro chunks that drove this page (loop,
+   loop-carousel, nav-menu, nested-carousel) plus Pro's own frontend, webpack
+   runtime and element handlers were deleted before this archive was published:
+   Elementor Pro is commercially licensed and may not be redistributed. Without
+   them Swiper never initialises, so every slide keeps its 100% width and each
+   carousel shows one slide blown up to the full row.
+
+   The widths below are not invented: they are each widget's own data-settings
+   from this capture (slides_to_show / image_spacing_custom). Slides past the
+   third stay clipped by .swiper's own overflow, which is where the running
+   carousel left them. The same treatment is in
+   sites/2025-05-wordpress-lms/museum.css. */
+
+/* "Overcoming the Challenges" — nested carousel, 3 items, 3 shown, 48px gap */
+.elementor-element-72bd936 .swiper-wrapper { display: flex; gap: 48px; }
+.elementor-element-72bd936 .swiper-wrapper > .swiper-slide {
+  width: calc((100% - 96px) / 3); margin: 0; flex: 0 0 auto;
+}
+
+/* "Making a Difference" — loop carousel, 3 items, 3 shown, 24px gap */
+.elementor-element-ad054aa .swiper-wrapper { display: flex; gap: 24px; }
+.elementor-element-ad054aa .swiper-wrapper > .swiper-slide {
+  width: calc((100% - 48px) / 3); margin: 0; flex: 0 0 auto;
+}
+
+/* An uninitialised Swiper track keeps its natural width; keep it off the page. */
+body { overflow-x: hidden; }

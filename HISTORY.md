@@ -163,8 +163,8 @@ SPA shell and almost none of the bundles.
 
 The homepage left the product and moved into a CMS. Own GitLab repo,
 `code.taskbase.com/taskbase/craft-homepage`, now archived. Craft CMS 3 — PHP,
-Twig templates, MySQL — hosted on servd.host, the managed Craft host. Servd
-project slug `economic-chital`. Text and images lived in the database, not in
+Twig templates, MySQL — hosted on servd.host, the managed Craft host, under
+the company's own servd project. Text and images lived in the database, not in
 git, and that database is gone.
 
 Built in four weeks by one dev, Johannes Gruber. 68 of the 71 commits are
@@ -219,9 +219,9 @@ homepage is now a sales-tool landing page.
 - 2022 onwards — SiteGround, shared Apache with WordPress. DNS still shows it:
   `prod-homepage.taskbase.com` and `siteground.taskbase.com` were NS-delegated
   to SiteGround. Both delegations are dead.
-- `staging-homepage.taskbase.com` points at an AWS box (3.71.154.89), probably
-  Lightsail. No credentials here, not touched, and the archive never crawled it
-  either.
+- `staging-homepage.taskbase.com` points at an AWS eu-central-1 staging host,
+  probably Lightsail. No credentials here, not touched, and the archive never
+  crawled it either.
 - 2026 — Framer's own hosting, assets on `framerusercontent.com`.
 
 ## What is not here

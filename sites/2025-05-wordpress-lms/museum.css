@@ -1,15 +1,16 @@
 /* Museum-only. Elementor Pro 3.25.0 loads its Loop Carousel and Nested Carousel
    handlers as webpack chunks at runtime; the archive never crawled those three
    files (loop, loop-carousel, nested-carousel) for taskbase.com and they are not
-   in any plugin download either, Pro not being on wordpress.org. Without them
-   Swiper never initialises and every slide keeps its 100% width, so each carousel
-   shows one slide blown up to the full row.
+   in any plugin download either, Pro not being on wordpress.org. Every other
+   Elementor Pro file this page loaded was deleted before publication, Pro being
+   commercially licensed. Either way Swiper never initialises and every slide
+   keeps its 100% width, so each carousel shows one slide blown up to the full row.
 
    The widths below are not invented: they are the widget's own data-settings from
-   this capture (slides_to_show / image_spacing_custom), and the same design one
-   year earlier, sites/2024-06-wordpress-hello/, renders exactly this because its
-   Pro chunks did survive. Slides past the third stay clipped by .swiper's own
-   overflow, which is where the running carousel left them. */
+   this capture (slides_to_show / image_spacing_custom). The same design one year
+   earlier, sites/2024-06-wordpress-hello/, is laid out the same way and for the
+   same reason. Slides past the third stay clipped by .swiper's own overflow,
+   which is where the running carousel left them. */
 
 /* "Customer Stories" — loop carousel, 4 items, 3 shown, 24px gap */
 .elementor-element-ad054aa .swiper-wrapper { display: flex; gap: 24px; }
