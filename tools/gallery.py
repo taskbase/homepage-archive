@@ -27,7 +27,6 @@ body{margin:0;background:var(--bg);color:var(--fg);
 
 header{padding:64px 0 0}
 h1{margin:0;font-size:clamp(30px,5vw,44px);line-height:1.1;letter-spacing:-.025em;font-weight:650}
-.lede{margin:14px 0 0;max-width:60ch;color:var(--fg-dim);font-size:17px}
 
 /* Timeline axis: the year ticks double as the carousel's navigation. */
 .axis{margin:36px 0 0;padding:0;list-style:none;position:relative;
@@ -61,12 +60,11 @@ h1{margin:0;font-size:clamp(30px,5vw,44px);line-height:1.1;letter-spacing:-.025e
 .slide .empty{display:grid;place-items:center;aspect-ratio:16/10;color:var(--fg-faint);font-size:13px}
 
 /* Caption sits over the shot, so nothing competes below it. */
-.cap{position:absolute;left:0;right:0;bottom:0;padding:56px 24px 20px;
+.cap{position:absolute;left:0;right:0;bottom:0;padding:44px 24px 18px;
   display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
   background:linear-gradient(to top,rgba(7,8,11,.94) 25%,rgba(7,8,11,.6) 62%,transparent)}
-.cap h2{margin:0;font-size:clamp(18px,2.2vw,24px);line-height:1.2;letter-spacing:-.015em;
-  font-weight:600;color:#fff}
-.cap .era{margin-top:4px;color:#c9cdd8;font-size:13px;font-variant-numeric:tabular-nums}
+.cap .era{color:#fff;font-size:clamp(15px,1.6vw,18px);font-weight:600;letter-spacing:-.01em;
+  font-variant-numeric:tabular-nums}
 .cap .state{display:flex;align-items:center;gap:7px;flex:none;color:#c9cdd8;font-size:12px}
 .dot{width:7px;height:7px;border-radius:50%;background:var(--fg-faint)}
 .dot.ok{background:var(--ok)} .dot.partial{background:var(--partial)}
@@ -83,8 +81,6 @@ h1{margin:0;font-size:clamp(30px,5vw,44px);line-height:1.1;letter-spacing:-.025e
 .controls button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .controls .count{color:var(--fg-faint);font-size:13px;font-variant-numeric:tabular-nums}
 
-footer{padding:24px 0 72px;margin-top:16px;border-top:1px solid var(--line);
-  color:var(--fg-faint);font-size:13px}
 
 @media (max-width:700px){
   .slide{flex:0 0 92%}
@@ -92,7 +88,6 @@ footer{padding:24px 0 72px;margin-top:16px;border-top:1px solid var(--line);
   /* A 16/10 crop leaves too little room beside the caption at phone widths. */
   .slide img,.slide .empty{aspect-ratio:4/5}
   .cap{padding:32px 16px 14px;flex-direction:column;align-items:flex-start;gap:4px}
-  .cap h2{font-size:17px}
   .cap .state{display:none}
 }
 @media (prefers-reduced-motion:reduce){
@@ -169,8 +164,7 @@ def slide(site):
     return f"""<div class="slide"><a href="sites/{slug}/" target="_blank" rel="noopener">
 {shot}<span class="year">{year_of(site)}</span>
 <div class="cap">
-  <div><h2>{html.escape(site.get("title", site["slug"]))}</h2>
-  <div class="era">{html.escape(site.get("era", ""))}</div></div>
+  <div class="era">{html.escape(site.get("era", ""))}</div>
   <span class="state"><span class="dot {html.escape(status)}"></span>{
       html.escape(STATUS_LABEL.get(status, status))}</span>
 </div></a></div>"""
@@ -193,8 +187,6 @@ def render(sites):
 <div class="wrap">
 <header>
 <h1>Taskbase Homepage Museum</h1>
-<p class="lede">Every homepage taskbase.com ever had, {span}, dug out of the Internet
-Archive and of git history and rebuilt until it renders again. Click one to open it.</p>
 <ul class="axis">{"".join(tick(s) for s in sites)}</ul>
 </header>
 <div class="rail">{"".join(slide(s) for s in sites)}</div>
@@ -203,8 +195,6 @@ Archive and of git history and rebuilt until it renders again. Click one to open
   <button type="button" class="next" aria-label="Next homepage">&rarr;</button>
   <span class="count">1 / {len(sites)}</span>
 </div>
-<footer>Built for TIRA-1478. Visuals only &mdash; forms, analytics and backends are long
-dead. Each exhibit records how it was recovered and what is missing.</footer>
 </div>
 <script>{JS}</script>
 """
