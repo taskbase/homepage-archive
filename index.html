@@ -19,10 +19,11 @@
 .smoke{position:fixed;inset:0;z-index:-1;overflow:hidden;
   background:linear-gradient(160deg,var(--bg) 0%,color-mix(in oklab,var(--era) 22%,var(--bg)) 45%,
     color-mix(in oklab,var(--era-next) 26%,var(--bg)) 100%)}
-.smoke i{position:absolute;display:block;mix-blend-mode:screen;will-change:transform}
+.smoke i{position:absolute;display:block;mix-blend-mode:screen;will-change:transform;
+  contain:strict}
 
 /* Two drifting clouds: the incoming colour fades up as --mix approaches 1. */
-.smoke .cloud{border-radius:50%;filter:blur(64px)}
+.smoke .cloud{border-radius:50%;filter:blur(52px)}
 .smoke .cloud:nth-child(1){width:96vw;height:96vw;left:-24vw;top:-38vw;opacity:.5;
   background:radial-gradient(circle,var(--era) 0%,transparent 66%);
   animation:drift 46s ease-in-out infinite alternate}
@@ -76,12 +77,13 @@ h1{margin:0;font-size:clamp(30px,5vw,44px);line-height:1.1;letter-spacing:-.025e
 
 /* Rail: one exhibit per slide, scroll-snapped. */
 .rail{display:flex;gap:24px;margin:28px 0 0;padding:4px 0 20px;
-  overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  overflow-x:auto;scroll-snap-type:x proximity;scroll-behavior:smooth;
+  overscroll-behavior-x:contain;
   scrollbar-width:none}
 .rail::-webkit-scrollbar{display:none}
 .slide{scroll-snap-align:center;flex:0 0 min(880px,86%)}
 .slide a{display:block;position:relative;border:1px solid var(--line);border-radius:var(--r);
-  overflow:hidden;background:rgba(13,15,20,.86);backdrop-filter:blur(3px);
+  overflow:hidden;background:rgba(13,15,20,.92);
   text-decoration:none;color:inherit;
   transition:border-color .15s ease}
 .slide a:hover,.slide a:focus-visible{border-color:var(--accent)}
@@ -213,10 +215,19 @@ function paint(){
     pos = i;
   }
   const i = Math.min(eras.length - 1, Math.floor(pos));
+  const j = Math.min(eras.length - 1, i + 1);
+  const f = pos - i;
   const style = document.documentElement.style;
-  style.setProperty('--era', eras[i]);
-  style.setProperty('--era-next', eras[Math.min(eras.length - 1, i + 1)]);
-  style.setProperty('--mix', (pos - i).toFixed(3));
+  style.setProperty('--era', mixHex(eras[i], eras[j], f));
+  style.setProperty('--era-next', mixHex(eras[i], eras[j], Math.min(1, f + 0.5)));
+  style.setProperty('--mix', f.toFixed(3));
+}
+
+const rgb = hex => [1, 3, 5].map(k => parseInt(hex.slice(k, k + 2), 16));
+function mixHex(a, b, t){
+  const [ar, ag, ab] = rgb(a), [br, bg, bb] = rgb(b);
+  const c = (x, y) => Math.round(x + (y - x) * t).toString(16).padStart(2, '0');
+  return `#${c(ar, br)}${c(ag, bg)}${c(ab, bb)}`;
 }
 
 let queued = false;
