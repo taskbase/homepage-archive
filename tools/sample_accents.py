@@ -50,7 +50,7 @@ def dominant(path: Path) -> str:
     if best is None:
         return "#4a5060"
     h, s, v = best
-    r, g, b = colorsys.hsv_to_rgb(h, min(1.0, s * 1.15), max(0.55, min(0.85, v)))
+    r, g, b = colorsys.hsv_to_rgb(h, min(1.0, max(0.55, s * 1.45)), max(0.7, min(0.95, v)))
     return "#%02x%02x%02x" % (round(r * 255), round(g * 255), round(b * 255))
 
 
