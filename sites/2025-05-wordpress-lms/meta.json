@@ -8,5 +8,5 @@
   "notes": "Wayback 2025-05-15, WordPress 6.7 + Elementor 3.27 / Pro 3.25. Counters read \"0x\" and both carousels showed a single slide at full width. Elementor's counter, image-carousel and nested-title-keyboard-handler chunks are missing from every taskbase.com capture but are byte-identical in the archived elementor 3.27.0 plugin zip, so they are restored exactly; text-editor came from a taskbase capture, Swiper 8.4.5 from 2024-11-25. The counters now run to 10x / 55+ / 4x / 2x. The Elementor Pro files that were here - the nav-menu chunk plus Pro's own frontend, webpack runtime, element handlers and the loop-builder / nested-carousel stylesheets - were deleted before publication: Pro is commercially licensed and may not be redistributed. That costs this page almost nothing, because the three Pro chunks Swiper needs for \"Customer Stories\" and \"Shaping the digital learning landscape\" were never recoverable anyway - not in Wayback or Common Crawl for this domain, and Pro is not on wordpress.org - so museum.css already lays those two rows out from the widgets' own data-settings (3 across, 24px and 48px gaps). Both rows are static, not scrolling, and the header's dropdown submenus no longer open. Zero broken images, no horizontal overflow.",
   "captured": "2026-09-06",
   "status": "partial",
-  "accent": "#5b61d2"
+  "accent": "#7478d2"
 }

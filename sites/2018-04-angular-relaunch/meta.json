@@ -9,5 +9,5 @@
   "notes": "Real AOT production build of the original Angular 5 source, not a reconstruction. The redesign that became taskbase.com around 2018-04-20: Bootstrap 4 replaced Material, new jumbo, tech modules, customers, testimonials, offer, project, team, blog, contact form. Cross-checked against the Internet Archive snapshot of 2018-06-12 — same sections in the same order, and this build still has the images the archive lost. Contact form posts nowhere; Google Tag Manager stripped. Team page loads Google Maps live. Deep links (team, impressum, technology/0..5) work. The old specimen card is kept as specimen.html.",
   "captured": "2026-09-03",
   "status": "ok",
-  "accent": "#00b29f"
+  "accent": "#009887"
 }
