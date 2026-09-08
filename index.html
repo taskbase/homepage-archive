@@ -4,10 +4,10 @@
 <meta name="description" content="Every taskbase.com homepage, 2015&ndash;2026, restored and rendered.">
 <style>
 :root{
-  --bg:#0b0c10; --surface:#14161d; --surface-hi:#191c24; --line:#232734;
+  --bg:#0b0c10; --surface:#14161d; --line:#232734;
   --fg:#eceef4; --fg-dim:#9096a6; --fg-faint:#5f6575;
   --ok:#4ade80; --partial:#fbbf24; --broken:#f87171; --accent:#8ab4f8;
-  --r:14px; --pad:24px;
+  --r:14px;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -16,121 +16,175 @@ body{margin:0;background:var(--bg);color:var(--fg);
   -webkit-font-smoothing:antialiased}
 .wrap{max-width:1360px;margin:0 auto;padding:0 24px}
 
-header{padding:72px 0 8px}
-h1{margin:0;font-size:clamp(32px,5vw,44px);line-height:1.1;letter-spacing:-.025em;font-weight:650}
-.lede{margin:16px 0 0;max-width:62ch;color:var(--fg-dim);font-size:17px}
-.stats{margin:28px 0 0;padding:0 0 32px;list-style:none;display:flex;flex-wrap:wrap;gap:32px;
-  border-bottom:1px solid var(--line)}
-.stats div{display:flex;flex-direction:column;gap:2px}
-.stats b{font-size:24px;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
-.stats span{font-size:13px;color:var(--fg-faint)}
+header{padding:64px 0 0}
+h1{margin:0;font-size:clamp(30px,5vw,44px);line-height:1.1;letter-spacing:-.025em;font-weight:650}
+.lede{margin:14px 0 0;max-width:60ch;color:var(--fg-dim);font-size:17px}
 
-main{padding:40px 0 96px;display:grid;gap:28px;
-  grid-template-columns:repeat(auto-fill,minmax(340px,1fr))}
+/* Timeline axis: the year ticks double as the carousel's navigation. */
+.axis{margin:36px 0 0;padding:0;list-style:none;position:relative;
+  display:flex;justify-content:space-between;gap:4px}
+.axis::before{content:"";position:absolute;left:0;right:0;top:7px;height:1px;background:var(--line)}
+.axis li{position:relative;flex:1}
+.axis button{all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;
+  gap:8px;width:100%;padding-top:0;color:var(--fg-faint);font-size:12px;
+  font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.axis .tick{width:9px;height:9px;border-radius:50%;background:var(--line);
+  outline:4px solid var(--bg);transition:background .15s ease,transform .15s ease}
+.axis button:hover{color:var(--fg-dim)}
+.axis button:hover .tick{background:var(--fg-faint)}
+.axis button:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:6px}
+.axis button[aria-current="true"]{color:var(--fg);font-weight:600}
+.axis button[aria-current="true"] .tick{background:var(--accent);transform:scale(1.35)}
 
-a.card{display:flex;flex-direction:column;background:var(--surface);color:inherit;
-  text-decoration:none;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;
-  transition:border-color .15s ease,transform .15s ease,background .15s ease}
-a.card:hover,a.card:focus-visible{border-color:var(--accent);background:var(--surface-hi);
-  transform:translateY(-3px)}
-a.card:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-a.card:active{transform:translateY(-1px)}
+/* Rail: one exhibit per slide, scroll-snapped. */
+.rail{display:flex;gap:24px;margin:28px 0 0;padding:4px 0 20px;
+  overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.slide{scroll-snap-align:center;flex:0 0 min(880px,86%)}
+.slide a{display:block;position:relative;border:1px solid var(--line);border-radius:var(--r);
+  overflow:hidden;background:var(--surface);text-decoration:none;color:inherit;
+  transition:border-color .15s ease}
+.slide a:hover,.slide a:focus-visible{border-color:var(--accent)}
+.slide a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.slide img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top center;
+  background:#07080b}
+.slide .empty{display:grid;place-items:center;aspect-ratio:16/10;color:var(--fg-faint);font-size:13px}
 
-.shot{position:relative;aspect-ratio:16/10;background:#07080b;overflow:hidden}
-.shot img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
-.shot.empty{display:grid;place-items:center;color:var(--fg-faint);font-size:13px}
-.year{position:absolute;left:12px;top:12px;padding:4px 10px;border-radius:999px;
-  background:rgba(7,8,11,.72);backdrop-filter:blur(6px);color:#fff;
-  font-size:12px;font-weight:600;letter-spacing:.04em;font-variant-numeric:tabular-nums}
-
-.body{padding:var(--pad);display:flex;flex-direction:column;gap:10px;flex:1}
-h2{margin:0;font-size:20px;line-height:1.25;letter-spacing:-.015em;font-weight:600}
-.era{color:var(--fg-dim);font-size:13px;font-variant-numeric:tabular-nums}
-.meta{margin-top:2px;display:flex;align-items:center;gap:8px;
-  color:var(--fg-faint);font-size:13px}
-.dot{width:7px;height:7px;border-radius:50%;flex:none;background:var(--fg-faint)}
+/* Caption sits over the shot, so nothing competes below it. */
+.cap{position:absolute;left:0;right:0;bottom:0;padding:56px 24px 20px;
+  display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
+  background:linear-gradient(to top,rgba(7,8,11,.94) 25%,rgba(7,8,11,.6) 62%,transparent)}
+.cap h2{margin:0;font-size:clamp(18px,2.2vw,24px);line-height:1.2;letter-spacing:-.015em;
+  font-weight:600;color:#fff}
+.cap .era{margin-top:4px;color:#c9cdd8;font-size:13px;font-variant-numeric:tabular-nums}
+.cap .state{display:flex;align-items:center;gap:7px;flex:none;color:#c9cdd8;font-size:12px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--fg-faint)}
 .dot.ok{background:var(--ok)} .dot.partial{background:var(--partial)}
 .dot.broken{background:var(--broken)}
-.stack{color:var(--fg-dim);font-size:13px;line-height:1.45;
-  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden}
-.notes{margin:0;color:var(--fg-faint);font-size:13px;line-height:1.5;
-  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden}
-a.card:hover .notes,a.card:focus-visible .notes{-webkit-line-clamp:12;line-clamp:12}
+.year{position:absolute;left:20px;top:18px;padding:5px 11px;border-radius:999px;
+  background:rgba(7,8,11,.72);backdrop-filter:blur(6px);color:#fff;font-size:12px;
+  font-weight:600;letter-spacing:.04em;font-variant-numeric:tabular-nums}
 
-footer{padding:0 0 72px;color:var(--fg-faint);font-size:13px;
-  border-top:1px solid var(--line);margin-top:8px;padding-top:24px}
-footer a{color:var(--fg-dim)}
+.controls{display:flex;align-items:center;gap:12px;padding:0 0 8px}
+.controls button{all:unset;cursor:pointer;width:38px;height:38px;border-radius:50%;
+  border:1px solid var(--line);display:grid;place-items:center;color:var(--fg-dim);
+  transition:border-color .15s ease,color .15s ease}
+.controls button:hover{border-color:var(--accent);color:var(--fg)}
+.controls button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.controls .count{color:var(--fg-faint);font-size:13px;font-variant-numeric:tabular-nums}
 
+footer{padding:24px 0 72px;margin-top:16px;border-top:1px solid var(--line);
+  color:var(--fg-faint);font-size:13px}
+
+@media (max-width:700px){
+  .slide{flex:0 0 92%}
+  .axis button span.label{display:none}
+  /* A 16/10 crop leaves too little room beside the caption at phone widths. */
+  .slide img,.slide .empty{aspect-ratio:4/5}
+  .cap{padding:32px 16px 14px;flex-direction:column;align-items:flex-start;gap:4px}
+  .cap h2{font-size:17px}
+  .cap .state{display:none}
+}
 @media (prefers-reduced-motion:reduce){
-  a.card{transition:none}
-  a.card:hover,a.card:focus-visible{transform:none}
+  .rail{scroll-behavior:auto}
+  .slide a,.axis .tick{transition:none}
 }
 </style>
 <div class="wrap">
 <header>
 <h1>Taskbase Homepage Museum</h1>
-<p class="lede">Every homepage taskbase.com ever had, dug out of the Internet Archive
-and of git history, then rebuilt until it renders again. Visuals only &mdash; the forms,
-analytics and backends are long dead. Pick one and it opens.</p>
-<ul class="stats"><div><b>8</b><span>homepages</span></div><div><b>2015&ndash;2026</b><span>years covered</span></div><div><b>6/8</b><span>fully restored</span></div></ul>
+<p class="lede">Every homepage taskbase.com ever had, 2015&ndash;2026, dug out of the Internet
+Archive and of git history and rebuilt until it renders again. Click one to open it.</p>
+<ul class="axis"><li><button type="button" aria-label="Taskbase 2015 — first landing page"><span class="tick"></span><span class="label">2015</span></button></li><li><button type="button" aria-label="Taskbase 2016 — webapp marketing site"><span class="tick"></span><span class="label">2016</span></button></li><li><button type="button" aria-label="Taskbase 2018 — taskbase.com relaunch"><span class="tick"></span><span class="label">2018</span></button></li><li><button type="button" aria-label="Taskbase 2021 — Craft CMS homepage"><span class="tick"></span><span class="label">2021</span></button></li><li><button type="button" aria-label="Taskbase 2022 — &quot;The world&#x27;s #1 Feedback engine&quot;"><span class="tick"></span><span class="label">2022</span></button></li><li><button type="button" aria-label="Taskbase 2024 — Hello Elementor rebuild"><span class="tick"></span><span class="label">2024</span></button></li><li><button type="button" aria-label="Taskbase 2025 — personalized learning positioning"><span class="tick"></span><span class="label">2025</span></button></li><li><button type="button" aria-label="Taskbase 2026 (live)"><span class="tick"></span><span class="label">2026</span></button></li></ul>
 </header>
-<main><a class="card" href="sites/2015-08-webapp-landing/" target="_blank" rel="noopener">
-<div class="shot"><img loading="lazy" decoding="async" alt="" src="sites/2015-08-webapp-landing/preview.png"><span class="year">2015</span></div>
-<div class="body">
-  <h2>Taskbase 2015 — first landing page</h2>
-  <div class="era">2015-08 – 2016-01</div>
-  <div class="meta"><span class="dot ok"></span>restored &middot; git</div>
-  <div class="stack">AngularJS 1.3.20 + ui-router inside the Java/Tomcat webapp, Bootstrap 3.3.4, SCSS</div><p class="notes">Real AngularJS run, not a mock-up: the era&#x27;s own taskbaseApp module boots on its own vendored bower_components (angular 1.3.20), ui-router fills the header / main / footer views and every ng-if evaluates. The whitelabel markup is untouched — serving from a host that is not e-maths, mintbase or e-lectures is what selected the taskbase variant. The dead Java backend is an $httpBackend decorator answering api/settings and api/login with the era&#x27;s own Settings defaults (cssId &#x27;taskbase&#x27;, ldapLogin false); the Lucene index is gone, so the search widget renders and a query comes back empty. Styling is the era&#x27;s committed gulp-compiled assets/css/app.css, no SCSS re-flattening. google.load and MathJax.Hub.Config are no-op shims, Google Analytics stripped, Lato and Raleway vendored locally. Snapshot 7739ba389a (2015-12-17) is the last commit that shows both the task-search widget and the marketing copy: two days later 9dcdc79ecc moved the copy behind ng-if=&quot;!frontEndSettings.landingPageSearch&quot;, which is false on every taskbase host, leaving the landing page as logo + two buttons + search bar. Layout is inferred from source alone — no archive capture of this era exists, taskbase.com was an unrelated &#x27;free horserace calculator&#x27; site into March 2016 and the app lived on taskbase.org, first captured in 2018 and empty. Lived at components/landing/ until the 2016-01 &#x27;MOVE AROUND A LOT OF STUFF&#x27; reshuffle.</p>
-</div></a><a class="card" href="sites/2016-04-webapp-redesign/" target="_blank" rel="noopener">
-<div class="shot"><img loading="lazy" decoding="async" alt="" src="sites/2016-04-webapp-redesign/preview.png"><span class="year">2016</span></div>
-<div class="body">
-  <h2>Taskbase 2016 — webapp marketing site</h2>
-  <div class="era">2016-04 – 2018-03</div>
-  <div class="meta"><span class="dot ok"></span>restored &middot; git</div>
-  <div class="stack">AngularJS 1.5.9 + Angular Material 1.1.1 + ui-router inside the Java/Tomcat webapp, Bootstrap 3.3.7, gulp-compiled SCSS, TypeScript</div><p class="notes">Real AngularJS run, not a reconstruction: the era&#x27;s own taskbaseApp module, templates, controllers and components boot, so the ng-repeat value-proposition strip (Organisieren / Motivieren / Automatisieren / Messen), the counter row and the reference logos render for real, and the header nav and footer are the era&#x27;s own components. Libs are pinned to taskbase/bower.json at this commit; assets/css/app.css and assets/js/app.js are the era&#x27;s committed build outputs byte for byte. The era&#x27;s TypeScript was compiled per file by tsc and never committed, and there is no tsc on this box, so the ~27 files this page needs were hand-transpiled into build/ (src/ keeps the originals); build/task-service.js is a partial port. The backend is an $httpBackend decorator in glue/museum.js — api/login returns loggedIn:false, which is what flips appReady. All copy is the era&#x27;s real words from the committed templates; the three counter numbers are reconstructed, since that API is dead and was never archived. Award and reference logos are the original Cloudinary files, mirrored locally. Layout is inferred from source alone: the 2016/2017 captures of taskbase.com hold only the SPA shell, no rendered DOM and no compiled bundles. Only the landing route is ported — the state table is registered so ui-sref resolves, but the nav links are inert and the other marketing pages sit in src/. Routing is hashbang, a static sub-path has no server routes. Trackers and the MathJax / Google Charts CDN calls are dropped; the e-maths / mintbase markup is intact, only Utils.urlContains is decorated. The video modal opens for real but that YouTube clip is now private.</p>
-</div></a><a class="card" href="sites/2018-04-angular-relaunch/" target="_blank" rel="noopener">
-<div class="shot"><img loading="lazy" decoding="async" alt="" src="sites/2018-04-angular-relaunch/preview.png"><span class="year">2018</span></div>
-<div class="body">
-  <h2>Taskbase 2018 — taskbase.com relaunch</h2>
-  <div class="era">2018-04 – 2018-09</div>
-  <div class="meta"><span class="dot ok"></span>restored &middot; git</div>
-  <div class="stack">Angular 5.2.6 + Bootstrap 4.1, @angular/cli 1.7.1, Firebase hosting</div><p class="notes">Real AOT production build of the original Angular 5 source, not a reconstruction. The redesign that became taskbase.com around 2018-04-20: Bootstrap 4 replaced Material, new jumbo, tech modules, customers, testimonials, offer, project, team, blog, contact form. Cross-checked against the Internet Archive snapshot of 2018-06-12 — same sections in the same order, and this build still has the images the archive lost. Contact form posts nowhere; Google Tag Manager stripped. Team page loads Google Maps live. Deep links (team, impressum, technology/0..5) work. The old specimen card is kept as specimen.html.</p>
-</div></a><a class="card" href="sites/2021-03-craft-cms/" target="_blank" rel="noopener">
-<div class="shot"><img loading="lazy" decoding="async" alt="" src="sites/2021-03-craft-cms/preview.png"><span class="year">2021</span></div>
-<div class="body">
-  <h2>Taskbase 2021 — Craft CMS homepage</h2>
-  <div class="era">2021-02 – 2022-04</div>
-  <div class="meta"><span class="dot ok"></span>restored &middot; wayback</div>
-  <div class="stack">Craft CMS 3.7.11 (PHP 7.2.5, MySQL, Twig), hosted on servd.host; front end is hand-written CSS plus smooth-scrollbar and Swiper</div><p class="notes">Mirror of the 2021-07-24 capture with the repo&#x27;s own CSS, JS, Inter fonts, favicons and video put back in. Craft kept every word and image in a MySQL database on servd.host and both the database and the servd asset volume are gone, so a real Craft 3.7.11 run (BUILDS.md) still dies on the homepage template&#x27;s line 3 looking for the logo asset — mirroring the rendered HTML is the only way to see this page. All four pages render: home, contact, media, privacy policy; full source under src/. The hero photo is back at its full 1000w and 2000w from the Imager transforms committed to the repo before Imager was switched off on 2021-02-10 — the same bytes servd&#x27;s image service returned. Two things the archive lost. The ETH Zürich customer logo is a 404 at every timestamp and replay modifier, so that wordmark comes from this site&#x27;s own 2022 WordPress mirror: a different derivative of one piece of brand artwork, not the file Craft served. And the process section&#x27;s TB_Content_2.png exists nowhere above its 10-pixel LQIP — every wayback capture of both servd hosts, id_/im_/if_ replay, Common Crawl 2021–22 and every commit of craft-homepage were checked — so that block shows the real placeholder the site itself faded out of, a genuine blur, not a stand-in. The video is web/videos/TB_Demo.mp4 from the last commit (2021-09-01), which replaced the CDN URL this capture still points at. Form posts nowhere, the servd CSRF fetch is stripped, the cookie banner is gone. preview.png needs smooth-scrollbar destroyed and the fade-ins forced: the page is one 100vh scroll container.</p>
-</div></a><a class="card" href="sites/2022-04-wordpress-feedback-engine/" target="_blank" rel="noopener">
-<div class="shot"><img loading="lazy" decoding="async" alt="" src="sites/2022-04-wordpress-feedback-engine/preview.png"><span class="year">2022</span></div>
-<div class="body">
-  <h2>Taskbase 2022 — &quot;The world&#x27;s #1 Feedback engine&quot;</h2>
-  <div class="era">2022-04 – 2022-06</div>
-  <div class="meta"><span class="dot ok"></span>restored &middot; wayback</div>
-  <div class="stack">WordPress 5.9 + Elementor Pro + Slider Revolution</div><p class="notes">First WordPress homepage: Elementor Pro on the Hello theme, with the &quot;Supercharge your digital learning platform&quot; hero typed out by typed.js and annotated with the product&#x27;s own spellcheck cards. The &quot;Why publishers and learning platforms trust in Taskbase&quot; testimonial carousel was Slider Revolution 6.5.21. That is a paid ThemeForest plugin, so rs6.*, rbtools.*, revicons.*, its placeholder images and its revslider/svgcustom arrows were deleted before publication and the tags that loaded them are HTML comments now. The band is carried by the museum&#x27;s own museum-slider.js and museum.css instead - a small vanilla slider, not the plugin. The four quotes, portraits, names and roles are this capture&#x27;s own rs-slide content, verbatim, and the card sizing follows the module&#x27;s own config (920px grid, 32px carousel space, 60px card padding); the motion, the arrows and the dots are ours. Elementor Pro&#x27;s frontend, webpack runtime and element handlers went the same way, also for licensing; this capture never had the Pro widget chunks either, so the rest of the page renders as it did. A second museum-only CSS rule lays the ElementsKit partner-logo strip three across the way its own data-config (slidesPerView:3) had it, because its init script was never archived. Everything else is archive-original. Cookie banner, Google Tag Manager and HubSpot are stripped; the contact form posts nowhere. Dead hosts are repointed at a local not-archived/ path so the page never reaches the network.</p>
-</div></a><a class="card" href="sites/2024-06-wordpress-hello/" target="_blank" rel="noopener">
-<div class="shot"><img loading="lazy" decoding="async" alt="" src="sites/2024-06-wordpress-hello/preview.png"><span class="year">2024</span></div>
-<div class="body">
-  <h2>Taskbase 2024 — Hello Elementor rebuild</h2>
-  <div class="era">2024-04 – 2024-10</div>
-  <div class="meta"><span class="dot partial"></span>partly restored &middot; wayback</div>
-  <div class="stack">WordPress 6.5 + Hello Elementor 3.0</div><p class="notes">Wayback 2024-06-15, WordPress 6.5 + Hello Elementor 3.0. Elementor loads its counter, image-carousel, loop, loop-carousel and nested-carousel handlers as runtime webpack chunks and the mirror had followed none of them, so the page showed &quot;0x&quot; for all four impact counters and one blown-up slide in place of every carousel. The free Elementor chunks (counter, image-carousel, text-editor) and Swiper 8.4.5 were restored from taskbase.com captures and do run. The Elementor Pro files - the loop, loop-carousel, nav-menu and nested-carousel chunks plus Pro&#x27;s own frontend, webpack runtime, element handlers and the loop-builder / nested-carousel stylesheets - were deleted before publication: Pro is commercially licensed and may not be redistributed. What that costs: the three feature cards under &quot;Overcoming the Challenges&quot; and the three customer-story cards are laid out statically by museum.css from the widgets&#x27; own data-settings instead of scrolling, the testimonial carousel is frozen on its first slide, and the header&#x27;s dropdown submenus no longer open - a click on a top-level nav item follows its link to the live site. The counters still count. Zero broken images, no horizontal overflow, nothing else reaching a live host. Forms are dead by design.</p>
-</div></a><a class="card" href="sites/2025-05-wordpress-lms/" target="_blank" rel="noopener">
-<div class="shot"><img loading="lazy" decoding="async" alt="" src="sites/2025-05-wordpress-lms/preview.png"><span class="year">2025</span></div>
-<div class="body">
-  <h2>Taskbase 2025 — personalized learning positioning</h2>
-  <div class="era">2024-11 – 2025-10</div>
-  <div class="meta"><span class="dot partial"></span>partly restored &middot; wayback</div>
-  <div class="stack">WordPress 6.7 + Elementor 3.x</div><p class="notes">Wayback 2025-05-15, WordPress 6.7 + Elementor 3.27 / Pro 3.25. Counters read &quot;0x&quot; and both carousels showed a single slide at full width. Elementor&#x27;s counter, image-carousel and nested-title-keyboard-handler chunks are missing from every taskbase.com capture but are byte-identical in the archived elementor 3.27.0 plugin zip, so they are restored exactly; text-editor came from a taskbase capture, Swiper 8.4.5 from 2024-11-25. The counters now run to 10x / 55+ / 4x / 2x. The Elementor Pro files that were here - the nav-menu chunk plus Pro&#x27;s own frontend, webpack runtime, element handlers and the loop-builder / nested-carousel stylesheets - were deleted before publication: Pro is commercially licensed and may not be redistributed. That costs this page almost nothing, because the three Pro chunks Swiper needs for &quot;Customer Stories&quot; and &quot;Shaping the digital learning landscape&quot; were never recoverable anyway - not in Wayback or Common Crawl for this domain, and Pro is not on wordpress.org - so museum.css already lays those two rows out from the widgets&#x27; own data-settings (3 across, 24px and 48px gaps). Both rows are static, not scrolling, and the header&#x27;s dropdown submenus no longer open. Zero broken images, no horizontal overflow.</p>
-</div></a><a class="card" href="sites/2026-live/" target="_blank" rel="noopener">
-<div class="shot"><img loading="lazy" decoding="async" alt="" src="sites/2026-live/preview.png"><span class="year">2026</span></div>
-<div class="body">
-  <h2>Taskbase 2026 (live)</h2>
-  <div class="era">current – captured 2026-09-03</div>
-  <div class="meta"><span class="dot ok"></span>restored &middot; live</div>
-  <div class="stack">Framer (Framer 8a671e2, server: Framer/feb0bfd, SSG-optimized; assets on framerusercontent.com)</div><p class="notes">Homepage plus the 6 top-nav pages (ai-sales-coach, pricing, case-studies, about-taskbase, blog, book-a-call). www.taskbase.com and taskbase.com both serve the same page, no redirect and no rebrand; title is &#x27;AI Sales Coach&#x27;. Trackers stripped: Google Tag Manager / GA4, the company&#x27;s HubSpot portal script (js-eu1.hs-scripts.com), lemlist visitor tracking, events.framer.com, framer.com/edit. The Framer JS bundle (~30 .mjs modules) is stripped too, since it cannot resolve its dynamic imports offline; the SSR markup carries the full layout. Inline Framer appear-animation scripts are kept, so entrance fades still run. What does not survive: scroll-triggered motion and parallax, the case-study/testimonial carousels (frozen on whichever slide the SSR emitted, so a slide may differ from the live site), the header logo SVG (drawn by the bundle, blank on the live full-page shot too), FAQ accordions (open state only), and all forms/CTAs (links to non-captured pages such as /contact, /imprint, /privacy-policy, /terms-of-service, /product-cases point at the live site). Responsive image variants wider than 2048px were skipped to keep the copy at 31MB; 1440px rendering is unaffected. preview.png is the offline copy captured at 1440x900 full-page.</p>
-</div></a></main>
-<footer>Built for TIRA-1478. Each exhibit says how it was recovered and what is
-missing &mdash; hover a card to read the detail.</footer>
+<div class="rail"><div class="slide"><a href="sites/2015-08-webapp-landing/" target="_blank" rel="noopener">
+<img loading="lazy" decoding="async" alt="" src="sites/2015-08-webapp-landing/preview.png"><span class="year">2015</span>
+<div class="cap">
+  <div><h2>Taskbase 2015 — first landing page</h2>
+  <div class="era">2015-08 – 2016-01</div></div>
+  <span class="state"><span class="dot ok"></span>restored</span>
+</div></a></div><div class="slide"><a href="sites/2016-04-webapp-redesign/" target="_blank" rel="noopener">
+<img loading="lazy" decoding="async" alt="" src="sites/2016-04-webapp-redesign/preview.png"><span class="year">2016</span>
+<div class="cap">
+  <div><h2>Taskbase 2016 — webapp marketing site</h2>
+  <div class="era">2016-04 – 2018-03</div></div>
+  <span class="state"><span class="dot ok"></span>restored</span>
+</div></a></div><div class="slide"><a href="sites/2018-04-angular-relaunch/" target="_blank" rel="noopener">
+<img loading="lazy" decoding="async" alt="" src="sites/2018-04-angular-relaunch/preview.png"><span class="year">2018</span>
+<div class="cap">
+  <div><h2>Taskbase 2018 — taskbase.com relaunch</h2>
+  <div class="era">2018-04 – 2018-09</div></div>
+  <span class="state"><span class="dot ok"></span>restored</span>
+</div></a></div><div class="slide"><a href="sites/2021-03-craft-cms/" target="_blank" rel="noopener">
+<img loading="lazy" decoding="async" alt="" src="sites/2021-03-craft-cms/preview.png"><span class="year">2021</span>
+<div class="cap">
+  <div><h2>Taskbase 2021 — Craft CMS homepage</h2>
+  <div class="era">2021-02 – 2022-04</div></div>
+  <span class="state"><span class="dot ok"></span>restored</span>
+</div></a></div><div class="slide"><a href="sites/2022-04-wordpress-feedback-engine/" target="_blank" rel="noopener">
+<img loading="lazy" decoding="async" alt="" src="sites/2022-04-wordpress-feedback-engine/preview.png"><span class="year">2022</span>
+<div class="cap">
+  <div><h2>Taskbase 2022 — &quot;The world&#x27;s #1 Feedback engine&quot;</h2>
+  <div class="era">2022-04 – 2022-06</div></div>
+  <span class="state"><span class="dot ok"></span>restored</span>
+</div></a></div><div class="slide"><a href="sites/2024-06-wordpress-hello/" target="_blank" rel="noopener">
+<img loading="lazy" decoding="async" alt="" src="sites/2024-06-wordpress-hello/preview.png"><span class="year">2024</span>
+<div class="cap">
+  <div><h2>Taskbase 2024 — Hello Elementor rebuild</h2>
+  <div class="era">2024-04 – 2024-10</div></div>
+  <span class="state"><span class="dot partial"></span>partly restored</span>
+</div></a></div><div class="slide"><a href="sites/2025-05-wordpress-lms/" target="_blank" rel="noopener">
+<img loading="lazy" decoding="async" alt="" src="sites/2025-05-wordpress-lms/preview.png"><span class="year">2025</span>
+<div class="cap">
+  <div><h2>Taskbase 2025 — personalized learning positioning</h2>
+  <div class="era">2024-11 – 2025-10</div></div>
+  <span class="state"><span class="dot partial"></span>partly restored</span>
+</div></a></div><div class="slide"><a href="sites/2026-live/" target="_blank" rel="noopener">
+<img loading="lazy" decoding="async" alt="" src="sites/2026-live/preview.png"><span class="year">2026</span>
+<div class="cap">
+  <div><h2>Taskbase 2026 (live)</h2>
+  <div class="era">current – captured 2026-09-03</div></div>
+  <span class="state"><span class="dot ok"></span>restored</span>
+</div></a></div></div>
+<div class="controls">
+  <button type="button" class="prev" aria-label="Previous homepage">&larr;</button>
+  <button type="button" class="next" aria-label="Next homepage">&rarr;</button>
+  <span class="count">1 / 8</span>
 </div>
+<footer>Built for TIRA-1478. Visuals only &mdash; forms, analytics and backends are long
+dead. Each exhibit records how it was recovered and what is missing.</footer>
+</div>
+<script>
+const rail = document.querySelector('.rail');
+const slides = [...rail.children];
+const ticks = [...document.querySelectorAll('.axis button')];
+const counter = document.querySelector('.count');
+
+function setActive(i){
+  ticks.forEach((t, n) => t.setAttribute('aria-current', String(n === i)));
+  counter.textContent = `${i + 1} / ${slides.length}`;
+}
+
+// Which slide is nearest the rail's centre wins, so a half-scroll still resolves.
+const observer = new IntersectionObserver(entries => {
+  const visible = entries.filter(e => e.isIntersecting)
+    .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+  if (visible) setActive(slides.indexOf(visible.target));
+}, {root: rail, threshold: [0.5, 0.75, 1]});
+slides.forEach(s => observer.observe(s));
+
+const go = i => slides[Math.max(0, Math.min(slides.length - 1, i))]
+  .scrollIntoView({block: 'nearest', inline: 'center'});
+const current = () => ticks.findIndex(t => t.getAttribute('aria-current') === 'true');
+
+ticks.forEach((t, i) => t.addEventListener('click', () => go(i)));
+document.querySelector('.prev').addEventListener('click', () => go(current() - 1));
+document.querySelector('.next').addEventListener('click', () => go(current() + 1));
+addEventListener('keydown', e => {
+  if (e.target.closest('a, input, textarea')) return;
+  if (e.key === 'ArrowLeft') go(current() - 1);
+  if (e.key === 'ArrowRight') go(current() + 1);
+});
+setActive(0);
+</script>
