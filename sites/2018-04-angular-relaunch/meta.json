@@ -1,7 +1,7 @@
 {
   "slug": "2018-04-angular-relaunch",
   "title": "Taskbase 2018 — taskbase.com relaunch",
-  "era": "2018-04 – 2018-09",
+  "era": "2018-04 – 2021-02",
   "source": "git",
   "origin": "git:homepage.git@7fed0a6",
   "stack": "Angular 5.2.6 + Bootstrap 4.1, @angular/cli 1.7.1, Firebase hosting",
