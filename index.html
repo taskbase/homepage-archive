@@ -11,26 +11,29 @@
 }
 *{box-sizing:border-box}
 
-/* Smoke: four blurred blobs of the current era's colour, drifting over black.
-   Only --era changes as you scroll; the blobs themselves never restart, so the
-   colour cross-fades instead of jumping. */
-.smoke{position:fixed;inset:0;z-index:-1;background:var(--bg);overflow:hidden;
-  transition:background .8s ease}
+/* Vortexes: conic gradients spun at different rates. The arms of one sweep
+   through the arms of another, which reads as swirling rather than as a
+   rotating disc. Only --era changes on scroll, so colour cross-fades while
+   the rotation keeps going. */
+.smoke{position:fixed;inset:0;z-index:-1;background:var(--bg);overflow:hidden}
 .smoke i{position:absolute;display:block;border-radius:50%;
-  background:radial-gradient(circle at 50% 50%,var(--era) 0%,transparent 68%);
-  opacity:.34;filter:blur(70px);transition:background 1.1s ease;
-  will-change:transform}
-.smoke i:nth-child(1){width:70vw;height:70vw;left:-14vw;top:-22vw;
-  animation:drift1 44s ease-in-out infinite alternate}
-.smoke i:nth-child(2){width:56vw;height:56vw;right:-12vw;top:6vh;opacity:.26;
-  animation:drift2 57s ease-in-out infinite alternate}
-.smoke i:nth-child(3){width:64vw;height:64vw;left:24vw;bottom:-26vw;opacity:.22;
-  animation:drift3 63s ease-in-out infinite alternate}
-.smoke i:nth-child(4){width:38vw;height:38vw;right:16vw;bottom:-8vw;opacity:.18;
-  animation:drift2 51s ease-in-out infinite alternate-reverse}
-@keyframes drift1{to{transform:translate3d(9vw,7vh,0) scale(1.14)}}
-@keyframes drift2{to{transform:translate3d(-11vw,5vh,0) scale(1.09)}}
-@keyframes drift3{to{transform:translate3d(7vw,-9vh,0) scale(1.18)}}
+  background:conic-gradient(from 0deg,
+    transparent 0deg, var(--era) 34deg, transparent 76deg,
+    var(--era) 128deg, transparent 168deg,
+    var(--era) 224deg, transparent 268deg,
+    var(--era) 314deg, transparent 360deg);
+  -webkit-mask:radial-gradient(circle at 50% 50%,#000 12%,rgba(0,0,0,.55) 42%,transparent 72%);
+  mask:radial-gradient(circle at 50% 50%,#000 12%,rgba(0,0,0,.55) 42%,transparent 72%);
+  filter:blur(26px);transition:background 1.1s ease;will-change:transform}
+.smoke i:nth-child(1){width:118vw;height:118vw;left:-30vw;top:-46vw;opacity:.62;
+  animation:swirl 52s linear infinite}
+.smoke i:nth-child(2){width:86vw;height:86vw;right:-28vw;top:14vh;opacity:.5;
+  animation:swirl 38s linear infinite reverse}
+.smoke i:nth-child(3){width:74vw;height:74vw;left:18vw;bottom:-34vw;opacity:.42;
+  animation:swirl 67s linear infinite}
+.smoke i:nth-child(4){width:46vw;height:46vw;right:12vw;bottom:-6vw;opacity:.36;
+  animation:swirl 29s linear infinite reverse}
+@keyframes swirl{to{transform:rotate(360deg)}}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:transparent;color:var(--fg);
   font:16px/1.5 ui-sans-serif,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
@@ -63,7 +66,7 @@ h1{margin:0;font-size:clamp(30px,5vw,44px);line-height:1.1;letter-spacing:-.025e
 .rail::-webkit-scrollbar{display:none}
 .slide{scroll-snap-align:center;flex:0 0 min(880px,86%)}
 .slide a{display:block;position:relative;border:1px solid var(--line);border-radius:var(--r);
-  overflow:hidden;background:rgba(20,22,29,.72);backdrop-filter:blur(2px);
+  overflow:hidden;background:rgba(13,15,20,.86);backdrop-filter:blur(3px);
   text-decoration:none;color:inherit;
   transition:border-color .15s ease}
 .slide a:hover,.slide a:focus-visible{border-color:var(--accent)}
@@ -96,8 +99,8 @@ h1{margin:0;font-size:clamp(30px,5vw,44px);line-height:1.1;letter-spacing:-.025e
 
 
 @media (max-width:700px){
-  /* Four 70vw layers at blur(70px) is too much fill rate for a phone. */
-  .smoke i{filter:blur(44px)}
+  /* Four full-viewport blurred layers is too much fill rate for a phone. */
+  .smoke i{filter:blur(18px)}
   .smoke i:nth-child(3),.smoke i:nth-child(4){display:none}
   .slide{flex:0 0 92%}
   .axis button span.label{display:none}
