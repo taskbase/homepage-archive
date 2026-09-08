@@ -112,7 +112,7 @@ h1{margin:0;font-size:clamp(30px,5vw,44px);line-height:1.1;letter-spacing:-.025e
 .dot.ok{background:var(--ok)} .dot.partial{background:var(--partial)}
 .dot.broken{background:var(--broken)}
 .year{position:absolute;left:20px;top:18px;padding:5px 11px;border-radius:999px;
-  background:rgba(7,8,11,.72);backdrop-filter:blur(6px);color:#fff;font-size:12px;
+  background:rgba(7,8,11,.82);color:#fff;font-size:12px;
   font-weight:600;letter-spacing:.04em;font-variant-numeric:tabular-nums}
 
 .controls{display:flex;align-items:center;gap:12px;padding:0 0 8px}
