@@ -16,11 +16,32 @@ CSS = """
   --bg:#0b0c10; --surface:#14161d; --line:#232734;
   --fg:#eceef4; --fg-dim:#9096a6; --fg-faint:#5f6575;
   --ok:#4ade80; --partial:#fbbf24; --broken:#f87171; --accent:#8ab4f8;
-  --r:14px;
+  --r:14px; --era:#559ea0;
 }
 *{box-sizing:border-box}
+
+/* Smoke: four blurred blobs of the current era's colour, drifting over black.
+   Only --era changes as you scroll; the blobs themselves never restart, so the
+   colour cross-fades instead of jumping. */
+.smoke{position:fixed;inset:0;z-index:-1;background:var(--bg);overflow:hidden;
+  transition:background .8s ease}
+.smoke i{position:absolute;display:block;border-radius:50%;
+  background:radial-gradient(circle at 50% 50%,var(--era) 0%,transparent 68%);
+  opacity:.34;filter:blur(70px);transition:background 1.1s ease;
+  will-change:transform}
+.smoke i:nth-child(1){width:70vw;height:70vw;left:-14vw;top:-22vw;
+  animation:drift1 44s ease-in-out infinite alternate}
+.smoke i:nth-child(2){width:56vw;height:56vw;right:-12vw;top:6vh;opacity:.26;
+  animation:drift2 57s ease-in-out infinite alternate}
+.smoke i:nth-child(3){width:64vw;height:64vw;left:24vw;bottom:-26vw;opacity:.22;
+  animation:drift3 63s ease-in-out infinite alternate}
+.smoke i:nth-child(4){width:38vw;height:38vw;right:16vw;bottom:-8vw;opacity:.18;
+  animation:drift2 51s ease-in-out infinite alternate-reverse}
+@keyframes drift1{to{transform:translate3d(9vw,7vh,0) scale(1.14)}}
+@keyframes drift2{to{transform:translate3d(-11vw,5vh,0) scale(1.09)}}
+@keyframes drift3{to{transform:translate3d(7vw,-9vh,0) scale(1.18)}}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--fg);
+body{margin:0;background:transparent;color:var(--fg);
   font:16px/1.5 ui-sans-serif,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   -webkit-font-smoothing:antialiased}
 .wrap{max-width:1360px;margin:0 auto;padding:0 24px}
@@ -51,7 +72,8 @@ h1{margin:0;font-size:clamp(30px,5vw,44px);line-height:1.1;letter-spacing:-.025e
 .rail::-webkit-scrollbar{display:none}
 .slide{scroll-snap-align:center;flex:0 0 min(880px,86%)}
 .slide a{display:block;position:relative;border:1px solid var(--line);border-radius:var(--r);
-  overflow:hidden;background:var(--surface);text-decoration:none;color:inherit;
+  overflow:hidden;background:rgba(20,22,29,.72);backdrop-filter:blur(2px);
+  text-decoration:none;color:inherit;
   transition:border-color .15s ease}
 .slide a:hover,.slide a:focus-visible{border-color:var(--accent)}
 .slide a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
@@ -83,6 +105,9 @@ h1{margin:0;font-size:clamp(30px,5vw,44px);line-height:1.1;letter-spacing:-.025e
 
 
 @media (max-width:700px){
+  /* Four 70vw layers at blur(70px) is too much fill rate for a phone. */
+  .smoke i{filter:blur(44px)}
+  .smoke i:nth-child(3),.smoke i:nth-child(4){display:none}
   .slide{flex:0 0 92%}
   .axis button span.label{display:none}
   /* A 16/10 crop leaves too little room beside the caption at phone widths. */
@@ -92,6 +117,7 @@ h1{margin:0;font-size:clamp(30px,5vw,44px);line-height:1.1;letter-spacing:-.025e
 }
 @media (prefers-reduced-motion:reduce){
   .rail{scroll-behavior:auto}
+  .smoke i{animation:none}
   .slide a,.axis .tick{transition:none}
 }
 """
@@ -105,6 +131,8 @@ const counter = document.querySelector('.count');
 function setActive(i){
   ticks.forEach((t, n) => t.setAttribute('aria-current', String(n === i)));
   counter.textContent = `${i + 1} / ${slides.length}`;
+  const era = slides[i].dataset.era;
+  if (era) document.documentElement.style.setProperty('--era', era);
 }
 
 // Which slide is nearest the rail's centre wins, so a half-scroll still resolves.
@@ -158,10 +186,11 @@ def load_sites(sites_dir: Path):
 
 def slide(site):
     slug = html.escape(site["slug"])
+    accent = html.escape(site.get("accent", "#559ea0"))
     status = site.get("status", "unknown")
     shot = (f'<img loading="lazy" decoding="async" alt="" src="sites/{slug}/preview.png">'
             if site["has_preview"] else '<div class="empty">no preview</div>')
-    return f"""<div class="slide"><a href="sites/{slug}/" target="_blank" rel="noopener">
+    return f"""<div class="slide" data-era="{accent}"><a href="sites/{slug}/" target="_blank" rel="noopener">
 {shot}<span class="year">{year_of(site)}</span>
 <div class="cap">
   <div class="era">{html.escape(site.get("era", ""))}</div>
@@ -184,6 +213,7 @@ def render(sites):
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Every taskbase.com homepage, {span}, restored and rendered.">
 <style>{CSS}</style>
+<div class="smoke"><i></i><i></i><i></i><i></i></div>
 <div class="wrap">
 <header>
 <h1>Taskbase Homepage Museum</h1>

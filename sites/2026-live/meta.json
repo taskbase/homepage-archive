@@ -7,5 +7,6 @@
   "stack": "Framer (Framer 8a671e2, server: Framer/feb0bfd, SSG-optimized; assets on framerusercontent.com)",
   "notes": "Homepage plus the 6 top-nav pages (ai-sales-coach, pricing, case-studies, about-taskbase, blog, book-a-call). www.taskbase.com and taskbase.com both serve the same page, no redirect and no rebrand; title is 'AI Sales Coach'. Trackers stripped: Google Tag Manager / GA4, the company's HubSpot portal script (js-eu1.hs-scripts.com), lemlist visitor tracking, events.framer.com, framer.com/edit. The Framer JS bundle (~30 .mjs modules) is stripped too, since it cannot resolve its dynamic imports offline; the SSR markup carries the full layout. Inline Framer appear-animation scripts are kept, so entrance fades still run. What does not survive: scroll-triggered motion and parallax, the case-study/testimonial carousels (frozen on whichever slide the SSR emitted, so a slide may differ from the live site), the header logo SVG (drawn by the bundle, blank on the live full-page shot too), FAQ accordions (open state only), and all forms/CTAs (links to non-captured pages such as /contact, /imprint, /privacy-policy, /terms-of-service, /product-cases point at the live site). Responsive image variants wider than 2048px were skipped to keep the copy at 31MB; 1440px rendering is unaffected. preview.png is the offline copy captured at 1440x900 full-page.",
   "captured": "2026-09-03",
-  "status": "ok"
+  "status": "ok",
+  "accent": "#9301e6"
 }
