@@ -16,47 +16,39 @@ CSS = """
   --bg:#0b0c10; --surface:#14161d; --line:#232734;
   --fg:#eceef4; --fg-dim:#9096a6; --fg-faint:#5f6575;
   --ok:#4ade80; --partial:#fbbf24; --broken:#f87171; --accent:#8ab4f8;
-  --r:14px; --era:#49afb2; --era-next:#00b29f; --mix:0;
+  --r:14px; --p:0;
 }
 *{box-sizing:border-box}
 
-/* Background flows between two era colours. --era and --era-next are the
-   exhibits either side of the current scroll position and --mix is how far
-   between them we are, so the colour interpolates continuously as you drag
-   rather than switching when a slide wins. screen blending over black is what
-   makes it read as light rather than as paint. */
-.smoke{position:fixed;inset:0;z-index:-1;overflow:hidden;
-  background:linear-gradient(160deg,var(--bg) 0%,color-mix(in oklab,var(--era) 22%,var(--bg)) 45%,
-    color-mix(in oklab,var(--era-next) 26%,var(--bg)) 100%)}
-.smoke i{position:absolute;display:block;mix-blend-mode:screen;will-change:transform;
-  contain:strict}
+/* One continuous gradient across the whole timeline, not a colour per slide.
+   Every era is a stop in the same scheme; scrolling pans the viewport along
+   it, so there is nothing to switch and nothing to cross-fade. */
+.smoke{position:fixed;inset:0;z-index:-1;background:var(--bg)}
+.smoke::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(120% 90% at 50% 30%,transparent 30%,rgba(6,7,10,.62) 100%)}
+.smoke .ramp{position:absolute;inset:-20% -10%;
+  background-image:var(--scheme);
+  background-size:340% 100%;
+  background-position:calc(var(--p) * 100%) 50%;
+  filter:blur(52px) saturate(1.2);opacity:.66}
 
-/* Two drifting clouds: the incoming colour fades up as --mix approaches 1. */
-.smoke .cloud{border-radius:50%;filter:blur(52px)}
-.smoke .cloud:nth-child(1){width:96vw;height:96vw;left:-24vw;top:-38vw;opacity:.5;
-  background:radial-gradient(circle,var(--era) 0%,transparent 66%);
-  animation:drift 46s ease-in-out infinite alternate}
-.smoke .cloud:nth-child(2){width:88vw;height:88vw;right:-26vw;bottom:-34vw;
-  opacity:calc(.16 + var(--mix) * .5);
-  background:radial-gradient(circle,var(--era-next) 0%,transparent 68%);
-  animation:drift2 61s ease-in-out infinite alternate}
-
-/* Swirls: uneven arm widths, so the rotation is actually visible. */
-.smoke .swirl{border-radius:50%;filter:blur(22px);
+/* Neutral smoke on top: it adds motion without adding another colour, so the
+   scheme stays the only source of hue. */
+.smoke i{position:absolute;display:block;mix-blend-mode:screen;
+  will-change:transform;contain:strict;border-radius:50%;
   background:conic-gradient(from 0deg,
-    transparent 0deg, var(--era) 26deg, transparent 82deg,
-    var(--era) 118deg, transparent 150deg,
-    var(--era) 214deg, transparent 292deg,
-    var(--era) 322deg, transparent 360deg);
-  -webkit-mask:radial-gradient(circle,#000 8%,rgba(0,0,0,.5) 40%,transparent 70%);
-  mask:radial-gradient(circle,#000 8%,rgba(0,0,0,.5) 40%,transparent 70%)}
-.smoke .swirl:nth-child(3){width:120vw;height:120vw;left:-28vw;top:-44vw;opacity:.5;
-  animation:swirl 34s linear infinite}
-.smoke .swirl:nth-child(4){width:78vw;height:78vw;right:-22vw;top:8vh;opacity:.42;
-  animation:swirl 23s linear infinite reverse}
+    transparent 0deg, rgba(255,255,255,.5) 30deg, transparent 88deg,
+    rgba(255,255,255,.38) 132deg, transparent 176deg,
+    rgba(255,255,255,.45) 232deg, transparent 300deg,
+    rgba(255,255,255,.3) 334deg, transparent 360deg);
+  -webkit-mask:radial-gradient(circle,#000 6%,rgba(0,0,0,.4) 38%,transparent 68%);
+  mask:radial-gradient(circle,#000 6%,rgba(0,0,0,.4) 38%,transparent 68%);
+  filter:blur(30px)}
+.smoke i:nth-child(2){width:130vw;height:130vw;left:-32vw;top:-50vw;opacity:.3;
+  animation:swirl 46s linear infinite}
+.smoke i:nth-child(3){width:84vw;height:84vw;right:-24vw;bottom:-30vw;opacity:.24;
+  animation:swirl 31s linear infinite reverse}
 @keyframes swirl{to{transform:rotate(360deg)}}
-@keyframes drift{to{transform:translate3d(12vw,9vh,0) scale(1.2)}}
-@keyframes drift2{to{transform:translate3d(-14vw,-7vh,0) scale(1.14)}}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:transparent;color:var(--fg);
   font:16px/1.5 ui-sans-serif,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
@@ -74,7 +66,7 @@ h1{margin:0;font-size:clamp(30px,5vw,44px);line-height:1.1;letter-spacing:-.025e
   background:rgba(255,255,255,.22)}
 .axis li{position:relative;flex:1}
 .axis button{all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;
-  gap:8px;width:100%;padding-top:0;color:rgba(255,255,255,.66);font-size:12px;
+  gap:8px;width:100%;padding-top:0;color:rgba(255,255,255,.82);font-size:12px;
   font-variant-numeric:tabular-nums;letter-spacing:.02em}
 .axis .tick{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.35);
   box-shadow:0 0 0 4px rgba(11,12,16,.55);transition:background .15s ease,transform .15s ease}
@@ -86,7 +78,7 @@ h1{margin:0;font-size:clamp(30px,5vw,44px);line-height:1.1;letter-spacing:-.025e
 
 /* Rail: one exhibit per slide, scroll-snapped. */
 .rail{display:flex;gap:24px;margin:28px 0 0;padding:4px 0 20px;
-  overflow-x:auto;scroll-snap-type:x proximity;scroll-behavior:smooth;
+  overflow-x:auto;scroll-snap-type:x proximity;
   overscroll-behavior-x:contain;
   scrollbar-width:none}
 .rail::-webkit-scrollbar{display:none}
@@ -126,10 +118,9 @@ h1{margin:0;font-size:clamp(30px,5vw,44px);line-height:1.1;letter-spacing:-.025e
 
 
 @media (max-width:700px){
-  /* Four full-viewport blurred layers is too much fill rate for a phone. */
-  .smoke .cloud{filter:blur(40px)}
-  .smoke .swirl{filter:blur(16px)}
-  .smoke .swirl:nth-child(4){display:none}
+  .smoke .ramp{filter:blur(34px) saturate(1.2)}
+  .smoke i{filter:blur(20px)}
+  .smoke i:nth-child(3){display:none}
   .slide{flex:0 0 92%}
   .axis button span.label{display:none}
   /* A 16/10 crop leaves too little room beside the caption at phone widths. */
@@ -150,41 +141,17 @@ const slides = [...rail.children];
 const ticks = [...document.querySelectorAll('.axis button')];
 const counter = document.querySelector('.count');
 
-const eras = slides.map(s => s.dataset.era);
+// Scroll progress across the whole rail, 0 to 1. The background is one
+// gradient; this is just where along it we are.
+function paint(){
+  const span = rail.scrollWidth - rail.clientWidth;
+  const p = span > 0 ? rail.scrollLeft / span : 0;
+  document.documentElement.style.setProperty('--p', p.toFixed(4));
+}
 
 function setActive(i){
   ticks.forEach((t, n) => t.setAttribute('aria-current', String(n === i)));
   counter.textContent = `${i + 1} / ${slides.length}`;
-}
-
-// Colour follows the scroll position continuously, so dragging halfway between
-// two exhibits lands halfway between their colours.
-function paint(){
-  const centre = rail.scrollLeft + rail.clientWidth / 2;
-  let pos = 0;
-  for (let i = 0; i < slides.length; i++){
-    const s = slides[i];
-    if (centre < s.offsetLeft + s.offsetWidth){
-      const span = s.offsetWidth + parseFloat(getComputedStyle(rail).gap || 0);
-      pos = i + Math.min(1, Math.max(0, (centre - s.offsetLeft) / span));
-      break;
-    }
-    pos = i;
-  }
-  const i = Math.min(eras.length - 1, Math.floor(pos));
-  const j = Math.min(eras.length - 1, i + 1);
-  const f = pos - i;
-  const style = document.documentElement.style;
-  style.setProperty('--era', mixHex(eras[i], eras[j], f));
-  style.setProperty('--era-next', mixHex(eras[i], eras[j], Math.min(1, f + 0.5)));
-  style.setProperty('--mix', f.toFixed(3));
-}
-
-const rgb = hex => [1, 3, 5].map(k => parseInt(hex.slice(k, k + 2), 16));
-function mixHex(a, b, t){
-  const [ar, ag, ab] = rgb(a), [br, bg, bb] = rgb(b);
-  const c = (x, y) => Math.round(x + (y - x) * t).toString(16).padStart(2, '0');
-  return `#${c(ar, br)}${c(ag, bg)}${c(ab, bb)}`;
 }
 
 let queued = false;
@@ -203,9 +170,37 @@ const observer = new IntersectionObserver(entries => {
 }, {root: rail, threshold: [0.5, 0.75, 1]});
 slides.forEach(s => observer.observe(s));
 
-const go = i => slides[Math.max(0, Math.min(slides.length - 1, i))]
-  .scrollIntoView({block: 'nearest', inline: 'center'});
+const easeInOutCubic = t => t < 0.5 ? 4 * t ** 3 : 1 - (-2 * t + 2) ** 3 / 2;
+
+let tween = null;
+function go(i){
+  const slide = slides[Math.max(0, Math.min(slides.length - 1, i))];
+  const target = slide.offsetLeft - (rail.clientWidth - slide.offsetWidth) / 2;
+  const from = rail.scrollLeft;
+  const distance = target - from;
+  if (!distance) return;
+  // Longer for a bigger jump, so crossing the whole timeline still glides.
+  const ms = Math.min(1500, 420 + Math.abs(distance) * 0.22);
+  const started = performance.now();
+  if (tween) cancelAnimationFrame(tween);
+  const step = now => {
+    const t = Math.min(1, (now - started) / ms);
+    rail.scrollLeft = from + distance * easeInOutCubic(t);
+    tween = t < 1 ? requestAnimationFrame(step) : null;
+  };
+  tween = requestAnimationFrame(step);
+}
 const current = () => ticks.findIndex(t => t.getAttribute('aria-current') === 'true');
+
+// A horizontal rail ignores a vertical wheel, which makes the timeline feel
+// unresponsive until you find the arrows. Route the wheel into it.
+rail.addEventListener('wheel', e => {
+  const delta = Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
+  if (!delta) return;
+  e.preventDefault();
+  if (tween) { cancelAnimationFrame(tween); tween = null; }
+  rail.scrollLeft += delta;
+}, {passive: false});
 
 ticks.forEach((t, i) => t.addEventListener('click', () => go(i)));
 document.querySelector('.prev').addEventListener('click', () => go(current() - 1));
@@ -247,11 +242,10 @@ def load_sites(sites_dir: Path):
 
 def slide(site):
     slug = html.escape(site["slug"])
-    accent = html.escape(site.get("accent", "#559ea0"))
     status = site.get("status", "unknown")
     shot = (f'<img loading="lazy" decoding="async" alt="" src="sites/{slug}/preview.png">'
             if site["has_preview"] else '<div class="empty">no preview</div>')
-    return f"""<div class="slide" data-era="{accent}"><a href="sites/{slug}/" target="_blank" rel="noopener">
+    return f"""<div class="slide"><a href="sites/{slug}/" target="_blank" rel="noopener">
 {shot}<span class="year">{year_of(site)}</span>
 <div class="cap">
   <div class="era">{html.escape(site.get("era", ""))}</div>
@@ -266,6 +260,16 @@ def tick(site):
             f'<span class="tick"></span><span class="label">{year}</span></button></li>')
 
 
+def scheme(sites):
+    """One gradient with every era as a stop, in timeline order."""
+    stops = [s["accent"] for s in sites if s.get("accent")]
+    if len(stops) < 2:
+        return "linear-gradient(100deg,#49afb2,#9301e6)"
+    spread = ", ".join(f"{c} {round(i / (len(stops) - 1) * 100)}%"
+                       for i, c in enumerate(stops))
+    return f"linear-gradient(100deg, {spread})"
+
+
 def render(sites):
     years = [year_of(s) for s in sites if year_of(s)]
     span = f"{years[0]}&ndash;{years[-1]}" if years else "&mdash;"
@@ -274,7 +278,8 @@ def render(sites):
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Every taskbase.com homepage, {span}, restored and rendered.">
 <style>{CSS}</style>
-<div class="smoke"><i class="cloud"></i><i class="cloud"></i><i class="swirl"></i><i class="swirl"></i></div>
+<style>:root{{--scheme:{scheme(sites)}}}</style>
+<div class="smoke"><div class="ramp"></div><i></i><i></i></div>
 <div class="wrap">
 <header>
 <h1>Taskbase Homepage Museum</h1>
